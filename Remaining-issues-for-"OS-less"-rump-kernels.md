@@ -8,7 +8,7 @@ estimated effort: 1-2 days
 
 ## pthreads are not supported
 
-possible solution: implement the NetBSD kernel _lwp_foo() interfaces, and use NetBSD libpthread.
+possible solution: implement the NetBSD kernel `_lwp_foo()` interfaces, and use NetBSD libpthread.
 
 estimated effort: 1-2 days
 
@@ -16,6 +16,6 @@ estimated effort: 1-2 days
 
 possible solution: include relevant routines in rump kernel base
 
-workaround: can already nanosleep() using rump_sys_pollts() (or equivalent)
+workaround: can already `nanosleep()` using `rump_sys_pollts()` (or equivalent)
 
 estimated effort: 1 day
