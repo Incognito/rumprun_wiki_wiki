@@ -42,7 +42,7 @@ round-trip min/avg/max/stddev = 1.710695/1.710695/1.710695/0.000000 ms
 Now, while still accessing the second rump kernel (net2), create a npf.conf and load it.  Alternatively, one could use an npf.conf from the host and expose it to the rump kernel using the `-d` parameter to the rump kernel.  However, here we just use `dd` to create one:
 
 ```
-$ rumpremote of=/npf.conf
+$ rumpremote dd of=/npf.conf
 group default {
         ruleset "test-set"
         pass all
