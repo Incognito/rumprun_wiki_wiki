@@ -27,8 +27,7 @@ hypercall API typically seen with operating systems with operations such
 as "modify page table", the rump kernel hypercall API provides
 high-level operations such as "run this code in a thread".
 
-Currently, three implementations of the rump kernel hypercall interface
-exist.
+Currently, four open source implementations of the rump kernel hypercall interface exist:
 
 -   The POSIX (i.e. userspace) implementation is included in the NetBSD tree and allows
     rump kernels to run in processes on most operating systems such as NetBSD, Linux and Solaris.
@@ -36,6 +35,8 @@ exist.
     rump kernels directly as Xen DomU's without an intermediate operating system.
 -   The [Linux kernel hypercall implementation](https://github.com/rumpkernel/rumpuser-linuxkernel)
     allows rump kernels to run inside the Linux kernel.
+-   The [Genode](http://genode.org/) hypercall layer implementation is shipped with Genode OS.  See their
+    website for further details.
 
 Rump kernels are radically different from OS virtualization technologies
 such as KVM, containers and usermode operating systems. A rump kernel
