@@ -190,12 +190,6 @@ on github.  Some highlights include:
     [video presentation](http://www.youtube.com/watch?v=RxFctq8A0WI) are
     available. Presented at AsiaBSDCon 2009.
 
-### Manual pages
-
-The manpages provide the usual type of information. Start from
-[rump.3](http://man.NetBSD.org/cgi-bin/man-cgi?rump++NetBSD-current) and
-follow the cross-references in "SEE ALSO".
-
 ## Discuss
 
 Any topic related to rump kernels can be discussed on the
@@ -206,21 +200,3 @@ specific subtopic.
 
 The IRC channel for rump kernels is **\#rumpkernel** on
 **irc.freenode.net**.
-
-## Availability
-
-The anykernel and rump kernels were first introduced as a prototype in
-NetBSD 5.0. A stable version with numerous new features and improvements
-was shipped with NetBSD 6.0.
-
-## Source Code
-
-All of the source code is available from the NetBSD source tree and can
-be obtained with the usual methods.
-
-You can also [browse](http://cvsweb.NetBSD.org/bsdweb.cgi/src/) the
-source code history online. Code is found from all areas of the source
-tree. Some examples of where to look include
-[src/lib](http://cvsweb.NetBSD.org/bsdweb.cgi/src/lib/),
-[src/usr.bin](http://cvsweb.NetBSD.org/bsdweb.cgi/src/usr.bin/) and
-[src/sys/rump](http://cvsweb.NetBSD.org/bsdweb.cgi/src/sys/rump/).
