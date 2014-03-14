@@ -30,13 +30,12 @@ high-level operations such as "run this code in a thread".
 Currently, three implementations of the rump kernel hypercall interface
 exist.
 
--   The POSIX implementation is included in the NetBSD tree and allows
-    rump kernels to run as userspace processes on most operating systems
-    such as NetBSD, Linux and Solaris.
--   The Xen implementation allows running rump kernels directly as Xen
-    DomU's without an intermediate operating system.
--   The Linux kernel hypervisor allows rump kernels to run inside the
-    Linux kernel.
+-   The POSIX (i.e. userspace) implementation is included in the NetBSD tree and allows
+    rump kernels to run in processes on most operating systems such as NetBSD, Linux and Solaris.
+-   The [Xen implementation](https://github.com/rumpkernel/rumpuser-xen) allows running
+    rump kernels directly as Xen DomU's without an intermediate operating system.
+-   The [Linux kernel hypercall implementation](https://github.com/rumpkernel/rumpuser-linuxkernel)
+    allows rump kernels to run inside the Linux kernel.
 
 Rump kernels are radically different from OS virtualization technologies
 such as KVM, containers and usermode operating systems. A rump kernel
