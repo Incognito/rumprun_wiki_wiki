@@ -26,6 +26,7 @@ TODO explain how to use gdb on a non native executable.
 Known working architectures:
 * powerpc
 
-Architectures with issues:
-* arm is hanging in the networking test TODO debug
+Architectures with issues to debug:
+* arm is hanging in the networking test
+* armeb causes a qemu fatal error in IPv4 networking test
 * mips, mipsel are hanging on VFS test with actual file system
