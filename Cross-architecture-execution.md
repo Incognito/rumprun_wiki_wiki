@@ -21,5 +21,10 @@ export LDFLAGS=-static
 
 All the tests should run fine, and if you check the executables and libraries built should all be cross compiled.
 
+TODO explain how to use gdb on a non native executable.
+
 Known working architectures:
 * powerpc
+
+Architectures with issues:
+* arm is hanging in the networking test TODO debug
