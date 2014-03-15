@@ -28,4 +28,4 @@ Known working architectures:
 
 Architectures with issues:
 * arm is hanging in the networking test TODO debug
-* mips (big endian) is hanging on VFS test with actual file system
+* mips, mipsel are hanging on VFS test with actual file system
