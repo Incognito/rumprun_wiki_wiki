@@ -12,7 +12,7 @@ Note that for the next few days you need to use a NetBSD head tree with `buildru
 
 Install `qemu-user`. This should be packaged up for your Linux distro, eg for Ubuntu or Debian you need to do `apt-get install qemu binfmt-support qemu-user-static`.
 
-Add the path to your cross compiler to your path and do the following:
+Add the path to your cross compiler (which should be under /opt/cross/musl/ for the precompiled binaries) to your path and do the following:
 ````
 export CC=powerpc-linux-musl-gcc # or whichever architecture you want
 export LDFLAGS=-static
