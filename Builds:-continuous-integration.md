@@ -5,8 +5,8 @@ Travis CI:
 * [DPDK TCP/IP stack driver](https://travis-ci.org/rumpkernel/dpdk-rumptcpip) ![Build Status](https://travis-ci.org/rumpkernel/dpdk-rumptcpip.png?branch=master)
 * [netmap TCP/IP stack driver](https://travis-ci.org/rumpkernel/netmap-rumptcpip) ![Build Status](https://travis-ci.org/rumpkernel/netmap-rumptcpip.png?branch=master)
 
-Buildbot builds of all branches, on NetBSD, Linux, OpenBSD, FreeBSD on x86, x86_64, arm, ppc, ppc64, mips
+Buildbot builds of all buildrump.sh branches, on NetBSD (i386, x86_64), Linux (i386, x86_64, arm, pcc32, ppc64, mips), OpenBSD (x86_64), FreeBSD (x86_64):
 * http://build.myriabit.eu:8011/waterfall
 
-Buildbot builds against NetBSD head on Linux x86_64, plus cross builds on ppc, arm
+Buildbot builds against NetBSD HEAD on Linux x86_64, plus cross builds on ppc, arm.  Note since these builds are not against a "known good" timestamp of NetBSD sources, there may be transient failures due to problems in the NetBSD tree:
 * http://build.myriabit.eu:8012/waterfall
