@@ -16,17 +16,16 @@ Add the path to your cross compiler (which should be under /opt/cross/musl/ for 
 ````
 export CC=powerpc-linux-musl-gcc # or whichever architecture you want
 export LDFLAGS=-static
-./buildrump.sh -V mkpic=no fullbuild tests
+./buildrump.sh -V mkpic=no fullbuild
 ````
 
-All the tests should run fine, and if you check the executables and libraries built should all be cross compiled.
+At this point if you check the executables and libraries built should all be cross compiled. If you run the buildrump test suite some tests may fail however. In particular the networking tests currently use shared memory locking which may not be emulated correctly.
 
-TODO explain how to use gdb on a non native executable.
+To use gdb on a cross architecture, use `qemu-mips -g 4567 ./executable` and then in gdb you can select `target remote 127.0.0.1:4567`.
 
 Known working architectures:
 * powerpc
 
-Architectures with issues to debug:
-* arm is hanging in the networking test
-* armeb causes a qemu fatal error in IPv4 networking test
+Architectures with issues to debug, at least with some qemu versions
+* arm, armeb intermittent hanging in the networking test, probably locking related, intermittent segfaults
 * mips, mipsel are hanging on VFS test with actual file system
