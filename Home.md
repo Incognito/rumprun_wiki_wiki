@@ -23,7 +23,9 @@ interface:
 -   The [Linux kernel hypercall implementation](https://github.com/rumpkernel/rumpuser-linuxkernel)
     allows rump kernels to run inside the Linux kernel.
 -   The [Genode](http://genode.org/) hypercall layer implementation is shipped with Genode OS.  See their
-    website for further details.
+    [documentation]
+    (http://genode.org/documentation/release-notes/14.02#NetBSD_file_systems_using_rump_kernels)
+    for further details.
 
 ## Discuss
 
