@@ -1,4 +1,4 @@
-This page details how to configure a Soft RAID or encrypted block device with the `raidctl` and `cgdconfig` tools provided by [rumprun](https://github.com/rumpkernel/rumprun), respectively.  We use `rumpremote` in this tutorial, though similar results could be reached by using the Lua console for rumprun.
+This page details how to configure a Soft RAID or encrypted block device with the `raidctl` and `cgdconfig` tools provided by [rumprun](https://github.com/rumpkernel/rumprun), respectively.
 
 ## RAIDframe
 
@@ -33,14 +33,14 @@ Note that since `/tmp/raid.conf` is a host file, we need to expose it to the rum
 Now, we are ready to run the standard raidctl initialization procedure:
 
 ```
-$ ./rumpremote raidctl -C /raid.conf raid0
-$ ./rumpremote raidctl -I 24816 raid0
+$ ./bin/raidctl -C /raid.conf raid0
+$ ./bin/raidctl -I 24816 raid0
 ```
 
 Then we can e.g. create a file system:
 
 ```
-$ ./rumpremote newfs raid0a
+$ ./bin/newfs raid0a
 /dev/rraid0a: 31.9MB (65408 sectors) block size 8192, fragment size 1024
 	using 4 cylinder groups of 7.98MB, 1022 blks, 1984 inodes.
 super-block backups (for fsck_ffs -b #) at:
@@ -62,8 +62,8 @@ $ rump_server -lrumpdev -lrumpdev_disk -lrumpvfs  -lrumpdev_cgd -lrumpkern_crypt
 Use `cgdconfig` to create a configuration file. Notably, we used a static, stored key configuration file instead of a passphrase generated keyfile. The reason for this is quite simple: a rump kernel does not (yet) have console input, so reading the passphrase using rumprun is not possible.
 
 ```
-$ rumpremote cgdconfig -g -o /cgd.conf -k storedkey aes-cbc 192
-$ rumpremote cat /cgd.conf
+$ ./bin/cgdconfig -g -o /cgd.conf -k storedkey aes-cbc 192
+$ ./bin/cat /cgd.conf
 algorithm aes-cbc;
 iv-method encblkno1;
 keylength 192;
@@ -75,8 +75,8 @@ keygen storedkey key AAAAwLCirNKBT1a12+plWIS1BCP2gb \
 Configure the cgd device and create a file system on it:
 
 ```
-$ rumpremote cgdconfig cgd0 /disk1 /cgd.conf
-$ rumpremote newfs cgd0a
+$ ./bin/cgdconfig cgd0 /disk1 /cgd.conf
+$ ./bin/newfs cgd0a
 /dev/rcgd0a: 16.0MB (32768 sectors) block size 4096, fragment size 512
     using 4 cylinder groups of 4.00MB, 1024 blks, 1920 inodes.
 super-block backups (for fsck_ffs -b #) at:
