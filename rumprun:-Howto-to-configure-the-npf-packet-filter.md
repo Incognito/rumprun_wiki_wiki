@@ -15,14 +15,14 @@ Configure the shmif interface for both networking stacks, and attach them to eac
 
 ```
 $ export RUMP_SERVER=unix:///tmp/net1
-$ rumpremote ifconfig shmif0 create
-$ rumpremote ifconfig shmif0 linkstr /tmp/busmem
-$ rumpremote ifconfig shmif0 inet 1.2.3.1
+$ ./bin/ifconfig shmif0 create
+$ ./bin/ifconfig shmif0 linkstr /tmp/busmem
+$ ./bin/ifconfig shmif0 inet 1.2.3.1
 
 $ export RUMP_SERVER=unix:///tmp/net2
-$ rumpremote ifconfig shmif0 create
-$ rumpremote ifconfig shmif0 linkstr /tmp/busmem
-$ rumpremote ifconfig shmif0 inet 1.2.3.2
+$ ./bin/ifconfig shmif0 create
+$ ./bin/ifconfig shmif0 linkstr /tmp/busmem
+$ ./bin/ifconfig shmif0 inet 1.2.3.2
 ```
 
 From now on, we will assume that we are operating on the latter rump kernel, i.e. `$RUMP_SERVER` remains to be set at `unix:///tmp/net2`.
@@ -30,7 +30,7 @@ From now on, we will assume that we are operating on the latter rump kernel, i.e
 Let's test that we can ping the first stack from the second:
 
 ```
-$ rumpremote ping -c 1 1.2.3.1
+$ ./bin/ping -c 1 1.2.3.1
 PING 1.2.3.1 (1.2.3.1): 64 data bytes
 64 bytes from 1.2.3.1: icmp_seq=0 ttl=255 time=1.710695 ms
 
@@ -42,7 +42,7 @@ round-trip min/avg/max/stddev = 1.710695/1.710695/1.710695/0.000000 ms
 Now, while still accessing the second rump kernel (net2), create a npf.conf and load it.  Alternatively, one could use an npf.conf from the host and expose it to the rump kernel using the `-d` parameter to the rump kernel.  However, here we just use `dd` to create one:
 
 ```
-$ rumpremote dd of=/npf.conf
+$ ./bin/dd of=/npf.conf
 group default {
         ruleset "test-set"
         pass all
@@ -55,10 +55,10 @@ group default {
 Now, we can load the configuration file and create a dynamic rule for "test-set" blocking ICMP with our peer:
 
 ```
-$ rumpremote npfctl reload /npf.conf
-$ rumpremote npfctl rule "test-set" add block proto icmp from 1.2.3.1
+$ ./bin/npfctl reload /npf.conf
+$ ./bin/npfctl rule "test-set" add block proto icmp from 1.2.3.1
 OK 1
-$ rumpremote npfctl show
+$ ./bin/npfctl show
 Filtering:	inactive
 Configuration:	loaded
 
@@ -70,20 +70,20 @@ group
 Finally, test that we can ping, activate npf, test that we can't ping, disable npf, and test that we can ping again:
 
 ```
-$ rumpremote ping -oq 1.2.3.1
+$ ./bin/ping -oq 1.2.3.1
 PING 1.2.3.1 (1.2.3.1): 64 data bytes
 
 ----1.2.3.1 PING Statistics----
 1 packets transmitted, 1 packets received, 0.0% packet loss
 round-trip min/avg/max/stddev = 1.377549/1.377549/1.377549/0.000000 ms
-$ rumpremote npfctl start
-$ rumpremote ping -oq -w 2 1.2.3.1
+$ ./bin/npfctl start
+$ ./bin/ping -oq -w 2 1.2.3.1
 PING 1.2.3.1 (1.2.3.1): 64 data bytes
 
 ----1.2.3.1 PING Statistics----
 2 packets transmitted, 0 packets received, 100.0% packet loss
-$ rumpremote npfctl stop
-$ rumpremote ping -oq -w 2 1.2.3.1
+$ ./bin/npfctl stop
+$ ./bin/ping -oq -w 2 1.2.3.1
 PING 1.2.3.1 (1.2.3.1): 64 data bytes
 
 ----1.2.3.1 PING Statistics----
