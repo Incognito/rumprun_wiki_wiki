@@ -30,7 +30,7 @@ $ rump_server -lrumpdev -lrumpdev_disk -lrumpvfs  -lrumpdev_raidframe -d key=/di
 
 Note that since `/tmp/raid.conf` is a host file, we need to expose it to the rump kernel.  It is also possible to create the configuration file inside the rump kernel, but we will not go into details or tradeoffs of that.
 
-Now, we are ready to run the standard raidctl initialization procedure:
+Now, we are ready to run the standard raidctl initialization procedure. Assuming you are in the rumprun directory, adjust the paths as necessary otehrwise:
 
 ```
 $ ./bin/raidctl -C /raid.conf raid0
