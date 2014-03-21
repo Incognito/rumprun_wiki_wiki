@@ -11,7 +11,7 @@ $ rump_server -lrumpnet_shmif -lrumpnet_netinet -lrumpnet_net -lrumpnet -lrumpne
 
 If you do not otherwise have a `rump_server` handy, you can find one from `rumpdyn/bin` after building rumprun.
 
-Configure the shmif interface for both networking stacks, and attach them to each other:
+Configure the shmif interface for both networking stacks, and attach them to each other. We assume that you do this from your rumprun directory, adjust the path for the rumprun binaries otherwise:
 
 ```
 $ export RUMP_SERVER=unix:///tmp/net1
