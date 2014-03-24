@@ -1,5 +1,5 @@
 Welcome to the main wiki for rump kernels.  See [here](https://github.com/rumpkernel/wiki/wiki/_pages)
-for a complete overview of the pages on this wiki.  The rest of this page gives a short overview of rump kernels with links to further details.
+for an overview of the pages on this wiki.  The rest of this page gives a short introduction to rump kernels with links to further details.
 
 ## The Anykernel and Rump Kernels
 
