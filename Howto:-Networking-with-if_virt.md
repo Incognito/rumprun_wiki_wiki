@@ -7,6 +7,7 @@ This was tested on [Void Linux](http://voidlinux.eu).  Details may vary on your 
 * `dhcpcd -k`
 * `ip addr flush eth0`
 * `ip tuntap add tun0 mode tap`
+* `ip link set dev tun0 up`
 * `brctl addbr br0`
 * `brctl addif br0 eth0 tun0`
 * `dhcpcd -n`
@@ -19,6 +20,7 @@ In case anyone knows how to make bridging the tap interface in Linux more like h
 The following instructions were tested on Ubuntu 12.04
 
 * `ip tuntap add tun0 mode tap`
+* `ip link set dev tun0 up`
 * `brctl addbr br0`
 * `brctl addif br0 eth0 tun0`
 * `ifconfig eth0 0.0.0.0`
