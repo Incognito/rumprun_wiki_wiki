@@ -102,6 +102,8 @@ on the number of cores configured into the rump kernel (default: 2).
 Notably, everything we selected is in a single process.  If someone knows
 an easier way of selecting threads in a single process, please edit the above.
 
+You should see something like: ![lttng pktgenif](https://raw.githubusercontent.com/rumpkernel/wiki/master/img/lttng-pktgenif.png) 
+
 ## Finished
 
 Run `lttng destroy` to remove your session.
