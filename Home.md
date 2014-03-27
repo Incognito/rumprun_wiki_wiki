@@ -17,14 +17,15 @@ the storage medium, and a PCI network card driver abstracts how to
 access device registers to send and receive packets.
 
 The *anykernel* architecture of NetBSD allows running unmodified kernel drivers
-outside of the regular operating system kernel as *rump kernels*.  A rump kernel
-is executed in the thread context of the host, thus allowing *integration* of
-kernel drivers instead of virtualization.  To request services such as memory or
-I/O access, a rump kernel uses a high-level *hypercall interface*.
+outside of the operating system kernel as *rump kernels*.  A rump kernel
+is executed in the thread context of the host, thus allowing full *integration* of
+kernel drivers.  For example,
+it is possible to integrate the NetBSD TCP/IP stack into an existing product as a
+rump kernel without first having to extract the TCP/IP stack from the NetBSD kernel.
 
-For a rump kernel to able to run on a platform, a hypercall implementation for the
-platform must exist.  Currently, there are four open source implementations of the rump kernel hypercall
-interface:
+To request services such as memory or
+I/O access, a rump kernel uses a high-level *hypercall interface*.
+Currently, there are four open source implementations:
 
 -   The POSIX (i.e. userspace) implementation is included in the NetBSD tree and allows
     rump kernels to run in processes on most operating systems such as NetBSD, Linux and Solaris.
