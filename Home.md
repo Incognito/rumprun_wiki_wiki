@@ -1,5 +1,12 @@
-Welcome to the main wiki for rump kernels.  See [here](https://github.com/rumpkernel/wiki/wiki/_pages)
-for an overview of the pages on this wiki.  The rest of this page gives a short introduction to rump kernels with links to further details.
+Welcome to the main wiki for rump kernels.  The this page gives a short introduction to rump kernels.  You will find more detailed information from [the wiki pagelist](https://github.com/rumpkernel/wiki/wiki/_pages).
+
+
+## Discuss
+
+Mailing list: rumpkernel-users@lists.sourceforge.net.  You can [subscribe here](https://lists.sourceforge.net/lists/listinfo/rumpkernel-users) or browse the [archives](http://blog.gmane.org/gmane.comp.rumpkernel.user).
+
+IRC channel: **\#rumpkernel** on **irc.freenode.net**.
+
 
 ## The Anykernel and Rump Kernels
 
@@ -30,31 +37,8 @@ interface:
     (http://genode.org/documentation/release-notes/14.02#NetBSD_file_systems_using_rump_kernels)
     for further details.
 
-## Discuss
-
-Any topic related to rump kernels can be discussed on the
-[rumpkernel-users mailing
-list](https://lists.sourceforge.net/lists/listinfo/rumpkernel-users).
-
-The IRC channel for rump kernels is **\#rumpkernel** on
-**irc.freenode.net**.
-
-
-## Further Reading and Links
-
-### Book
-
-The following book is the definitive guide to the anykernel and rump
-kernels and supercedes all earlier publications and terminology on
-the subject.
-
--   [Flexible Operating System Internals: The Design and Implementation
-    of the Anykernel and Rump
-    Kernels](http://lib.tkk.fi/Diss/2012/isbn9789526049175/isbn9789526049175.pdf)
-
-Note that the book was finalized in summer 2012, so while the fundamentals
-are still accurate, some of the problems described in "Future Work"
-have already been solved.  Check out the links below.
+The book
+[The Design and Implementation of the Anykernel and Rump Kernels](http://lib.tkk.fi/Diss/2012/isbn9789526049175/isbn9789526049175.pdf) (2012) describes fundamental operating principles and terminology.  Note that especially portability has been vastly improved since the book was published.
 
 
 ### Software, scripts, etc.
@@ -87,11 +71,8 @@ have already been solved.  Check out the links below.
     in the
     browser](http://blog.NetBSD.org/tnf/entry/kernel_drivers_compiled_to_javascript)
 -   [Kernel Servers using
-    Rump](http://www.NetBSD.org/docs/rump/sysproxy.html)
+    Rump [Kernels]](http://www.NetBSD.org/docs/rump/sysproxy.html)
 -   [Tutorial On Rump Kernel Servers and
     Clients](http://www.NetBSD.org/docs/rump/sptut.html)
 -   [Revolutionizing Kernel Development: Testing With
-    Rump](http://blog.NetBSD.org/tnf/entry/revolutionizing_kernel_development_testing_with)
-
-
-
+    Rump [Kernels]](http://blog.NetBSD.org/tnf/entry/revolutionizing_kernel_development_testing_with)
