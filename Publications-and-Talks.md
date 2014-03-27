@@ -15,7 +15,7 @@ All entries on this page should contain a link to at least one of the following:
 -   "Rump Device Drivers: Shine On You Kernel Diamond" describes device
     driver and USB. The
     [paper](http://ftp.NetBSD.org/pub/NetBSD/misc/pooka/tmp/rumpdev.pdf)
-    and [video presentation](http://www.youtube.com/watch?v=3AJNxa33pzk)
+    and [video](http://www.youtube.com/watch?v=3AJNxa33pzk)
     are available. Presented at AsiaBSDCon 2010.
 -   "Fs-utils: File Systems Access Tools for Userland" describes
     fs-utils, an mtools-like utility kit which uses rump kernel file
@@ -38,5 +38,5 @@ All entries on this page should contain a link to at least one of the following:
 -   "Environmental Independence: BSD Kernel TCP/IP in Userspace"
     describes networking in rump kernels. The
     [paper](http://2009.asiabsdcon.org/papers/abc2009-P5A-paper.pdf) and
-    [video presentation](http://www.youtube.com/watch?v=RxFctq8A0WI) are
+    [video](http://www.youtube.com/watch?v=RxFctq8A0WI) are
     available. Presented at AsiaBSDCon 2009.
