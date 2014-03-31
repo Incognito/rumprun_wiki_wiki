@@ -10,11 +10,12 @@ Supported platforms
 
 The currently supported platforms are:
 
-* POSIX userspace, including Linux, NetBSD, FreeBSD, OpenBSD, Dragonfly
+* [POSIX userspace](https://github.com/rumpkernel/wiki/wiki/Platform:-POSIX-Userspace),
+  including Linux, NetBSD, FreeBSD, OpenBSD, Dragonfly
   BSD, Solaris (+ derivates) and Windows (via Cygwin).
-* Linux kernel
-* Xen DomU
-* Genode OS
+* [Linux kernel](https://github.com/rumpkernel/wiki/wiki/Platform:-Linux-Kernel)
+* [Xen DomU](https://github.com/rumpkernel/wiki/wiki/Platform:-Xen-DomU)
+* [Genode OS Framework](https://github.com/rumpkernel/wiki/wiki/Platform:-Genode-OS-Framework)
 
 
 Hypercalls
