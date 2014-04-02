@@ -33,3 +33,4 @@ unmounting done
 halted
 ````
 
+Testing is not yet very extensive, so please report any issues. Currently there is a build server, not running tests.
