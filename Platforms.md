@@ -10,7 +10,7 @@ Supported platforms
 
 The currently supported platforms are:
 
-* [POSIX-like userspace](https://github.com/rumpkernel/wiki/wiki/Platform:-POSIX-like-Userspace),
+* [Userspace (POSIX style)](https://github.com/rumpkernel/wiki/wiki/Platform:-Userspace-%28POSIX-style%29),
   including Linux, Android, NetBSD, FreeBSD, OpenBSD, Dragonfly
   BSD, Solaris (+ derivates) and Windows (via Cygwin).
 * [Linux kernel](https://github.com/rumpkernel/wiki/wiki/Platform:-Linux-Kernel)
