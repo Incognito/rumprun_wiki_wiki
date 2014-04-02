@@ -1,8 +1,10 @@
 _NOTE: this page is currently at a proposal stage_
 
-When adding articles, use one of the following categories and a title of
-the for "Category: Title".  This is to help finding articles from
-the [page list](https://github.com/rumpkernel/wiki/wiki/_pages).
+Titles
+------
+
+To help find articles from the [page list](https://github.com/rumpkernel/wiki/wiki/_pages),
+choose a title of the form "Category: Subject".  See the page list for examples.
 
 The current categories are:
 
@@ -20,7 +22,10 @@ only if the respective code exists and is available:
 * _Repo_: main pages for repositories hosted under github.com/rumpkernel
 * _Platform_: descriptions of platforms that rump kernels run on
 
+Do not change titles after an article has been published, since that will
+alter the article's URL and render any hyperlinks to the article invalid.
+
 License
 -------
 
-Articles in the wiki are available under TBD license.
+Articles in the wiki are available under TBD license (current proposal: CC0)
