@@ -13,3 +13,6 @@ Buildbot builds of all buildrump.sh branches, multiple operating systems and mac
 
 Buildbot builds of buildrump.sh against NetBSD HEAD, multiple operating systems and machine architectures.  Note since these builds are not against a "known good" timestamp of NetBSD sources, there may be transient failures due to problems in the NetBSD tree:
 * http://build.myriabit.eu:8012/waterfall
+
+There are buildbot builds of ljsyscall, which includes tests against rump kernels on various architectures
+* http://build.myriabit.eu:8010/waterfall
