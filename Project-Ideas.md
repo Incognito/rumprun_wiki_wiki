@@ -3,3 +3,4 @@
 * create a Valgrind HOWTO (on this wiki) which details common pitfalls, tricks and tips
 * convert librumpuser to use autoconf (or equivalent) instead of homegrown #ifdefs
 * add auth support for remote clients
+* [[OSX support|Project idea: OSX support]]
