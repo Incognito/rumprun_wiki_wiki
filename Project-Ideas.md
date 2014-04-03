@@ -1,3 +1,6 @@
+This page contains an overview of the project ideas, including their
+difficulty and category (and is mostly TODO)
+
 * more automated builds and tests, see [[Project ideas: build system improvements]]
 * package resulting components in a packaging system
 * create a Valgrind HOWTO (on this wiki) which details common pitfalls, tricks and tips
