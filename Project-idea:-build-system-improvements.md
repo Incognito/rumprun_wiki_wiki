@@ -1,0 +1,7 @@
+The build system (see [[Builds: continuous integration]]) works and is useful, but could be improved.
+
+The main issue at the moment is that many platforms are very slow to build, and the better method would be to cross build them and then run tests on the produced artefacts. Other platforms, such as Android, only have cross compilers. The current system does not support this easily, so some tests just do builds without tests. In addition more testing could be done on identical artefacts, such as running the ljsyscall tests.
+
+I don't think buildbot is suitable for this type of workflow, although there seems to be some work on adding it, and it is fairly scriptable. It might be better to use Jenkins, or the (unfortunately named) Go http://www.thoughtworks.com/products/go-continuous-delivery which seems to be designed with this kind of workflow in mind.
+
+There are other issues too to address, maybe at the same time. In particular the build environments are not fully reproducible and clean. This is made more complex by the fact that the tests are under so many different operating systems; fortunately the dependencies are small so this has been somewhat manageable so far but it would be good to address.
