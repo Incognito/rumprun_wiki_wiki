@@ -21,8 +21,10 @@ IRC channel: **\#rumpkernel** on **irc.freenode.net**.
 
 ## Getting started
 
-The easiest way to try out rump kernels is to use
-[_buildrump.sh_](https://github.com/rumpkernel/buildrump.sh).
+The easiest way to try out rump kernels is to start in
+userspace with [_buildrump.sh_](https://github.com/rumpkernel/buildrump.sh).
 Clone the repository and run the script without arguments.
 The script will do a build that allows you to run rump kernels
-in userspace on your host.
+in userspace on your host.  Then get [_rumprun_](https://github.com/rumpkernel/rumprun).  It
+provides familiar utilities such as `ls`, `ifconfig`, `sysctl`, etc.
+which allow you to access, configure and try out rump kernels.
