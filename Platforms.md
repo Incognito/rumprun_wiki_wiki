@@ -14,8 +14,8 @@ The currently supported platforms are:
   including Linux, Android, NetBSD, FreeBSD, OpenBSD, Dragonfly
   BSD, Solaris (+ derivates) and Windows (via Cygwin).
 * [[Linux kernel|Platform: Linux kernel]]
-* [Xen DomU](https://github.com/rumpkernel/wiki/wiki/Platform:-Xen-DomU)
-* [Genode OS Framework](https://github.com/rumpkernel/wiki/wiki/Platform:-Genode-OS-Framework)
+* [[Xen DomU|Platform: Xen DomU]]
+* [[Genode OS Framework|Platform: Genode OS Framework]]
 
 
 Hypercalls
