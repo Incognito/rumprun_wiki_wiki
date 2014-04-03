@@ -23,20 +23,9 @@ kernel drivers.  For example,
 it is possible to integrate the NetBSD TCP/IP stack into an existing product as a
 rump kernel without first having to extract the TCP/IP stack from the NetBSD kernel.
 
-To request services such as memory or
-I/O access, a rump kernel uses a high-level *hypercall interface*.
-Currently, there are four open source implementations:
-
--   The POSIX (i.e. userspace) implementation is included in the NetBSD tree and allows
-    rump kernels to run in processes on most operating systems such as NetBSD, Linux and Solaris.
--   The [Xen implementation](https://github.com/rumpkernel/rumpuser-xen) allows running
-    rump kernels directly as Xen DomU's without an intermediate operating system.
--   The [Linux kernel hypercall implementation](https://github.com/rumpkernel/rumpuser-linuxkernel)
-    allows rump kernels to run inside the Linux kernel.
--   The [Genode](http://genode.org/) hypercall layer implementation is shipped with Genode OS.  See their
-    [documentation]
-    (http://genode.org/documentation/release-notes/14.02#NetBSD_file_systems_using_rump_kernels)
-    for further details.
+Several [[platforms]] are already supported, e.g. userspace (including Linux, Android, BSDs, etc.),
+the Xen hypervisor and the Genode OS Framework.  Supporting an entirely new platform is a matter
+of implementing the high-level rump kernel hypercall layer.
 
 The book
 [The Design and Implementation of the Anykernel and Rump Kernels](http://lib.tkk.fi/Diss/2012/isbn9789526049175/isbn9789526049175.pdf) (2012) describes fundamental operating principles and terminology.  Note that especially portability has been vastly improved since the book was published.
