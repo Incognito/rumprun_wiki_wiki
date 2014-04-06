@@ -4,7 +4,7 @@ Titles
 ------
 
 To help find articles from the [page list](http://repo.rumpkernel.org/wiki/wiki/_pages),
-choose a title of the form "Category: Subject".  See the page list for examples.
+use a page title of the form "Category: Subject".  See the page list for examples.
 
 The current categories are:
 
