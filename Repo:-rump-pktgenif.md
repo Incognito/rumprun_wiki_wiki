@@ -1,4 +1,4 @@
-This page describes [rump-pktgenif](https://github.com/rumpkernel/rump-pktgenif/).
+This page describes [rump-pktgenif](http://repo.rumpkernel.org/rump-pktgenif/).
 
 Rump-pktgenif an implementation of a network interface which
 can both generate packets and drop them.  It is meant for measuring and
