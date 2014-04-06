@@ -10,7 +10,7 @@ of implementing the high-level rump kernel hypercall interface.
 The book
 [The Design and Implementation of the Anykernel and Rump Kernels](http://lib.tkk.fi/Diss/2012/isbn9789526049175/isbn9789526049175.pdf) (2012) describes fundamental operating principles and terminology.  Note that especially portability has been vastly improved since the book was published.
 
-You can find out more on the pages for [software](http://repo.rumpkernel.org/wiki/wiki/Software,-scripts,-etc.), [articles](https://github.com/rumpkernel/wiki/wiki/Links-to-external-articles,-tutorials-and-howto%27s) and [publications & talks](https://github.com/rumpkernel/wiki/wiki/Publications-and-Talks).
+You can find out more on the pages for [[software|Software,-scripts,-etc.]], [[articles|Links-to-external-articles,-tutorials-and-howto's]] and [[publications & talks|Publications-and-Talks]].
 
 ## Discuss
 
