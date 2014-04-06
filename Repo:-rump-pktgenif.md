@@ -1,7 +1,6 @@
 This page describes [rump-pktgenif](http://repo.rumpkernel.org/rump-pktgenif/).
 
-Rump-pktgenif an implementation of a network interface which
-can both generate packets and drop them.  It is meant for measuring and
+Rump-pktgenif is a test tool meant for measuring and
 improving performance with packets traveling both up and down the stack.
 The intent is that eventually it can be used especially in conjuction
 with multicore scenarios.

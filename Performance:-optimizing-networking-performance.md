@@ -16,7 +16,10 @@ Optimizing lock and cache behavior
 
 A big problem with multiprocessor scaling is dealing with data locality with respect to caches.  Furthermore, intercore locking is expensive.  Addressing these two issues with rump kernels is fairly trivial because a rump kernel is entirely scheduled by the host and furthermore follows a run-to-completion model.  If it is feasible to partition TCP/IP connections so that a certain subset can be handled entirely on one virtual core (i.e. the rump kernel's idea of a "CPU"), the fastpath of every lock inside rump kernel can be optimized to a regular memory access with a compile-time optimization.  Furthermore, if the host threads used in one rump kernel instance can be pinned a single physical core and made to use non-preemptive scheduling, all locks and cache contention can be optimized away.
 
-curlwp
-------
+curlwp (*DONE*)
+---------------
 
 In the NetBSD kernel, `curlwp` resolves to the currently executing thread.  It is invoked often in NetBSD kernel and is expected to be fast.  The implementation is machine dependent, but some examples include reserving a dedicated register for storing the necessary pointer or setting up VM suitably so that the pointer can be resolved by accessing a constant memory address.  Currently, a rump kernel running on a POSIX host uses pthread TLS to handle `curlwp`.  Going through libpthread via a hypercall is relatively speaking slow, thus prompting the optimization of `curlwp`.  On architectures with a large register bank, the fast path for `curlwp` can be implemented by using a dedicated register, but on architectures such as x86 some other approach is required.
+
+The "done" part:
+Since March 2014, RUMP_CURLWP can be used to control how `curlwp` is referenced.  The default, if the platform supports TLS, is to use `__thread` in the rump kernel instead of a hypercall.
