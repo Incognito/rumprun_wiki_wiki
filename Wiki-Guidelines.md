@@ -19,11 +19,24 @@ a new category on the rumpkernel-users@lists.sourceforge.net mailing list.
 Additionally, the following categories exist, but they should be used
 only if the respective code exists and is available:
 
-* _Repo_: main pages for repositories hosted under repo.rumpkernel.org
+* _Repo_: main pages for repositories hosted under http://repo.rumpkernel.org/
 * _Platforms_: descriptions of platforms that rump kernels run on
 
 Do not change titles after an article has been published, since that will
 alter the article's URL and render any hyperlinks to the article invalid.
+
+Linking
+-------
+
+Use the format \[\[text|article title\]\] to link to other articles on this wiki,
+e.g. to link to this page you would use `[[guidelines|Wiki Guidelines]]`.
+The advantage of this format is that dead links will be flagged when
+the page is rendered.
+
+To link to this wiki from an external source, use the URL `http://wiki.rumpkernel.org/article-name`,
+e.g. http://wiki.rumpkernel.org/Wiki-Guidelines for this page.
+To link to a rump kernel repository (currently hosted on Github), use `http://repo.rumpkernel.org/reponame`, e.g. http://repo.rumpkernel.org/buildrump.sh for buildrump.sh.  Avoid linking to
+non-rumpkernel.org URLs.
 
 License
 -------
