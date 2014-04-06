@@ -11,7 +11,7 @@ The current categories are:
 * _Builds_: automated builds, tests, etc.
 * _Howto_: Tutorials, howtos, guides, etc.
 * _Performance_: important points about optimization, tuning, etc.
-* _Project idea_: detailed description of a project looking for idle hands.
+* _Project ideas_: detailed description of a project looking for idle hands.
 
 If the article does not fit into the existing categories, please propose
 a new category on the rumpkernel-users@lists.sourceforge.net mailing list.
@@ -20,7 +20,7 @@ Additionally, the following categories exist, but they should be used
 only if the respective code exists and is available:
 
 * _Repo_: main pages for repositories hosted under repo.rumpkernel.org
-* _Platform_: descriptions of platforms that rump kernels run on
+* _Platforms_: descriptions of platforms that rump kernels run on
 
 Do not change titles after an article has been published, since that will
 alter the article's URL and render any hyperlinks to the article invalid.
