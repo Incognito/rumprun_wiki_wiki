@@ -41,4 +41,4 @@ non-rumpkernel.org URLs.
 License
 -------
 
-Articles in the wiki are available under TBD license (current proposal: CC0)
+Articles in this wiki are available under [Creative Commons CC0](https://creativecommons.org/publicdomain/zero/1.0/).
