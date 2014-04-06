@@ -22,4 +22,4 @@ curlwp (*DONE*)
 In the NetBSD kernel, `curlwp` resolves to the currently executing thread.  It is invoked often in NetBSD kernel and is expected to be fast.  The implementation is machine dependent, but some examples include reserving a dedicated register for storing the necessary pointer or setting up VM suitably so that the pointer can be resolved by accessing a constant memory address.  Currently, a rump kernel running on a POSIX host uses pthread TLS to handle `curlwp`.  Going through libpthread via a hypercall is relatively speaking slow, thus prompting the optimization of `curlwp`.  On architectures with a large register bank, the fast path for `curlwp` can be implemented by using a dedicated register, but on architectures such as x86 some other approach is required.
 
 The "done" part:
-Since March 2014, RUMP_CURLWP can be used to control how `curlwp` is referenced.  The default, if the platform supports it, is to inline __thread in the kernel.
+Since March 2014, RUMP_CURLWP can be used to control how `curlwp` is referenced.  The default, if the platform supports TLS, is to use __thread.
