@@ -5,7 +5,7 @@ Currently, support is available for Linux, Android, the BSDs and Cygwin.
 There is also nascent support for Mac OS X.
 
 The easiest way to build rump kernels for userspace targets is to use
-[buildrump.sh](https://github.com/rumpkernel/buildrump.sh), either
+[buildrump.sh](http://repo.rumpkernel.org/buildrump.sh), either
 natively for fast systems or via a cross compiler for slower systems.
 
 History
@@ -30,7 +30,7 @@ build and run rump kernels on for example Linux and FreeBSD.
 
 Though pkgsrc made building rump kernels on non-NetBSD easy, it still required
 an expert to update the NetBSD source tree that the package built.  The
-next turning point came in 2012 with [buildrump.sh](https://github.com/rumpkernel/buildrump.sh),
+next turning point came in 2012 with [buildrump.sh](http://repo.rumpkernel.org/buildrump.sh),
 which strived to reach the same level of usability as NetBSD's legendary
 build script, _build.sh_.  With the buildrump.sh script, it finally became
 easy to build a given NetBSD source tree as rump kernels for a given target

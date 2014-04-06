@@ -42,7 +42,7 @@ access the hardware bus (e.g. PCI) where the device (NIC) resides.
 _Note_: due to historic reasons, the rumpuser interface provides support for
 "Files and I/O" (cf. the man page).  This part of rumpuser is pencilled
 to made consistent with other I/O hypercalls in the
-[next hypercall revision](https://github.com/rumpkernel/buildrump.sh/issues/59).
+[next hypercall revision](http://repo.rumpkernel.org/buildrump.sh/issues/59).
 
 Integrating
 -----------

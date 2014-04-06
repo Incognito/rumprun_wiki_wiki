@@ -1,6 +1,6 @@
 We demonstrate configuring NetBSD's [npf](http://man.NetBSD.org/cgi-bin/man-cgi?npf++NetBSD-current) packet filter using rumprun.  For this demonstration, we use a very simple npf configuration file and two networking stacks connected by [shmif](http://man.NetBSD.org/cgi-bin/man-cgi?shmif++NetBSD-current).  The configuration can be extended to arbitrarily complex scenarios supported by npf, and also other network interfaces.
 
-You will need a [rumprun](https://github.com/rumpkernel/rumprun) installation.  Familiarize yourself with rumprun before attempting to follow the rest of this howto, and set the relevant environment variables.
+You will need a [rumprun](http://repo.rumpkernel.org/rumprun) installation.  Familiarize yourself with rumprun before attempting to follow the rest of this howto, and set the relevant environment variables.
 
 First, we run two rump kernels.  Note that the first one does not support a packet filter (it does not need one for this demonstration).  Also note that the rump kernel with npf requires VFS so that the `npfctl` can read the configuration file we supply to it.
 

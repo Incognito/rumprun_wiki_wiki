@@ -8,6 +8,6 @@ would do, but it's usually simplest mount a prepopulated image.
 
 ## rumpuser-xen
 
-For rumpuser-xen, we supply prepopulated images in https://github.com/rumpkernel/rumpuser-xen/tree/master/img.  The same images can be applied to other "standalone" scenarios as well.  If your host does not support FFS, you
+For rumpuser-xen, we supply prepopulated images in http://repo.rumpkernel.org/rumpuser-xen/tree/master/img.  The same images can be applied to other "standalone" scenarios as well.  If your host does not support FFS, you
 can still examine and modify the images using the portable
 [fs-utils](https://github.com/stacktic/fs-utils) tool suite.

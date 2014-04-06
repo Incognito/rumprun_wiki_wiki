@@ -10,7 +10,7 @@ of implementing the high-level rump kernel hypercall interface.
 The book
 [The Design and Implementation of the Anykernel and Rump Kernels](http://lib.tkk.fi/Diss/2012/isbn9789526049175/isbn9789526049175.pdf) (2012) describes fundamental operating principles and terminology.  Note that especially portability has been vastly improved since the book was published.
 
-You can find out more on the pages for [software](https://github.com/rumpkernel/wiki/wiki/Software,-scripts,-etc.), [articles](https://github.com/rumpkernel/wiki/wiki/Links-to-external-articles,-tutorials-and-howto%27s) and [publications & talks](https://github.com/rumpkernel/wiki/wiki/Publications-and-Talks).
+You can find out more on the pages for [software](http://repo.rumpkernel.org/wiki/wiki/Software,-scripts,-etc.), [articles](https://github.com/rumpkernel/wiki/wiki/Links-to-external-articles,-tutorials-and-howto%27s) and [publications & talks](https://github.com/rumpkernel/wiki/wiki/Publications-and-Talks).
 
 ## Discuss
 
@@ -22,9 +22,9 @@ IRC channel: **\#rumpkernel** on **irc.freenode.net**.
 ## Getting started
 
 The easiest way to try out rump kernels is to start in
-userspace with [_buildrump.sh_](https://github.com/rumpkernel/buildrump.sh).
+userspace with [_buildrump.sh_](http://repo.rumpkernel.org/buildrump.sh).
 Clone the repository and run the script without arguments.
 The script will do a build that allows you to run rump kernels
-in userspace on your host.  Then get [_rumprun_](https://github.com/rumpkernel/rumprun).  It
+in userspace on your host.  Then get [_rumprun_](http://repo.rumpkernel.org/rumprun).  It
 provides familiar utilities such as `ls`, `ifconfig`, `sysctl`, etc.
 which allow you to access, configure and try out rump kernels.

@@ -1,4 +1,4 @@
-This page documents issues when wanting to run applications on top of a rump kernel without access to a standard OS features.  Examples of encompassed scenarios are [rumprun](https://github.com/rumpkernel/rumprun/) and [rumpuser-xen](https://github.com/rumpkernel/rumpuser-xen/).
+This page documents issues when wanting to run applications on top of a rump kernel without access to a standard OS features.  Examples of encompassed scenarios are [rumprun](http://repo.rumpkernel.org/rumprun/) and [rumpuser-xen](https://github.com/rumpkernel/rumpuser-xen/).
 
 ## building
 

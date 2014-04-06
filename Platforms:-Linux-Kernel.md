@@ -1,3 +1,3 @@
-https://github.com/rumpkernel/rumpuser-linuxkernel
+http://repo.rumpkernel.org/rumpuser-linuxkernel
 
 rest of the page: TODO

@@ -1,15 +1,15 @@
 
 -   [Scripts for building rump kernels for POSIX
-    systems](https://github.com/rumpkernel/buildrump.sh)
--   The [rumprun](https://github.com/rumpkernel/rumprun/) package
+    systems](http://repo.rumpkernel.org/buildrump.sh)
+-   The [rumprun](http://repo.rumpkernel.org/rumprun/) package
     allows portable building and running of unmodified NetBSD userspace
     applications -- extremely useful for configuring rump kernels (e.g.
     network interfaces and routing tables)
 -   [Rump kernel hypercall implementation for Xen; rump kernels as Xen
-    DomU's](https://github.com/rumpkernel/rumpuser-xen)
+    DomU's](http://repo.rumpkernel.org/rumpuser-xen)
 -   [fs-utils: File system image access
     utilities](https://github.com/stacktic/fs-utils)
 -   Fast userspace packet processing: TCP/IP stack for use with
-    [DPDK](https://github.com/rumpkernel/dpdk-rumptcpip), 
-    [netmap](https://github.com/rumpkernel/netmap-rumptcpip) or
+    [DPDK](http://repo.rumpkernel.org/dpdk-rumptcpip), 
+    [netmap](http://repo.rumpkernel.org/netmap-rumptcpip) or
     [Snabb Switch](https://github.com/anttikantee/snabbswitch/tree/rumpkernel/)

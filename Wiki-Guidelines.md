@@ -3,7 +3,7 @@ _NOTE: this page is currently at a proposal stage_
 Titles
 ------
 
-To help find articles from the [page list](https://github.com/rumpkernel/wiki/wiki/_pages),
+To help find articles from the [page list](http://repo.rumpkernel.org/wiki/wiki/_pages),
 choose a title of the form "Category: Subject".  See the page list for examples.
 
 The current categories are:
@@ -19,7 +19,7 @@ a new category on the rumpkernel-users@lists.sourceforge.net mailing list.
 Additionally, the following categories exist, but they should be used
 only if the respective code exists and is available:
 
-* _Repo_: main pages for repositories hosted under github.com/rumpkernel
+* _Repo_: main pages for repositories hosted under repo.rumpkernel.org
 * _Platform_: descriptions of platforms that rump kernels run on
 
 Do not change titles after an article has been published, since that will

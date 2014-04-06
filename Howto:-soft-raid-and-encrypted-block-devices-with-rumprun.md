@@ -1,4 +1,4 @@
-This page details how to configure a Soft RAID or encrypted block device with the `raidctl` and `cgdconfig` tools provided by [rumprun](https://github.com/rumpkernel/rumprun), respectively.
+This page details how to configure a Soft RAID or encrypted block device with the `raidctl` and `cgdconfig` tools provided by [rumprun](http://repo.rumpkernel.org/rumprun), respectively.
 
 ## RAIDframe
 

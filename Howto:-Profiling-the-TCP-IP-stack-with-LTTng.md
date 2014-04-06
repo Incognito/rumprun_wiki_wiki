@@ -8,7 +8,7 @@ thread can run.  To understand how to optimize the host's scheduling, we need
 to understand what is happening.
 
 For packet generation, we will use
-[rump-pktgenif](https://github.com/rumpkernel/rump-pktgenif).
+[rump-pktgenif](http://repo.rumpkernel.org/rump-pktgenif).
 For tracing, we will use [LTTng](http://lttng.org), and will run the
 rump kernel in userspace on Linux.
 
@@ -26,12 +26,12 @@ of success grew.  Your mileage may vary.
 ## Compiling rump-pktgenif
 
 As a prerequisite, you need
-[buildrump.sh](https://github.com/rumpkernel/buildrump.sh).
+[buildrump.sh](http://repo.rumpkernel.org/buildrump.sh).
 The latest version is recommended.
 
 To fetch and build, simply run:
 
-        git clone https://github.com/rumpkernel/rump-pktgenif
+        git clone http://repo.rumpkernel.org/rump-pktgenif
         cd rump-pktgenif
         rumpmake USE_LTTNG=1 dependall
 
@@ -46,7 +46,7 @@ making it easier to track kernel events.
 
 For the packet generator to be able to run, you must configure the TCP/IP
 stack that it is using (cf. `ifconfig` etc.).  The easiest way to do this is
-to use [rumprun](https://github.com/rumpkernel/rumprun).  Edit the path
+to use [rumprun](http://repo.rumpkernel.org/rumprun).  Edit the path
 at the top of `config.sh.example` to point to your rumprun directory,
 and you are good to go.
 

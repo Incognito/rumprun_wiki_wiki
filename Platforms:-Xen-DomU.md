@@ -1,3 +1,3 @@
-https://github.com/rumpkernel/rumpuser-xen
+http://repo.rumpkernel.org/rumpuser-xen
 
 TODO
