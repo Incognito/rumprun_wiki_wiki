@@ -1,5 +1,4 @@
-Tools for building Rump Kernels [![Build Status](https://travis-ci.org/rumpkernel/buildrump.sh.png?branch=master)](https://travis-ci.org/rumpkernel/buildrump.sh)
-===============================
+This page describes [buildrump.sh](http://repo.rumpkernel.org/buildrump.sh).
 
 The `buildrump.sh` script builds unmodified NetBSD kernel drivers such
 as file systems and the TCP/IP stack as components which can be linked
