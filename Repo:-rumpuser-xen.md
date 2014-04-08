@@ -21,9 +21,6 @@ See http://www.rumpkernel.org/ for more information on rump kernels.
 Using / Testing
 ---------------
 
-Short instructions are given below.  The
-[rumpkernel wiki](http://wiki.rumpkernel.org/) provides further details.
-
 To build, clone this repository and run the following command.  You
 need Xen headers for a successful build (e.g. on Ubuntu they're in
 the `libxen-dev` package).
