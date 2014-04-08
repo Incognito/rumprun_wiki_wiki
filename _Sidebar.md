@@ -1,6 +1,7 @@
 Navigation:
 
 - [[Home]]
+- [[Builds]]
 - [[Howto]]
 - [[Info]]
 - [[Performance]]
