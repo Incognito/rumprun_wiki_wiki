@@ -12,7 +12,7 @@ status: ??? (ask @justincormack)
 
 ## pthreads
 
-problem: pthread interfaces are not supported.  This limits the ability to run existing programs.  Threads cannot be implemented in the rump kernel, but it is possible at the hypercall layer.
+problem: pthread interfaces are not supported.  This limits the ability to run existing programs.  Threads cannot be implemented in the rump kernel (well, should not be), but it is possible outside of the rump kernel.
 
 possible solution: implement the NetBSD kernel `_lwp_foo()` interfaces at the hypercall layer, and use NetBSD libpthread.  This approach avoids having to write libpthread from scratch.
 
