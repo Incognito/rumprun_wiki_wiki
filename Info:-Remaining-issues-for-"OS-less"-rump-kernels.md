@@ -1,4 +1,4 @@
-This page documents issues when wanting to run applications on top of a rump kernel without access to a standard OS features.  Examples of encompassed scenarios are [rumprun](http://repo.rumpkernel.org/rumprun/) and [rumpuser-xen](https://github.com/rumpkernel/rumpuser-xen/).
+This page documents issues when wanting to run applications on top of a standalone rump kernel, e.g. [rumprun](http://repo.rumpkernel.org/rumprun/) and [rumpuser-xen](https://github.com/rumpkernel/rumpuser-xen/) scenarios.
 
 ## building
 
@@ -8,6 +8,8 @@ possible solution: provide a cross-compiler wrapper or specs or something that c
 
 estimated effort: 1-2 days
 
+status: ??? (ask @justincormack)
+
 ## pthreads
 
 problem: pthread interfaces are not supported.  This limits the ability to run existing programs.  Threads cannot be implemented in the rump kernel, but it is possible at the hypercall layer.
@@ -16,20 +18,26 @@ possible solution: implement the NetBSD kernel `_lwp_foo()` interfaces at the hy
 
 estimated effort: 1-2 days
 
+status: not even started
+
 ## nanosleep/gettimeofday/timing
 
 problem: relevant syscalls are missing
 
-possible solution: include relevant routines in rump kernel base
-
-workaround: can already `nanosleep()` using `rump_sys_pollts()` (or equivalent)
-
-estimated effort: 1 day
+status: __DONE__
 
 ## signals
 
-problem: there is no support for signal delivery.  Signals cannot be implemented in a rump kernel, but it is possible to implement them on the hypercall layer.
+problem: there is no support for signal delivery from a rump kernel.  Signals cannot be implemented in a rump kernel, but it is possible to implement them on the hypercall layer.
 
-possible solution: just do it
+status: __DONE__'ish with `rumpuser_kill()`
 
-estimated effort: 1 day
+CAVEAT: a rump kernel syscall with not be interrupted by a signal.  Consider e.g.
+
+```
+rump_sys_setitimer(...);
+rv = rump_sys_poll(foo, 1, 0);
+if (rv == EINTR) {...}
+```
+
+The host will get SIGARLM, but the EINTR return value will not be delivered (if host == userspace, at any rate).  The current resolve on this is "won't fix", because it digs deep against the fundamentals of a rump kernels.  There is "ongoing" debate on whether or not the `rumpuser_kill()` hypercall should exist at all.
