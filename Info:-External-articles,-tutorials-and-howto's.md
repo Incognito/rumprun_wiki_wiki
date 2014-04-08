@@ -1,4 +1,3 @@
-
 -   [Running rump kernels and applications on Xen without a full
     OS](http://blog.NetBSD.org/tnf/entry/running_applications_on_the_xen)
 -   [PCI device driver support in rump kernels on
