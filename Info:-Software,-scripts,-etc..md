@@ -1,4 +1,3 @@
-
 -   [Scripts for building rump kernels for POSIX
     systems](http://repo.rumpkernel.org/buildrump.sh)
 -   The [rumprun](http://repo.rumpkernel.org/rumprun/) package
