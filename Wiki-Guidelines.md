@@ -10,6 +10,7 @@ The current categories are:
 
 * _Builds_: automated builds, tests, etc.
 * _Howto_: Tutorials, howtos, guides, etc.
+* _Info_: General information, e.g. historical info, TODO-lists, etc.
 * _Performance_: important points about optimization, tuning, etc.
 * _Project ideas_: detailed description of a project looking for idle hands.
 
