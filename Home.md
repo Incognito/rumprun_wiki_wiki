@@ -16,7 +16,9 @@ You can find out more on the pages for [[software|Info: Software, scripts, etc.]
 
 Mailing list: rumpkernel-users@lists.sourceforge.net.  You can [subscribe here](https://lists.sourceforge.net/lists/listinfo/rumpkernel-users) or browse the [archives](http://blog.gmane.org/gmane.comp.rumpkernel.user).
 
-IRC channel: **\#rumpkernel** on **irc.freenode.net**.
+IRC: **\#rumpkernel** on **irc.freenode.net**.
+
+Twitter: [@rumpkernel](https://twitter.com/rumpkernel)
 
 
 ## Getting started
