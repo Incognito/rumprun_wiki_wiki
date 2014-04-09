@@ -12,7 +12,7 @@ How to build & run
 
 The tool depends on [buildrump.sh](http://repo.rumpkernel.org/buildrump.sh) and [rumprun](http://repo.rumpkernel.org/rumprun).  After you have those prerequisites built and install,
 you can compile the tool by running `rumpmake` (located in the tooldir in the buildrump.sh build).
-The, copy `tool/config.sh.example` to `tool/config.sh` and edit the path of `RUMPRUNDIR` in
+Then, copy `tool/config.sh.example` to `tool/config.sh` and edit the path of `RUMPRUNDIR` in
 that file.  After this, you are ready to run the tool.
 
 Supported modes
