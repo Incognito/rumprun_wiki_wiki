@@ -1,5 +1,6 @@
 Rump kernels provide portable, componentized, kernel quality drivers
-such as file systems, PCI device drivers, a SCSI protocol stack and the TCP/IP stack.
+such as file systems, POSIX system call handlers, PCI device drivers,
+a SCSI protocol stack and the TCP/IP stack.
 The fundamental enabling technology is the _anykernel_ architecture 
 of NetBSD, which allows the use of unmodified NetBSD kernel drivers.
 
