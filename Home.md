@@ -8,8 +8,7 @@ Several [[platforms]] are already supported, e.g. userspace (including Linux, An
 the Xen hypervisor and the Genode OS Framework.  Supporting an entirely new platform is a matter
 of implementing the high-level rump kernel hypercall interface.
 
-The book
-[The Design and Implementation of the Anykernel and Rump Kernels](http://lib.tkk.fi/Diss/2012/isbn9789526049175/isbn9789526049175.pdf) (2012) describes fundamental operating principles and terminology.  You can find out more on the pages for [[software|Info: Software, scripts, etc.]], [[articles|Info: External articles, tutorials and howto's]] and [[publications & talks|Info: Publications and Talks]].
+[The Design and Implementation of the Anykernel and Rump Kernels](http://lib.tkk.fi/Diss/2012/isbn9789526049175/isbn9789526049175.pdf) (2012) describes the fundamental operating principles and terminology.  You can find out more on the pages for [[software|Info: Software, scripts, etc.]], [[articles|Info: External articles, tutorials and howto's]] and [[publications & talks|Info: Publications and Talks]].
 
 ## Discuss
 
