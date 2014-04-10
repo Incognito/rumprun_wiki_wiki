@@ -15,7 +15,7 @@ status: ??? (ask @justincormack)
 problem: pthread interfaces are not supported.  This limits the ability to run existing programs.  Threads cannot be implemented in the rump kernel (well, should not be), but it is possible outside of the rump kernel.
 
 possible solution: implement the NetBSD kernel `_lwp_foo()` interfaces at the hypercall layer, and use NetBSD libpthread.  This approach avoids having to write libpthread from scratch.  There are a few
-issues with this approach:
+non-trivial TODO points with this approach:
 
 - threading ucontext_t from `getcontext()` to `_lwp_create()`: NetBSD libpthread creates threads by first calling `getcontext()` for ucontext, frobbing with some ucontext values, and then passing ucontext to `_lwp_create()`.  Since getcontext and lwp_create should be implemented on the host, ucontext needs to be translated twice.
 - scheduling points: these need to be different from local clients (e.g. rumpuser-xen) and remote clients (e.g. rumpremote).  For the former, they can be lobbed into the same scheduling mechanism that a rump kernel uses (corollary: a rump kernel and libpthread must use the same underlying threading facility).  For the latter, runnable threads can be rotated e.g. when a request to the rump kernel is sent.
