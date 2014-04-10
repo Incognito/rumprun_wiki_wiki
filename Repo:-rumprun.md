@@ -146,5 +146,6 @@ e.g. [`cat`](http://man.NetBSD.org/cgi-bin/man-cgi?cat++NetBSD-current).
 * ```sysctl```
 * ```umount```
 * ```vnconfig``` the vnd kernel driver is not provided by rumprun ;)
+* ```wlanctl```
 
 For programs that fork and exec, the rumpclient library will fork the provided host binary, so for ktrace you must do ```./bin/ktrace ./bin/ls```.
