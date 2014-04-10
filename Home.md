@@ -10,7 +10,9 @@ of implementing the high-level rump kernel hypercall interface.
 
 [The Design and Implementation of the Anykernel and Rump Kernels](http://lib.tkk.fi/Diss/2012/isbn9789526049175/isbn9789526049175.pdf) (2012) describes the fundamental operating principles and terminology.  You can find out more on the pages for [[software|Info: Software, scripts, etc.]], [[articles|Info: External articles, tutorials and howto's]] and [[publications & talks|Info: Publications and Talks]].
 
-## Discuss
+Editing this wiki is open to everyone.  Please check out the [wiki guidelines](http://repo.rumpkernel.org/wiki) before editing.
+
+## Discuss rump kernels
 
 Mailing list: rumpkernel-users@lists.sourceforge.net.  You can [subscribe here](https://lists.sourceforge.net/lists/listinfo/rumpkernel-users) or browse the [archives](http://blog.gmane.org/gmane.comp.rumpkernel.user).
 
