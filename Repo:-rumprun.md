@@ -38,10 +38,9 @@ from the applications and communicates using IPC.  The operation mode resembles
 a typical OS setup, where the kernel is disjoint from the applications running
 on it.
 
-The most straightforward way to do this is in conjuction
-with the readily available `rump_server` program.  The method
-will be briefly described, with more documentation available from
-http://www.rumpkernel.org/.
+The most straightforward way to do this is in conjunction
+with the readily available `rump_server` program.  A brief
+example follows.
 
 First, we run the server, for example with IP networking components:
 
@@ -73,10 +72,8 @@ shmif0: flags=8043<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500
 
 The interface will persist until `rump_server` is killed or halted,
 like in a regular system an interface will persist until the
-system is rebooted.
-
-You can also use a custom application instead of `rump_server`.  Consult
-http://www.rumpkernel.org/ for the documentation on how to do that.
+system is rebooted.  The exception is, of course, if you remove the interface
+before reboot with `ifconfig shmif0 destroy`.
 
 Using local clients
 -------------------
