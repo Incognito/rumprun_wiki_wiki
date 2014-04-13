@@ -57,17 +57,19 @@ access by setting the env variable `$RUMP_SERVER`.
 
 To configure one shmif interface:
 
-````
-$ export RUMP_SERVER=unix://csock
-$ ./bin/ifconfig shmif0 create
-$ ./bin/ifconfig shmif0 linkstr busmem
-$ ./bin/ifconfig shmif0 inet 1.2.3.4 netmask 0xffffff00
-$ ./bin/ifconfig shmif0
+```
+$ . rumpremote.sh
+rumpremote (NULL)$ export RUMP_SERVER=unix://csock
+rumpremote (unix://csock)$ ifconfig shmif0 create
+rumpremote (unix://csock)$ ifconfig shmif0 linkstr busmem
+rumpremote (unix://csock)$ ifconfig shmif0 inet 1.2.3.4 netmask 0xffffff00
+rumpremote (unix://csock)$ ifconfig shmif0
 shmif0: flags=8043<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500
-	address: b2:a0:37:26:d3:2e
+	address: b2:a0:57:b0:8a:69
 	linkstr: busmem
+	inet6 fe80::b0a0:57ff:feb0:8a69%shmif0 prefixlen 64 scopeid 0x2
 	inet 1.2.3.4 netmask 0xffffff00 broadcast 1.2.3.255
-````
+```
 
 The interface will persist until `rump_server` is killed or halted,
 like in a regular system an interface will persist until the
