@@ -132,7 +132,7 @@ e.g. [`cat`](http://man.NetBSD.org/cgi-bin/man-cgi?cat++NetBSD-current).
 * ```newfs_v7fs```
 * ```npfctl```
 * ```pax```
-* ```pcictl``` for future use, no pci bus support in userspace rump kernels yet
+* ```pcictl```
 * ```ping```
 * ```ping6``` uses signals not timeouts so only first ping working
 * ```raidctl```
