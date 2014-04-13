@@ -26,16 +26,17 @@ make (gmake).
 Running
 =======
 
-There are two ways to use rumprun, either linking into your program,
-or using a rump server to provide the rump kernel service.
-The latter resembles the model used by a regular operating system,
-and we will describe it first.
+There are two possibilities for operation mode: remote clients and local clients.  Both are
+described below.  If you are unsure which mode is relevant for you, you most likely
+want remote clients.
 
-Server mode
------------
+Remote clients
+--------------
 
-When using server mode, you run the rump kernel in a separate process
-from the NetBSD applications.
+When using remote clients, you run the rump kernel runs in a separate process
+from the applications and communicates using IPC.  The operation mode resembles
+a typical OS setup, where the kernel is disjoint from the applications running
+on it.
 
 The most straightforward way to do this is in conjuction
 with the readily available `rump_server` program.  The method
@@ -75,13 +76,13 @@ system is rebooted.
 You can also use a custom application instead of `rump_server`.  Consult
 http://www.rumpkernel.org/ for the documentation on how to do that.
 
-Linking to your binary
-----------------------
+Using local clients
+-------------------
 
-As opposed to server mode, you can both the rump kernel and
-application in the same process.
+As opposed to remote clients, with local clients both the rump kernel and client(s) exist in the
+same host process.
 
-This is under development and there will be examples shortly. The build process is
+This mode is under development and there will be examples shortly. The build process is
 similar but you link in the rump kernel instead of just the rumpclient library.
 
 
