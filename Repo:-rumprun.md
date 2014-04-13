@@ -85,11 +85,11 @@ This is under development and there will be examples shortly. The build process 
 similar but you link in the rump kernel instead of just the rumpclient library.
 
 
-Supported programs
-==================
+Bundled programs
+================
 
-Binaries currently built listed here. Not all are fully tested yet and
-there may be some unlisted caveats.  Generally speaking, supporting a
+Binaries that are bundled with the default rumprun installation are
+listed here.  Generally speaking, supporting a
 program is a matter of pulling in the unmodified NetBSD source code and
 adding the name of the program to `Makefile`, so if you have requests,
 do not hesitate to file an issue.  The manual page for each command
