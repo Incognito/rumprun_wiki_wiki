@@ -39,17 +39,12 @@ platform with a single command.
 Tested hosts
 ============
 
-Continuous testing on Linux/amd64 + gcc/clang is done by
-[Travis CI](https://travis-ci.org/rumpkernel/buildrump.sh)
-for every commit.  [![Build Status](https://travis-ci.org/rumpkernel/buildrump.sh.png?branch=master)](https://travis-ci.org/rumpkernel/buildrump.sh)
-
-There is a broader platform CI testing for Linux _x86_ (32/64bit), _ARM_, _PowerPC_ (32/64bit), _MIPS_ (o32 ABI) and NetBSD _x86_ (32/64bit), and FreeBSD and OpenBSD _x86_ (64 bit) [using buildbot](http://build.myriabit.eu:8011/waterfall). 
+Continuous testing and integration for userspace builds is available at http://builds.rumpkernel.org.
 
 Tested machine architectures include _x86_ (32/64bit), _ARM_, _PowerPC_
 (32/64bit), _MIPS_ (32bit) and _UltraSPARC_ (32/64bit).
 
-Examples of hosts buildrump.sh has manually been tested on are
-as follows:
+Examples of hosts buildrump.sh has been tested on are as follows:
 
 - Linux
     - Linux Gallifrey 2.6.35.14-106.fc14.x86_64 #1 SMP Wed Nov 23 13:07:52 UTC 2011 x86_64 x86_64 x86_64 GNU/Linux (with seLinux in permissive mode, __amd64__)
