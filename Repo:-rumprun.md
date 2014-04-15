@@ -147,3 +147,9 @@ e.g. [`cat`](http://man.NetBSD.org/cgi-bin/man-cgi?cat++NetBSD-current).
 * ```wlanctl```
 
 For programs that fork and exec, the rumpclient library will fork the provided host binary, so for ktrace you must do ```./bin/ktrace ./bin/ls```.
+
+FAQ
+===
+
+- Why does shell redirecting not work?  E.g. `wpa_passphrase net passkey > wpa.conf` creates the config file on the host instead of in the rump kernel.
+    - Your shell is not a rumprun program, so shell redirects are interpreted in host context.  As a workaround, use `dd`, which is a rumprun program, e.g. `wpa_passphrase net passkey | dd of=wpa.conf`
