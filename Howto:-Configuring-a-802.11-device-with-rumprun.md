@@ -64,7 +64,7 @@ procedure differs from standard NetBSD.
 The only remaining step is to run `wpa_supplicant` and examine the results.
 
 ```
-rumpremote (unix:///tmp/iwnsock)$ wpa_supplicant  -i iwn0 -c /wpa-etfs.conf
+rumpremote (unix:///tmp/iwnsock)$ wpa_supplicant -i iwn0 -c /wpa.conf
 Successfully initialized wpa_supplicant
 iwn0: Trying to associate with XX:XX:XX:XX:XX:XX (SSID='it-is-a-secret' freq=2412 MHz)
 iwn0: Associated with XX:XX:XX:XX:XX:XX
