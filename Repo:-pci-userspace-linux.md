@@ -1,3 +1,3 @@
-instructions will be here shortly
+instructions for [pci-userspace-linux](http://repo.rumpkernel.org/pci-userspace-linux) will be here shortly
 
 patience!
