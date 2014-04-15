@@ -145,6 +145,8 @@ e.g. [`cat`](http://man.NetBSD.org/cgi-bin/man-cgi?cat++NetBSD-current).
 * ```umount```
 * ```vnconfig``` the vnd kernel driver is not provided by rumprun ;)
 * ```wlanctl```
+* ```wpa_passphrase``` does not really use the rump kernel, for completeness with `wpa_supplicant`
+* ```wpa_supplicant```
 
 For programs that fork and exec, the rumpclient library will fork the provided host binary, so for ktrace you must do ```./bin/ktrace ./bin/ls```.
 
