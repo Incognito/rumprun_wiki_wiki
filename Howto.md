@@ -1,6 +1,8 @@
 Pages with howtos and tutorials:
 
+- [[Accessing PCI devices from userspace|Howto:-Accessing-PCI-devices-from-userspace]]
 - [[Building for Linux with musl libc|Howto:-Building-for-Linux-with-musl-libc]]
+- [[Configuring a 802.11 device with rumprun|Howto:-Configuring-a-802.11-device-with-rumprun]]
 - [[Cross architecture execution|Howto:-Cross-architecture-execution]]
 - [[Debugging rumpuser xen with gdb|Howto:-Debugging-rumpuser-xen-with-gdb]]
 - [[Networking with if_virt|Howto:-Networking-with-if_virt]]
