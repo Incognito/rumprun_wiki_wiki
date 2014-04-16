@@ -57,6 +57,8 @@ To unbind:
 $ echo '0000:03:00.0' > /sys/bus/pci/drivers/iwlwifi/unbind
 ```
 
+Alternatively, if you are not using any instances of the device, you can just remove the kernel module for the device.
+
 Then, to bind:
 
 ```
