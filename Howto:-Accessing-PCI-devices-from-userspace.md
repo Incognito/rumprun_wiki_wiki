@@ -83,3 +83,5 @@ Non-Linux hosts
 ---------------
 
 TODO
+
+Note that FreeBSD now has a simple userspace PCI passthrough module for bhyve, so it should be fairly easy to support this.
