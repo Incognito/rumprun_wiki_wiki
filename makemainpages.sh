@@ -30,6 +30,7 @@ for cat in ${CATEGORIES}; do
 	echo >> ${cat}.md
 	pages=$(echo ${cat}:*)
 	for page in ${pages}; do
+		sed 1q ${page} | grep -q RUMPWIKI_NOINDEX && continue
 		txt=$(echo ${page} | sed "s/${cat}:-*//;s/-/ /g;s/\.md$//;")
 		echo "- [[${txt}|${page%%.md}]]" >> ${cat}.md
 	done
