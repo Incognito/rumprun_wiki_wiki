@@ -1,4 +1,4 @@
-This wiki page describes [pci-userspace-linux](http://repo.rumpkernel.org/pci-userspace-linux).
+This wiki page describes [pci-userspace](http://repo.rumpkernel.org/pci-userspace).
 
 The repository contains support for running NetBSD kernel PCI device drivers in rump kernels in Linux userspace.  Support is generic, so more or less any device driver could work, though currently
 the build infra offers only a handful of drivers.  Also, PCI I/O space is not yet supported,
