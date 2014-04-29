@@ -16,3 +16,6 @@ Buildbot builds of buildrump.sh against NetBSD HEAD, multiple operating systems 
 
 There are buildbot builds of ljsyscall, which includes tests against rump kernels on various architectures
 * http://build.myriabit.eu:8010/waterfall
+
+There are buildbot builds of rumprun on various environments
+* http://build.myriabit.eu:8013/waterfall
