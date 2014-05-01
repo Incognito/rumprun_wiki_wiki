@@ -8,14 +8,11 @@ Travis CI (Linux/x86_64):
 
 Live Travis reports are sent to __#rumpkernel-builds__ on irc.freenode.net.
 
-Buildbot builds of all buildrump.sh branches, multiple operating systems and machine architectures.
-* http://build.myriabit.eu:8011/waterfall
+Buildbot:
 
-Buildbot builds of buildrump.sh against NetBSD HEAD, multiple operating systems and machine architectures.  Note since these builds are not against a "known good" timestamp of NetBSD sources, there may be transient failures due to problems in the NetBSD tree:
-* http://build.myriabit.eu:8012/waterfall
+* [buildrump.sh stable, multiple operating systems and architectures](http://build.myriabit.eu:8011/waterfall)
+* [buildrump.sh NetBSD HEAD, multiple operating systems and architectures](http://build.myriabit.eu:8012/waterfall) (*)
+* [ljsyscall, includes rump kernel tests on various platforms](http://build.myriabit.eu:8010/waterfall)
+* [rumprun, multiple platforms](http://build.myriabit.eu:8013/waterfall)
 
-There are buildbot builds of ljsyscall, which includes tests against rump kernels on various architectures
-* http://build.myriabit.eu:8010/waterfall
-
-There are buildbot builds of rumprun on various environments
-* http://build.myriabit.eu:8013/waterfall
+\* since these builds are not against a "known good" timestamp of NetBSD sources, there may be transient failures due to problems in the NetBSD tree.
