@@ -3,6 +3,10 @@ The default assumption made by rump kernel packages is that a host will be conne
 [[buildrump.sh|Repo:-buildrump.sh]]
 -----------------------------------
 
+The easiest way is to download a pre-prepared tarball from [SourceForge](http://sourceforge.net/projects/rumpkernel/).  Downloading the tarball is also the only officially supported way.
+
+If you want to prepare your own from an arbitrary buildrump.sh revision, do:
+
 * Run `./tarup.sh`
 
 Note: if you do not start with a clean buildrump.sh pull, you may have to run `tarup.sh` with `-f` parameter.
