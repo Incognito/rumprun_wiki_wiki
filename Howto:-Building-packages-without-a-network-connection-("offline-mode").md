@@ -1,4 +1,4 @@
-The default assumption made by rump kernel packages is that a host will be connected to the Internet during the build phase.  This page documents how to prepare "offline" version of a specific package.  The offline version can then be copied to and used on a host without a network connection.  Note: these instructions are not guaranteed to remain constant, and generally speaking only apply to the current revisions of each package.  The situation will hopefully improve in the future with stable and consistent procedures.
+The default assumption made by rump kernel repositories is that a host will be connected to the Internet during the build phase.  This page documents how to prepare "offline" version of a specific package.  The offline version can then be copied to and used on a host without a network connection.  Note: these instructions are not guaranteed to remain constant, and generally speaking only apply to the current revisions of each package.  The situation will hopefully improve in the future with stable and consistent procedures.
 
 [[buildrump.sh|Repo:-buildrump.sh]]
 -----------------------------------
