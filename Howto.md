@@ -1,8 +1,8 @@
 Pages with howtos and tutorials. The difference between
 the two:
-* Howtos are specific and assume that you have general knowledge of
+- Howtos are specific and assume that you have general knowledge of
  rump kernels.
-* Tutorials start from scratch and build towards a useful outcome.
+- Tutorials start from scratch and build towards a useful outcome.
  If you are new to rump kernels, following one or two tutorials
  should be you started.
 
