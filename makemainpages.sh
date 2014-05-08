@@ -1,15 +1,14 @@
 #!/bin/sh
 
 # NOTE!  Do not include categories with manual top level, e.g. Platforms!
-CATEGORIES="Builds Info Howto Performance Repo"
+CATEGORIES="Builds Info Howto Performance Repo Tutorial"
 
 DESC_Builds="Pages about automated builds:"
+DESC_Howto='Pages with howtos:'
 DESC_Info="Pages containing general information:"
 DESC_Performance="Pages about performance and optimizing performance:"
 DESC_Repo="Pages for repositories:"
-DESC_Howto='Pages with howtos and tutorials.  Howtos give specific
-instructions, while tutorials start from scratch and build towards a
-useful scenario.'
+DESC_Tutorial='Pages with tutorials:'
 
 #
 # BEGIN Script
