@@ -2,7 +2,7 @@ Navigation:
 
 - [[Home]]
 - [[Builds]]
-- [[Howtos||Howto]]
+- [[Howtos|Howto]]
 - [[Misc. Info|Info]]
 - [[Performance]]
 - [[Platforms]]
