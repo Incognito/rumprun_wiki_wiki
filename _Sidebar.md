@@ -8,3 +8,4 @@ Navigation:
 - [[Platforms]]
 - [[Project ideas]]
 - [[Repo]]
+- [[Tutorial]]
