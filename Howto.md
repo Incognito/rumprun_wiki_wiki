@@ -1,11 +1,6 @@
-Pages with howtos and tutorials. The difference between the two:
-- Howtos are specific and assume that you have general knowledge of
- rump kernels.
-- Tutorials start from scratch and build towards a useful outcome.
- If you are new to rump kernels, following one or two tutorials
- should be you started.
-
-<!--- do not remove this comment. it is MAGIC! -->
+Pages with howtos and tutorials. Howtos give specific
+instructions, while tutorials start from scratch and build towards a
+useful scenario.
 
 - [[Accessing PCI devices from userspace|Howto:-Accessing-PCI-devices-from-userspace]]
 - [[Building for Linux with musl libc|Howto:-Building-for-Linux-with-musl-libc]]
