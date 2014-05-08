@@ -5,13 +5,22 @@ CATEGORIES="Builds Info Howto Performance Repo"
 
 DESC_Builds="Pages about automated builds:"
 DESC_Info="Pages containing general information:"
-DESC_Howto="Pages with howtos and tutorials:"
 DESC_Performance="Pages about performance and optimizing performance:"
 DESC_Repo="Pages for repositories:"
+
+DESC_Howto='Pages with howtos and tutorials.  The difference between
+the two:
+* Howtos are specific and assume that you have general knowledge of
+  rump kernels.
+* Tutorials start from scratch and build towards a useful outcome.
+  If you are new to rump kernels, following one or two tutorials
+  should be you started.'
+
 
 #
 # BEGIN Script
 #
+IFS=' '
 
 die ()
 {
