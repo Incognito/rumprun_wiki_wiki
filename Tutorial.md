@@ -1,3 +1,3 @@
-Pages with tutorials:
+Pages with tutorial(s):
 
 - [[Kernel development|Tutorial:-Kernel-development]]
