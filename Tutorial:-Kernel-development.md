@@ -116,7 +116,9 @@ Starting program: /home/pooka/tmp/demo/br/rump/bin/rump_server -lrumpfs_tmpfs -l
 
 Let's say we're interested in seeing what happens when tmpfs creates
 a directory.  We'll put a breakpoint in `tmpfs_mkdir` by first pressing
-ctrl-c in terminal 1, and then running```
+ctrl-c in terminal 1, and then running
+
+```
 (gdb) break tmpfs_mkdir
 Breakpoint 1 at 0x7ffff6bcae60: file /home/pooka/tmp/demo/br/src/sys/rump/fs/lib/libtmpfs/../../../../fs/tmpfs/tmpfs_vnops.c, line 808.
 (gdb) c
