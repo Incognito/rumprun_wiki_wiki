@@ -1,6 +1,4 @@
-Pages with howtos and tutorials. Howtos give specific
-instructions, while tutorials start from scratch and build towards a
-useful scenario.
+Pages with howtos:
 
 - [[Accessing PCI devices from userspace|Howto:-Accessing-PCI-devices-from-userspace]]
 - [[Building for Linux with musl libc|Howto:-Building-for-Linux-with-musl-libc]]
