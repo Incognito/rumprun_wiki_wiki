@@ -14,6 +14,7 @@ DESC_Howto='Pages with howtos and tutorials.  The difference between the two:
 - Tutorials start from scratch and build towards a useful outcome.
   If you are new to rump kernels, following one or two tutorials
   should be you started.
+
 <!--- do not remove this comment.  it is MAGIC! -->'
 
 
