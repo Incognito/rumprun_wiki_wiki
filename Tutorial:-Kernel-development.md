@@ -262,7 +262,7 @@ directory "test37" created by pid 6
 Less smooth sailing
 -------------------
 
-Rarely does kernel development go right the first.  Let's do one more
+Rarely does kernel development go right the first time.  Let's do one more
 thing where we add a further check to tmpfs_mkdir to ensure that the
 kernel invariant of mkdir being called for an existing parent directory
 holds.
@@ -282,8 +282,11 @@ earlier:
 
 Then, still in terminal 3, recompile and install as above.  Also,
 restart the server and terminal 1 and mount the tmpfs file system
-in terminal 2.  Then try to create a directory.  Now, looking into
-terminal 1, we see something alarming:
+in terminal 2.  Then try to create a directory.  (Note, if you were
+actually doing development, you would most likely write a script to
+perform these steps so as to keep your iteration time short)
+
+Now, looking into terminal 1, we see something alarming:
 
 ```
 directory "test1" created by pid 4
@@ -311,7 +314,7 @@ GNU gdb (GDB) 7.6.1-ubuntu
     at /home/pooka/tmp/demo/br/src/lib/librump/../../sys/rump/../kern/vnode_if.c:835
 ```
 
-So the problematic change is in frame 6, where we made our change.  Still
+So the problematic change is in frame 6, where we made our edit.  Still
 in terminal 1:
 
 ```
