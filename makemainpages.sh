@@ -8,13 +8,13 @@ DESC_Info="Pages containing general information:"
 DESC_Performance="Pages about performance and optimizing performance:"
 DESC_Repo="Pages for repositories:"
 
-DESC_Howto='Pages with howtos and tutorials.  The difference between
-the two:
-* Howtos are specific and assume that you have general knowledge of
+DESC_Howto='Pages with howtos and tutorials.  The difference between the two:
+- Howtos are specific and assume that you have general knowledge of
   rump kernels.
-* Tutorials start from scratch and build towards a useful outcome.
+- Tutorials start from scratch and build towards a useful outcome.
   If you are new to rump kernels, following one or two tutorials
-  should be you started.'
+  should be you started.
+<!--- do not remove this comment.  it is MAGIC! -->'
 
 
 #
