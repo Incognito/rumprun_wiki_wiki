@@ -305,6 +305,7 @@ $ gdb br/rump/bin/rump_server core
 GNU gdb (GDB) 7.6.1-ubuntu
 [...]
 (gdb) bt
+[...]
 #5  0x00007fa58e92601c in panic (fmt=<optimised out>)
     at /home/pooka/tmp/demo/br/src/lib/librump/../../sys/rump/../kern/subr_prf.c:200
 #6  0x00007fa58da42174 in tmpfs_mkdir (v=<optimised out>)
@@ -312,6 +313,7 @@ GNU gdb (GDB) 7.6.1-ubuntu
 #7  0x00007fa58e919b11 in VOP_MKDIR (dvp=0x1fd56f0, vpp=0x7fa585a29ca8, 
     cnp=<optimised out>, vap=<optimised out>)
     at /home/pooka/tmp/demo/br/src/lib/librump/../../sys/rump/../kern/vnode_if.c:835
+[...]
 ```
 
 So the problematic change is in frame 6, where we made our edit.  Still
