@@ -1,4 +1,4 @@
-Pages with howtos:
+Documentation for specific issues:
 
 - [[Accessing PCI devices from userspace|Howto:-Accessing-PCI-devices-from-userspace]]
 - [[Building for Linux with musl libc|Howto:-Building-for-Linux-with-musl-libc]]

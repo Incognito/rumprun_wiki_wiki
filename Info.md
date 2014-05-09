@@ -1,4 +1,4 @@
-Pages containing general information:
+General information:
 
 - [[External articles, tutorials and howto's|Info:-External-articles,-tutorials-and-howto's]]
 - [[File system images|Info:-File-system-images]]
