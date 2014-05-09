@@ -3,17 +3,17 @@
 # NOTE!  Do not include categories with manual top level, e.g. Platforms!
 CATEGORIES="Builds Info Howto Performance Repo Tutorial"
 
-DESC_Builds="Pages about automated builds:"
-DESC_Howto='Pages with howtos:'
-DESC_Info="Pages containing general information:"
-DESC_Performance="Pages about performance and optimizing performance:"
-DESC_Repo="Pages for repositories:"
-DESC_Tutorial='Pages with tutorials:'
+DESC_Builds='Automated builds and binary packages:'
+DESC_Howto='Documentation for specific issues:'
+DESC_Info='General information:'
+DESC_Performance='Performance and optimizing performance:'
+DESC_Repo='Main pages for repositories:'
+DESC_Tutorial='Detailed tutorials aimed at starting from zero and
+working towards mastering a subject:'
 
 #
 # BEGIN Script
 #
-IFS=' '
 
 die ()
 {
