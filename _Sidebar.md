@@ -3,7 +3,7 @@ Navigation:
 - [[Home]]
 - [[Builds]]
 - [[Howtos|Howto]]
-- [[Misc. Info|Info]]
+- [[General Info|Info]]
 - [[Performance]]
 - [[Platforms]]
 - [[Project ideas]]
