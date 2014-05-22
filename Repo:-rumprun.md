@@ -16,12 +16,10 @@ Building
 To build, run: 
 ````
 ./buildnb.sh
-make
 ```
 
 This will automatically fetch and build all dependencies, so assuming you
-have build tools (compiler etc.) installed, you are good to go. This requires GNU
-make (gmake).
+have build tools (compiler etc.) installed, you are good to go.
 
 Running
 =======
