@@ -4,7 +4,7 @@ You may or may not need to use ```BUILDRUMP_LDFLAGS="-fuse-ld=bfd"```; if ```arm
 
 To build, set
 ````
-export CC=arm-linux-gnueabi-gcc
+export CC=arm-linux-androideabi-gcc
 export BUILDRUMP_LDFLAGS="-fuse-ld=bfd"
 ./buildrump.sh -V MKPIC=no fullbuild
 ````
