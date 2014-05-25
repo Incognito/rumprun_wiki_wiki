@@ -1,11 +1,10 @@
 You need an Android cross compiler. You can install the Android NDK, but it is easier to use the version that your Linux distro provides if possible. For example for Debian and Ubuntu the package you need is ```gcc-arm-linux-androideabi``` for ARM Android or ```gcc-i686-linux-android``` for x86. There are no Android MIPS cross compilers packaged though. This will provide ```arm-linux-gnueabi-*``` tools, all set up to use the Android headers.
 
-You may or may not need to use ```BUILDRUMP_LDFLAGS="-fuse-ld=bfd"```; if ```arm-linux-androideabi-gcc -Wl,--version``` says the linker is GNU gold then you will as the ```gold``` linker does not build correctly.
+You may or may not need to use ```BUILDRUMP_LDFLAGS="-fuse-ld=bfd"```; if ```arm-linux-androideabi-gcc -Wl,--version``` says the linker is GNU gold then you will as the ```gold``` linker does not build correctly. As of recent rump kenerl versions this should no longer be necessary as ```gold``` is supported.
 
 To build, set
 ````
 export CC=arm-linux-androideabi-gcc
-export BUILDRUMP_LDFLAGS="-fuse-ld=bfd"
 ./buildrump.sh -V MKPIC=no fullbuild
 ````
 
