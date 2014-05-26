@@ -43,7 +43,6 @@ example follows.
 First, we run the server, for example with IP networking components:
 
 ````
-$ export LD_DYNAMIC_WEAK=1 #required on glibc systems
 $ ./rumpdyn/bin/rump_server -lrumpnet -lrumpnet_net -lrumpnet_netinet -lrumpnet_netinet6 -lrumpnet_shmif unix://csock
 $
 ````
