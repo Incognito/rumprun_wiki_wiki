@@ -85,65 +85,28 @@ similar but you link in the rump kernel instead of just the rumpclient library.
 Bundled programs
 ================
 
-Binaries that are bundled with the default rumprun installation are
-listed here.  Generally speaking, supporting a
+A few dozen NetBSD utilities such as `ifconfig`, `sysctl`, `dd` and `wpa_supplicant`
+are bundled with rumprun.  You can list the currently available ones by running
+`rumpremote_listcmds` (the routine is provided by `rumpremote.sh`).
+
+Generally speaking, supporting a
 program is a matter of pulling in the unmodified NetBSD source code and
 adding the name of the program to `Makefile`, so if you have requests,
-do not hesitate to file an issue.  The manual page for each command
+do not hesitate to file an issue.
+
+The manual page for each command
 is available from http://man.NetBSD.org/,
 e.g. [`cat`](http://man.NetBSD.org/cgi-bin/man-cgi?cat++NetBSD-current).
 
-* ```arp```
-* ```cat```
-* ```cgdconfig```
-* ```cp```
-* ```dd```
-* ```disklabel```
-* ```df```
-* ```dump```
-* ```dumpfs```
-* ```fsck```
-* ```fsck_ext2fs```
-* ```fsck_ffs```
-* ```fsck_lfs```
-* ```fsck_msdos```
-* ```fsck_v7fs```
-* ```ifconfig```
-* ```ktrace``` there is no kdump support yet. you can cat `ktrace.out` to host
-* ```ln```
-* ```ls```
-* ```makefs```
-* ```mkdir```
-* ```mknod```
-* ```modstat```
-* ```mount``` mount -vv needs some more work (it fork+exec's)
-* ```mount_ffs```
-* ```mv```
-* ```ndp```
-* ```newfs```
-* ```newfs_ext2fs```
-* ```newfs_lfs```
-* ```newfs_msdos```
-* ```newfs_sysvbfs```
-* ```newfs_udf```
-* ```newfs_v7fs```
-* ```npfctl```
-* ```pax```
-* ```pcictl```
-* ```ping```
-* ```ping6``` uses signals not timeouts so only first ping working
-* ```raidctl```
-* ```reboot``` not working due to signals; there is a simple ```halt``` available.
-* ```rm```
-* ```rmdir```
-* ```rndctl```
-* ```route```
-* ```sysctl```
-* ```umount```
-* ```vnconfig``` the vnd kernel driver is not provided by rumprun ;)
-* ```wlanctl```
-* ```wpa_passphrase``` does not really use the rump kernel, for completeness with `wpa_supplicant`
-* ```wpa_supplicant```
+Caveats
+-------
+
+* ```ktrace```: there is no kdump support yet. you can cat `ktrace.out` to host
+* ```mount```: mount -vv needs some more work (it fork+exec's)
+* ```ping6```: uses signals not timeouts so only first ping working
+* ```reboot```: not working due to signals; there is a simple ```halt``` available.
+* ```vnconfig```: the vnd kernel driver is not provided by rumprun ;)
+* ```wpa_passphrase```: does not really use the rump kernel, for completeness with `wpa_supplicant`
 
 For programs that fork and exec, the rumpclient library will fork the provided host binary, so for ktrace you must do ```./bin/ktrace ./bin/ls```.
 
