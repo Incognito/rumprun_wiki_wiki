@@ -1,5 +1,6 @@
 Documentation for specific issues:
 
+- [[Setting build time compiler flags|Howto:-Setting-build-time-compiler-flags]]
 - [[Accessing PCI devices from userspace|Howto:-Accessing-PCI-devices-from-userspace]]
 - [[Building for Linux with musl libc|Howto:-Building-for-Linux-with-musl-libc]]
 - [[Building packages without a network connection ("offline mode")|Howto:-Building-packages-without-a-network-connection-("offline-mode")]]
