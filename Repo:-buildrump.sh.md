@@ -148,7 +148,7 @@ Setting compile flags
 
 (These changes are currently in the flags branch, will be in master shortly)
 
-Normally `buildrump.sh` will do a build with no special compiler flags other than optimisation flags (`-O2`. Mostly this will be fine, but if you are cross compiling or building for a specific architecture variant you can add additional flags using the `-F` option. For example `-F CFLAGS='-march=m32 -mcpu=i586'` will pass those options to the C compiler. As well as `CFLAGS` you can use `AFLAGS` and `LDFLAGS`, `ACFLAGS` to set both `AFLAGS` and `CFLAGS` and `ALLFLAGS` to set all three. You can repeat the `-F` option as many times as necessary. So for example to do a 32 bit build on a 64 bit host use `./buildrump.sh -F ALLFLAGS=-m32`.
+Normally `buildrump.sh` will do a build with no special compiler flags other than optimisation flags (`-O2`). Mostly this will be fine, but if you are cross compiling or building for a specific architecture variant you can add additional flags using the `-F` option. For example `-F CFLAGS='-march=m32 -mcpu=i586'` will pass those options to the C compiler. As well as `CFLAGS` you can use `AFLAGS` and `LDFLAGS`, `ACFLAGS` to set both `AFLAGS` and `CFLAGS` and `ALLFLAGS` to set all three. You can repeat the `-F` option as many times as necessary. So for example to do a 32 bit build on a 64 bit host use `./buildrump.sh -F ALLFLAGS=-m32`.
 
 
 Tips for advanced users
