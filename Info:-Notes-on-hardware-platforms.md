@@ -11,4 +11,4 @@ default all ARM6 builds to armv6k, but this default has been removed.
 ARM Thumb builds
 ================
 
-If you do a build with Thumb instructions you will need to use `-F ACFLAGS='-mthumb -mthumb-interwork'` as some files are still built with arm instructions and so you need the interop flag.
+If you do a build with Thumb instructions you may need to use `-F ACFLAGS='-mthumb -mthumb-interwork'` as some files are still built with arm instructions and so you need the interop flag. This is the default setting on some toolchains.
