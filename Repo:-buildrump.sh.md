@@ -150,6 +150,10 @@ Normally `buildrump.sh` will do a build with no special compiler flags other tha
 
 Note that not all CPU variants and ABIs are supported by NetBSD and the rump kernel, although a very large number are. The script does not warn about most potential issues.
 
+Debug builds
+------------
+
+The default build is a debug build (using `-O2 -g`, and enabling NetBSD assertions). You can increase debugginess with `-D` or more eg `-DDD`. If you want to customize the flags, use eg `-F DBG='-O0 -g'`.
 
 Tips for advanced users
 =========================
