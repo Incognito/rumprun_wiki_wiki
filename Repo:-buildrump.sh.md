@@ -153,7 +153,7 @@ Note that not all CPU variants and ABIs are supported by NetBSD and the rump ker
 Debug builds
 ------------
 
-The default build is a debug build (using `-O2 -g`, and enabling NetBSD assertions). You can increase debugginess with `-D` or more eg `-DDD`. If you want to customize the flags, use eg `-F DBG='-O0 -g'`.
+The default build is a debug build (using `-O2 -g`, and enabling NetBSD assertions). You can increase debugginess with `-D` or more eg `-DDD`. If you want to customize the flags, use eg `-F DBG='-O0 -g'`. Using `-r` will do a release build, without debug symbols or assertions.
 
 Tips for advanced users
 =========================
