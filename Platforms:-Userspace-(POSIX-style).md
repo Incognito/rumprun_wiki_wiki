@@ -55,7 +55,8 @@ Examples of hosts buildrump.sh has been tested on are as follows:
     - Linux 172-29-171-95.dal-ebis.ihost.com 2.6.32-358.el6.ppc64 #1 SMP Tue Jan 29 11:43:27 EST 2013 ppc64 ppc64 ppc64 GNU/Linux (RHEL6, __ppc64__, 64 and 32 bit builds, IBM Virtual Loaner Program)
     - Linux fuloong 3.11.6-gnu #8 PREEMPT Mon Oct 28 23:28:22 GMT 2013 mips64 ICT Loongson-2 V0.3 FPU V0.1 lemote-fuloong-2f-box GNU/Linux (Gentoo, __mips o32 le__)
     - Linux ubnt 2.6.32.13-UBNT #1 SMP Wed Oct 24 01:08:06 PDT 2012 mips64 GNU/Linux (__mips o32 be__)
-
+    - Linux alpine64 3.14.6-0-grsec #1-Alpine SMP Thu Jun 12 10:58:48 GMT 2014 x86_64 Linux (Alpine, __x86_64__, Musl libc)
+ 
 - Android
     - Android 4.2.2 kernel 3.4.5 ARMv7 Processor rev 2 (v7l) (__arm__)
 
