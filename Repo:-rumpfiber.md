@@ -20,6 +20,7 @@ reproducible it should be identical.
 6. Not widely tested yet, but should be portable.
 
 Why not?
+
 1. No parallelism. The NetBSD network stack is being made much for
 multi processor friendly, so you might lose performance.
 2. Some stuff missing - I deleted eg the block device driver as it was
