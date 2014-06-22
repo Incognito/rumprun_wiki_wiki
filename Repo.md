@@ -7,3 +7,4 @@ Main pages for repositories:
 - [[rump pktgenif|Repo:-rump-pktgenif]]
 - [[rumprun|Repo:-rumprun]]
 - [[rumpuser xen|Repo:-rumpuser-xen]]
+- [[rumpfiber|Repo:-rumpfiber]]
