@@ -1,5 +1,7 @@
 This page discusses [rumpfiber](http://repo.rumpkernel.org/rumpfiber).
 
+_Note this code is new and there are still a few portability issues to iron out. These will be resolved soon, but currently if you don't use Linux you may need to fix a few things._
+
 This is a rump kernel hypercall layer that does not use pthreads like the standard POSIX implementation in [buildrump.sh](http://repo.rumpkernel.org/buildrump.sh), but uses cooperative
 userspace threads using the widely available `getcontext`/`swapcontext`
 calls which create multiple stacks within a single OS thread.
