@@ -31,6 +31,7 @@ temporarily removed.
 
 To build, just do
 ````
+git submodule update --init --recursive
 make
 ````
 There are currently no build options other than tweaking the Makefile if needed.
