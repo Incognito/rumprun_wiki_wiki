@@ -31,9 +31,10 @@ temporarily removed.
 
 To build, just do
 ````
-git submodule update --init --recursive
 make
 ````
+This requires GNU make, so use `gmake` on a BSD system.
+
 There are currently no build options other than tweaking the Makefile if needed.
 
 It is currently tested using [ljsyscall](https://github.com/justincormack/ljsyscall).
