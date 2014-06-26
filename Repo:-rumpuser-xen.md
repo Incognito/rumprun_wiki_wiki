@@ -9,7 +9,7 @@ a single-image application, with the memory footprint being a fraction
 of that of a full OS, yet still achieving the isolation provided by Xen.
 
 For applications a POSIX-y interface is provided.  Some applications,
-such as those using file systems or sockets interfaces, will more or
+such as those using file systems or sockets interfaces or pthreads, will more or
 less work out-of-the-box.  Limitations include applications which do
 not fit into a single-process no-VM model, such as applications using
 `fork()` or `execve()`.  These limitations may sometimes be overcome by
