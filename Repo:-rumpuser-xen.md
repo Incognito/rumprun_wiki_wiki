@@ -34,3 +34,9 @@ To run, use the standard Xen tools:
 Check out `domain_config` to change which tests/demos are run.
 By default, a httpd will be run.  You will need a Xen network
 setup for it to work.
+
+Debugging
+---------
+
+Debugging the rump kernel Xen stack is described on a separate
+page: [[Howto:-Debugging-rumpuser-xen-with-gdb]].
