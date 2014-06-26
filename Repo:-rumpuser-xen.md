@@ -15,8 +15,6 @@ not fit into a single-process no-VM model, such as applications using
 `fork()` or `execve()`.  These limitations may sometimes be overcome by
 various forms of emulation.
 
-See http://www.rumpkernel.org/ for more information on rump kernels.
-
 
 Using / Testing
 ---------------
