@@ -39,4 +39,6 @@ This requires GNU make, so use `gmake` on a BSD system.
 
 There are currently no build options other than tweaking the Makefile if needed.
 
-It is currently tested using [ljsyscall](https://github.com/justincormack/ljsyscall).
+It is currently tested using [ljsyscall](https://github.com/justincormack/ljsyscall), use `make test`.
+
+It is reasonably portable but requires the `getcontext` series of functions, which are not always available, for example in (current) Musl and OpenBSD.
