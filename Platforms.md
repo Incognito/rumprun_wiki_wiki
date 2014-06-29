@@ -13,10 +13,11 @@ The currently supported platforms are:
 * [[Userspace (POSIX style)|Platforms: Userspace (POSIX Style)]],
   including Linux, Android, NetBSD, FreeBSD, OpenBSD, Dragonfly
   BSD, Solaris (+ derivates) and Windows (via Cygwin).
-* [[Linux kernel|Platforms: Linux kernel]]
 * [[Xen DomU|Platforms: Xen DomU]]
 * [[Genode OS Framework|Platforms: Genode OS Framework]]
 
+Also, there is support for the [[linux kernel|Platforms: Linux kernel]] in
+terms of an experiment.
 
 Hypercalls
 ----------
