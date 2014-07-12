@@ -36,6 +36,11 @@ build script, _build.sh_.  With the buildrump.sh script, it finally became
 easy to build a given NetBSD source tree as rump kernels for a given target
 platform with a single command.
 
+Build time options
+==================
+
+The default option is to use pthreads for threading, but there is also a [[fiber based|Platforms: Userspace fibers]] implementation that can be selected at build time.
+
 Tested hosts
 ============
 
