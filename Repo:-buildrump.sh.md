@@ -155,6 +155,11 @@ Debug builds
 
 The default build is a debug build (using `-O2 -g`, and enabling NetBSD assertions). You can increase debugginess with `-D` or more eg `-DDD`. If you want to customize the flags, use eg `-F DBG='-O0 -g'`. Using `-r` will do a release build, without debug symbols or assertions.
 
+NetBSD build options
+--------------------
+
+Options for the NetBSD build process can be specified using `-V option=value`.
+
 Tips for advanced users
 =========================
 
