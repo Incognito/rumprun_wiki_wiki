@@ -25,5 +25,5 @@ It's likely that the following packages would, to a first approximation, suffice
 
 ## Existing repositories and platforms
 
-* [[Repositories|Repos]]
+* [[Repositories|Repo]]
 * [[Platforms]]
