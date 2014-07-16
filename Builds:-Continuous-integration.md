@@ -6,7 +6,6 @@ Travis CI (Linux/x86_64):
 * [DPDK TCP/IP stack driver](https://travis-ci.org/rumpkernel/dpdk-rumptcpip) ![Build Status](https://travis-ci.org/rumpkernel/dpdk-rumptcpip.png?branch=master)
 * [netmap TCP/IP stack driver](https://travis-ci.org/rumpkernel/netmap-rumptcpip) ![Build Status](https://travis-ci.org/rumpkernel/netmap-rumptcpip.png?branch=master)
 * [PCI drivers in userspace](https://travis-ci.org/rumpkernel/pci-userspace) ![Build Status](https://travis-ci.org/rumpkernel/pci-userspace.png?branch=master)
-* [rumpfiber hypercall layer](https://travis-ci.org/rumpkernel/rumpfiber) [![Build Status](https://travis-ci.org/rumpkernel/rumpfiber.png)](https://travis-ci.org/rumpkernel/rumpfiber)
 
 Live Travis reports are sent to __#rumpkernel-builds__ on irc.freenode.net.
 
