@@ -110,7 +110,6 @@ Caveats
 * ```mount```: mount -vv needs some more work (it fork+exec's)
 * ```ping6```: uses signals not timeouts so only first ping working
 * ```reboot```: not working due to signals; there is a simple ```halt``` available.
-* ```vnconfig```: the vnd kernel driver is not provided by rumprun ;)
 * ```wpa_passphrase```: does not really use the rump kernel, for completeness with `wpa_supplicant`
 
 For programs that fork and exec, the rumpclient library will fork the provided host binary, so for ktrace you must do ```./bin/ktrace ./bin/ls```.
