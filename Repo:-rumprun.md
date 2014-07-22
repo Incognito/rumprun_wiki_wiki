@@ -106,7 +106,7 @@ e.g. [`cat`](http://man.NetBSD.org/cgi-bin/man-cgi?cat++NetBSD-current).
 Caveats
 -------
 
-* ```ktrace```: there is no kdump support yet. you can cat `ktrace.out` to host
+* ```ktrace```: there is no kdump support yet. you can cat `ktrace.out` to a NetBSD host and kdump there
 * ```mount```: mount -vv needs some more work (it fork+exec's)
 * ```ping6```: uses signals not timeouts so only first ping working
 * ```reboot```: not working due to signals; there is a simple ```halt``` available.
