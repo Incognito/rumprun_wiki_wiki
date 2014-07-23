@@ -1,4 +1,7 @@
-This page documents issues when wanting to run applications on top of a standalone rump kernel, e.g. [rumprun](http://repo.rumpkernel.org/rumprun/) and [rumpuser-xen](https://github.com/rumpkernel/rumpuser-xen/) scenarios.
+This page documents issues when wanting to run applications on top of a standalone rump kernel, e.g. [rumprun](http://repo.rumpkernel.org/rumprun/) and [rumpuser-xen](http://repo.rumpkernel.org/rumpuser-xen/) scenarios.
+
+__Status__: Support is far along enough for people to be able to experiment with their own applications
+using the offered tools.
 
 ## building
 
