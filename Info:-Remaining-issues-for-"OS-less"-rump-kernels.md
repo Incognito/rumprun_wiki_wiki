@@ -4,11 +4,12 @@ This page documents issues when wanting to run applications on top of a standalo
 
 problem: no clear "recipe" to compile and bundle existing programs.
 
-status: proposal and working proof-of-concept posted to rumpkernel-users http://permalink.gmane.org/gmane.comp.rumpkernel.user/276
+status: __DONE__'ish: exists in rumpuser-xen and can build off-the-internet software.  Still need to
+figure out how to embed configuration information (e.g. network config) into the standalone stacks.
 
 ## pthreads
 
-status: initial support pthread in both a rumprun userspace stack (using rumpfiber) and Xen committed
+status: __DONE__'ish: initial support pthread in both a rumprun userspace stack (using rumpfiber) and Xen committed
 
 ## nanosleep/gettimeofday/timing
 
