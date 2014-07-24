@@ -23,9 +23,7 @@ Instructions
 
 The simple version is as follows:
 
-* run `git submodule update --init --recursive`
-* edit `src/libdpdkif/configuration.h`
-* run `make`
+* `./buildme.sh`
 
 To test, try running `rump/bin/webbrowser`.
 
