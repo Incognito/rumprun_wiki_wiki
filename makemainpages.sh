@@ -28,12 +28,18 @@ for cat in ${CATEGORIES}; do
 	eval desc=\${DESC_${cat}}
 	[ -z "${desc}" ] && { echo ${cat} is missing DESC; exit 1; }
 
+	if [ "${cat}" = "Repo" ]; then
+		dashsub=''
+	else
+		dashsub='s/-/ /g'
+	fi
+
 	echo ${desc} > ${cat}.md
 	echo >> ${cat}.md
 	pages=$(echo ${cat}:*)
 	for page in ${pages}; do
 		sed 1q ${page} | grep -q RUMPWIKI_NOINDEX && continue
-		txt=$(echo ${page} | sed "s/${cat}:-*//;s/-/ /g;s/\.md$//;")
+		txt=$(echo ${page} | sed "s/${cat}:-*//;${dashsub};s/\.md$//;")
 		echo "- [[${txt}|${page%%.md}]]" >> ${cat}.md
 	done
 done
