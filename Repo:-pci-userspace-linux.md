@@ -1,3 +1,3 @@
 <!-- RUMPWIKI_NOINDEX -->
 
-Moved to http://wiki.rumpkernel.org/Repo:-pci-userspace
+Moved to [[pci-userspace|Repo:-pci-userspace]]
