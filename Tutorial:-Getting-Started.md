@@ -60,7 +60,7 @@ Ok, um, where did it go?  By default, a `rump_server` will background itself, an
 
 Under the `bin` directory you can find the same utilities as in the `bin-rr` directory.  The difference between the two is that while the latter binaries have the entire kernel baked into them, the former only contain logic to contact a remote rump kernel.  You can verify this with the `ldd` utility.  The binaries in `bin` will be linked to librumpclient.
 
-To direct the application to the right rump kernel server, the environment variable `$RUMP_SERVER` is used.  There is also a bash script, when if sourced, sets the prompt so that the value of `$RUMP_SERVER` is visible.  The script also sets `$PATH` so that the `bin` directory is first.  Let's give it a spin.
+To direct the application to the right rump kernel server, the environment variable `$RUMP_SERVER` is used.  There is also a bash script, when if sourced, sets the prompt so that the value of `$RUMP_SERVER` is visible.  That will help keep track of which rump kernel server the commands are being sent to.  The script also sets `$PATH` so that the `bin` directory is first.  Let's give it a spin.
 
 ```
 $ . ./rumpremote.sh
@@ -92,3 +92,69 @@ rumpfs on / type rumpfs (local)
 ```
 
 Better.
+
+Can we mount tmpfs inside the rump kernel server?
+
+```
+rumpremote (unix:///tmp/rumpctrlsock)$ mount_tmpfs /swap /tmp
+mount_tmpfs: tmpfs on /tmp: Operation not supported by device
+```
+
+Bummer, looks like you'll have to keep reading.
+
+rumpremote extra tricks
+=======================
+
+Assuming you have sourced `rumpremote.sh`, you can list all of the available commands with `rumpremote_listcmds`.  Another way would be to list the contents of the `bin` directory.  You can test for an individual command with `rumpremote_hascmd` (which may give peace of mind if you e.g. want to execute `rm -rf /`).  Finally, you can "shell out" with `rumpremote_hostcmd`.  Let's try these out.
+
+```
+rumpremote (unix:///tmp/rumpctrlsock)$ rumpremote_listcmds 
+arp		ed		mknod		newfs_msdos	route
+[...]
+rumpremote (unix:///tmp/rumpctrlsock)$ rumpremote_hascmd ls
+#t
+rumpremote (unix:///tmp/rumpctrlsock)$ rumpremote_hascmd top
+#f
+rumpremote (unix:///tmp/rumpctrlsock)$ ls -l /
+total 2
+drwxr-xr-x  2 0  0  512 Jul 28 23:10 dev
+drwxrwxrwt  2 0  0  512 Jul 28 23:10 tmp
+rumpremote (unix:///tmp/rumpctrlsock)$ rumpremote_hostcmd ls -l /
+total 110
+drwxr-xr-x   2 root root  4096 Jul 23 23:01 bin
+[...]
+```
+
+Coping with components
+======================
+
+Let's assume we want to run some driver in a rump kernel.  That driver needs all of its dependencies to work.  How to figure out what the dependencies are?  For the impatient, there is `rump_allserver`, which simply loads all components that were available when `rump_allserver` was built.  However, it is better to get into the habit of surgically selecting only the necessary components.  This will keep footprint of the rump kernel to a minimum.  We can use the tool `rump_wmd` (Where's My Dependency) to resolve dependencies.  For example, let's assume we want a rump kernel to support the FFS file system driver.
+
+```
+rumpremote (unix:///tmp/rumpctrlsock)$ rumpremote_hostcmd ./rumpdyn/bin/rump_wmd -L./rumpdyn/lib -lrumpfs_ffs
+DEBUG0: Searching component combinations. This may take a while ...
+DEBUG0: Found a set
+-lrumpdev -lrumpdev_disk -lrumpvfs -lrumpfs_ffs
+```
+
+Now, we could start a rump kernel server with FFS, but we'll actually start one which supports tmpfs, to not have to magically come up with an FFS image to mount.  Before we can start another server, we have to halt the previously running one.  Note, you can halt a server only once, as demonstrated below.
+
+```
+rumpremote (unix:///tmp/rumpctrlsock)$ halt
+rumpremote (unix:///tmp/rumpctrlsock)$ halt
+rumpclient init failed
+rumpremote (unix:///tmp/rumpctrlsock)$ ./rumpdyn/bin/rump_server -lrumpfs_tmpfs -lrumpvfs unix:///tmp/rumpctrlsock
+rumpremote (unix:///tmp/rumpctrlsock)$ mount_tmpfs /swap /tmp
+rumpremote (unix:///tmp/rumpctrlsock)$ mount
+rumpfs on / type rumpfs (local)
+tmpfs on /tmp type tmpfs (local)
+```
+
+Homework
+========
+
+Try out at least some of the commands listed by `rumpremote_listcmds`.  Some of them require rather specially configured rump kernels (e.g. `wpa_supplicant`), and those are out of the scope of this tutorial.  However, you should for example be able to configure a rump server up to a point where `ping 127.0.0.1` works.
+
+The manual pages for all of the commands are available at http://man.netbsd.org/
+
+When you are satisfied with your prowess, move on to for example the [[kernel development|Tutorial:-Kernel-development]] tutorial, which discusses running rump kernels under the debugger.
