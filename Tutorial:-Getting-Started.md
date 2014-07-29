@@ -150,6 +150,14 @@ rumpfs on / type rumpfs (local)
 tmpfs on /tmp type tmpfs (local)
 ```
 
+Building your own applications
+==============================
+
+So you can run rump kernels with various component configurations and change their configurations using various applications we provided.  The next thing you are probably thinking about is bundling your own applications instead of the ones we provide.  Short answer: it's possible (obviously, see above), but we're still working on how to make it "consumer grade".  Some experiments are currently done on the [[Xen platform|Repo:-rumpuser-xen]], where it is possible to build application stacks using wrappers to the `configure` and `make` build tools.  Have a look in the [app-tools directory](https://github.com/rumpkernel/rumpuser-xen/tree/master/app-tools) and at what the Travis CI [automated test script](https://github.com/rumpkernel/rumpuser-xen/blob/master/.travis.yml) does.
+
+Rest assured, we will write more documentation on the subject as the material develops and the plot thickens.
+
+
 Homework
 ========
 
