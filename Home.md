@@ -23,10 +23,4 @@ Twitter: [@rumpkernel](https://twitter.com/rumpkernel)
 
 ## Getting started
 
-The easiest way to try out rump kernels is to start in
-userspace with [_buildrump.sh_](http://repo.rumpkernel.org/buildrump.sh).
-Clone the repository and run the script without arguments.
-The script will do a build that allows you to run rump kernels
-in userspace on your host.  Then get [_rumprun_](http://repo.rumpkernel.org/rumprun).  It
-provides familiar utilities such as `ls`, `ifconfig`, `sysctl`, etc.
-which allow you to access, configure and try out rump kernels.
+Follow our [[tutorial|Tutorial:-Getting-Started]] to get yourself acquainted with some basic concepts and commands.
