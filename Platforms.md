@@ -2,7 +2,7 @@ As opposed to the laborious methods of writing drivers from scratch or
 case-by-case porting and maintaining drivers from an established OS, the
 drivers provided by rump kernels are 100% unmodified over the upstream
 NetBSD tree.  The drivers are adapted to the target platform by a compact,
-high-level hypercall integrated.
+high-level hypercall interface.
 
 
 Supported platforms
