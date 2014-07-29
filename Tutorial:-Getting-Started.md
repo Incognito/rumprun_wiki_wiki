@@ -1,4 +1,6 @@
-This tutorial explains the very basic concepts of rump kernels.  We will go over them in the comfort of userspace.  "Why userspace?", you ask.  First, it is the most convenient platform to do experimentation in.  Second, most concepts map more or less directly to embedded and cloud platforms, so it is even beneficial to get a hang of debugging and building your projects in userspace before potentially moving them to the final target platform or platforms.
+This tutorial explains the very basic concepts of using rump kernels.  We will go over the concepts in the comfort of userspace.  "Why userspace?", you ask.  First, it is the most convenient platform to do experimentation in.  Second, most concepts map more or less directly to embedded and cloud platforms, so it is even beneficial to get a hang of debugging and building and testing your projects in userspace before potentially moving them to the final target platform or platforms.
+
+The following should work at least on more or less any Linux system and NetBSD systems.
 
 Building
 ========
@@ -8,11 +10,11 @@ First, we build the [[rumprun|Repo:-rumprun]] package.  This will give us four t
 * rump kernel components
 * hypercall implementation for POSIX'y userspace (allows rump kernels to run in userspace)
 * application stack support (allows POSIX applications, i.e. "userspace", to run on rump kernels)
-* a selection of userland utilities
+* a selection of userland utilities, mostly configuration-oriented (think `ifconfig` etc.)
 
-Note the subtle difference between the second and the third bullet point.  Essentially we are layering the rump kernel onto the host userspace, and a guest userspace on top of the rump kernel.  One might question why you would want to run a second userspace.  One valid scenario is when you want to use a rump kernel in userspace, e.g. as a userspace network stack.  We already mentioned the second valid scenario: to serve as a convenient testing/development platform and help you ramp up for embedded/cloud platforms.
+Note the subtle difference between the second and the third bullet point.  Essentially we are layering the rump kernel onto the host userspace, and a guest userspace on top of the rump kernel.  One might question why you would want to run a second userspace.  One valid scenario is when you want to use a rump kernel in userspace, e.g. as a userspace network stack -- you need the guest userspace for easy configuration of the rump kernel (again, think `ifconfig`).  We already mentioned a second valid scenario: to serve as a convenient testing/development platform and help you ramp up for embedded/cloud platforms.
 
-In any case, the build is a matter of running a script:
+In any case, the build is a matter of cloning the repo and running a script:
 
 ```
 git clone http://repo.rumpkernel.org/rumprun
@@ -45,7 +47,7 @@ kern.hostname = rump-10586.watou
 
 Our change had no effect.  What's up?  In fact, the change did have effect, but what is happening here is that the rump kernel is hosted in the same process as the userspace utility we are running.  When the utility exits, so does the rump kernel.  When the second `sysctl` process runs, a new rump kernel is bootstrapped, and the `sysctl` command examines the newly bootstrapped rump kernel's state.  We can gauge two things out of this phenomenon: 1) bootstrapping a rump kernel is very fast 2) modifying the state of a kernel that will exit immediately is not very useful.  So what's the point?
 
-If we again think about the scenario where rump kernels are used on an embedded device or cloud hypervisor, there is no mechanism for creating processes.  The necessary utilities will be baked into a single image and run most likely as threads.  Therefore, the problem does not exist in most target environments.  Luckily, we have an ace up our sleeve in userspace: remote syscalls.  We can configure things so that the rump kernel lives as a server in one process, listens to remote requests, and applications make syscalls as remote requests.  This preserves a very natural usage, since the crash/exit of an application does not affect the rump kernel.
+If we again think about the scenario where rump kernels are used on an embedded device or cloud hypervisor, there is no mechanism for creating processes.  The necessary utilities will be baked into a single image and run most likely as threads.  Therefore, the problem does not exist in most target environments.  We could try baking things into a single image in userspace too, but continuous baking and testing is not the most convenient way when iterating and figuring things out.  Luckily, we have an ace up our sleeve in userspace: remote syscalls.  We can configure things so that the rump kernel lives as a server in one process, listens to remote requests, and applications make syscalls as remote requests.  This preserves a very natural usage, since the crash/exit of an application does not affect the rump kernel.
 
 Going remote
 ============
@@ -56,11 +58,11 @@ First, we need to start a server.  The build process creates one under `./rumpdy
 $ ./rumpdyn/bin/rump_server unix:///tmp/rumpkernsock
 ```
 
-Ok, um, where did it go?  By default, a `rump_server` will background itself, and that is what happened here.  You can check that the server is running with `ps`.  You can even kill it with `kill`.  However, we will show a more civilized way next.
+Ok, um, where did it go?  By default, a `rump_server` will background itself, and that is what happened here.  You can check that the server is running with `ps`.  You can even kill it with `kill`.  However, we will show a more civilized for the kill in a while.
 
 Under the `bin` directory you can find the same utilities as in the `bin-rr` directory.  The difference between the two is that while the latter binaries have the entire kernel baked into them, the former only contain logic to contact a remote rump kernel.  You can verify this with the `ldd` utility.  The binaries in `bin` will be linked to librumpclient.
 
-To direct the application to the right rump kernel server, the environment variable `$RUMP_SERVER` is used.  There is also a bash script, when if sourced, sets the prompt so that the value of `$RUMP_SERVER` is visible.  That will help keep track of which rump kernel server the commands are being sent to.  The script also sets `$PATH` so that the `bin` directory is first.  Let's give it a spin.
+To direct the application to the right rump kernel server, the environment variable `$RUMP_SERVER` is used.  There is also a bash script, when if sourced, sets the prompt so that the value of `$RUMP_SERVER` is visible.  That will help keep track of which rump kernel server the commands are being sent to.  The script also sets `$PATH` so that the `bin` directory containing the applications build by rumprun is first.  Let's give it a spin.
 
 ```
 $ . ./rumpremote.sh
@@ -91,16 +93,16 @@ rumpremote (unix:///tmp/rumpctrlsock)$ mount
 rumpfs on / type rumpfs (local)
 ```
 
-Better.
+Better.  We'll get to how you're supposed to know about `-lrumpvfs` later in this tutorial.
 
-Can we mount tmpfs inside the rump kernel server?
+Now, can we mount tmpfs inside the rump kernel server?
 
 ```
 rumpremote (unix:///tmp/rumpctrlsock)$ mount_tmpfs /swap /tmp
 mount_tmpfs: tmpfs on /tmp: Operation not supported by device
 ```
 
-Bummer, looks like you'll have to keep reading.
+Bitter!  Looks like you'll have to keep reading this tutorial.
 
 rumpremote extra tricks
 =======================
@@ -123,6 +125,23 @@ rumpremote (unix:///tmp/rumpctrlsock)$ rumpremote_hostcmd ls -l /
 total 110
 drwxr-xr-x   2 root root  4096 Jul 23 23:01 bin
 [...]
+```
+
+Note: shell redirects or `cd` will not work with rumpremote.  The behaviour expected -- the shell is running in host userspace, not guest userspace -- but needs to be taken into account.
+
+```
+rumpremote (unix:///tmp/rumpctrlsock)$ cd /dev
+ERROR: cd not available in rumpremote mode /dev
+rumpremote (unix:///tmp/rumpctrlsock)$ echo messages from earth > /file
+bash: /file: Permission denied
+rumpremote (unix:///tmp/rumpctrlsock)$ ls -l /file
+ls: /file: No such file or directory
+rumpremote (unix:///tmp/rumpctrlsock)$ echo messages from earth | dd of=/file
+0+1 records in
+0+1 records out
+20 bytes transferred in 0.001 secs (20000 bytes/sec)
+rumpremote (unix:///tmp/rumpctrlsock)$ ls -l /file
+-rw-r--r--  1 0  0  20 Jul 29 04:24 /file
 ```
 
 Coping with components
