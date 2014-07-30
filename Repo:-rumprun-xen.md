@@ -37,4 +37,4 @@ Debugging
 ---------
 
 Debugging the rump kernel Xen stack is described on a separate
-page: [[Howto:-Debugging-rumpuser-xen-with-gdb]].
+page: [[Howto:-Debugging-rumprun-xen-with-gdb]].
