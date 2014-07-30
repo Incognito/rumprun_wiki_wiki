@@ -5,7 +5,7 @@ Documentation for specific issues:
 - [[Building packages without a network connection ("offline mode")|Howto:-Building-packages-without-a-network-connection-("offline-mode")]]
 - [[Configuring a 802.11 device with rumprun|Howto:-Configuring-a-802.11-device-with-rumprun]]
 - [[Cross architecture execution|Howto:-Cross-architecture-execution]]
-- [[Debugging rumpuser xen with gdb|Howto:-Debugging-rumpuser-xen-with-gdb]]
+- [[Debugging rumprun xen with gdb|Howto:-Debugging-rumprun-xen-with-gdb]]
 - [[Networking with if_virt|Howto:-Networking-with-if_virt]]
 - [[Profiling the TCP IP stack with LTTng|Howto:-Profiling-the-TCP-IP-stack-with-LTTng]]
 - [[building for Android|Howto:-building-for-Android]]

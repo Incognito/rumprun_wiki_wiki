@@ -6,5 +6,5 @@ Main pages for repositories:
 - [[pci-userspace|Repo:-pci-userspace]]
 - [[rump-pktgenif|Repo:-rump-pktgenif]]
 - [[rumpfiber|Repo:-rumpfiber]]
-- [[rumprun|Repo:-rumprun]]
-- [[rumpuser-xen|Repo:-rumpuser-xen]]
+- [[rumprun-posix|Repo:-rumprun-posix]]
+- [[rumprun-xen|Repo:-rumprun-xen]]
