@@ -1,6 +1,6 @@
-We demonstrate configuring NetBSD's [npf](http://man.NetBSD.org/cgi-bin/man-cgi?npf++NetBSD-current) packet filter using rumprun.  For this demonstration, we use a very simple npf configuration file and two networking stacks connected by [shmif](http://man.NetBSD.org/cgi-bin/man-cgi?shmif++NetBSD-current).  The configuration can be extended to arbitrarily complex scenarios supported by npf, and also other network interfaces.
+We demonstrate configuring NetBSD's [npf](http://man.NetBSD.org/cgi-bin/man-cgi?npf++NetBSD-current) packet filter using rumprun-posix.  For this demonstration, we use a very simple npf configuration file and two networking stacks connected by [shmif](http://man.NetBSD.org/cgi-bin/man-cgi?shmif++NetBSD-current).  The configuration can be extended to arbitrarily complex scenarios supported by npf, and also other network interfaces.
 
-You will need a [rumprun](http://repo.rumpkernel.org/rumprun) installation.  Familiarize yourself with rumprun before attempting to follow the rest of this howto, and set the relevant environment variables.
+You will need a [rumprun-posix](http://repo.rumpkernel.org/rumprun-posix) installation.  Familiarize yourself with rumprun-posix before attempting to follow the rest of this howto, and set the relevant environment variables.
 
 First, we run two rump kernels.  Note that the first one does not support a packet filter (it does not need one for this demonstration).  Also note that the rump kernel with npf requires VFS so that the `npfctl` can read the configuration file we supply to it.
 
@@ -9,9 +9,9 @@ $ rump_server -lrumpnet_shmif -lrumpnet_netinet -lrumpnet_net -lrumpnet unix:///
 $ rump_server -lrumpnet_shmif -lrumpnet_netinet -lrumpnet_net -lrumpnet -lrumpnet_npf -lrumpdev_bpf -lrumpdev -lrumpvfs unix:///tmp/net2
 ```
 
-If you do not otherwise have a `rump_server` handy, you can find one from `rumpdyn/bin` after building rumprun.
+If you do not otherwise have a `rump_server` handy, you can find one from `rumpdyn/bin` after building rumprun-posix.
 
-Configure the shmif interface for both networking stacks, and attach them to each other. We assume that you do this from your rumprun directory, adjust the path for the rumprun binaries otherwise:
+Configure the shmif interface for both networking stacks, and attach them to each other. We assume that you do this from your rumprun-posix directory, adjust the path for the rumprun-posix binaries otherwise:
 
 ```
 $ export RUMP_SERVER=unix:///tmp/net1

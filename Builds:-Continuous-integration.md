@@ -14,6 +14,6 @@ Buildbot:
 * [buildrump.sh stable, multiple operating systems and architectures](http://build.myriabit.eu:8011/waterfall)
 * [buildrump.sh NetBSD HEAD, multiple operating systems and architectures](http://build.myriabit.eu:8012/waterfall) (*)
 * [ljsyscall, includes rump kernel tests on various platforms](http://build.myriabit.eu:8010/waterfall)
-* [rumprun, multiple platforms](http://build.myriabit.eu:8013/waterfall)
+* [rumprun-posix, multiple platforms](http://build.myriabit.eu:8013/waterfall)
 
 \* since these builds are not against a "known good" timestamp of NetBSD sources, there may be transient failures due to problems in the NetBSD tree.

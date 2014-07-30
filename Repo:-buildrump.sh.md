@@ -29,7 +29,7 @@ of how to use these services are as follows:
 Rump kernels address the part of the software stack typically handled
 by an OS kernel.  For running unmodified userspace applications
 against system call services provided by rump kernels, see
-[rumprun](https://github.com/justincormack/rumprun/).
+[rumprun-posix](https://github.com/rumpkernel/rumprun-posix/).
 
 For full details on rump kernels, go to http://www.rumpkernel.org/.
 For a video overview including various demos, watch the

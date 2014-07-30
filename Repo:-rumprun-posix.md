@@ -1,4 +1,4 @@
-This page describes [rumprun](http://repo.rumpkernel.org/rumprun).
+This page describes [rumprun-posix](http://repo.rumpkernel.org/rumprun-posix).
 
 Rumprun is a wrapper for running programs that were written for a normal POSIX (NetBSD) system to run them under a rump kernel.  Rumprun is especially useful for running NetBSD configuration tools on non-NetBSD systems for the purposes of configuring rump kernels.
 
@@ -21,7 +21,7 @@ To build, run:
 This will automatically fetch and build all dependencies, so assuming you
 have build tools (compiler etc.) installed, you are good to go.
 
-If you already have a rump kernel install you need to make sure rumprun can find the libraries (and for the tests, the `rump_server` binary, so you may need to set `LIBRARY_PATH` and `LD_LIBRARY_PATH`, and run:
+If you already have a rump kernel install you need to make sure rumprun-posix can find the libraries (and for the tests, the `rump_server` binary, so you may need to set `LIBRARY_PATH` and `LD_LIBRARY_PATH`, and run:
 ````
 ./buildnb.sh
 ```
@@ -91,7 +91,7 @@ Bundled programs
 ================
 
 A few dozen NetBSD utilities such as `ifconfig`, `sysctl`, `dd` and `wpa_supplicant`
-are bundled with rumprun.  You can list the currently available ones by running
+are bundled with rumprun-posix.  You can list the currently available ones by running
 `rumpremote_listcmds` (the routine is provided by `rumpremote.sh`).
 
 Generally speaking, supporting a
@@ -118,4 +118,4 @@ FAQ
 ===
 
 - Why does shell redirecting not work?  E.g. `wpa_passphrase net passkey > wpa.conf` creates the config file on the host instead of in the rump kernel.
-    - Your shell is not a rumprun program, so shell redirects are interpreted in host context.  As a workaround, use `dd`, which is a rumprun program, e.g. `wpa_passphrase net passkey | dd of=wpa.conf`
+    - Your shell is not a rumprun-posix program, so shell redirects are interpreted in host context.  As a workaround, use `dd`, which is a rumprun program, e.g. `wpa_passphrase net passkey | dd of=wpa.conf`

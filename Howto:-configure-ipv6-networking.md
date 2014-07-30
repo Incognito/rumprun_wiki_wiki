@@ -1,6 +1,6 @@
 Using ipv6 networking with a rump kernel is very simple, especially if you are in an environment with router advertisements.
 
-First create a rump server as usual (paths relative to rumprun directory, adjust as needed). You need to do this as root or with appropriate permissions as it needs to create a network device.
+First create a rump server as usual (paths relative to rumprun-posix directory, adjust as needed). You need to do this as root or with appropriate permissions as it needs to create a network device.
 
 ```
 # ./rumpdyn/bin/rump_allserver unix://sock

@@ -1,4 +1,4 @@
-This page details how to configure a Soft RAID or encrypted block device with the `raidctl` and `cgdconfig` tools provided by [rumprun](http://repo.rumpkernel.org/rumprun), respectively.
+This page details how to configure a Soft RAID or encrypted block device with the `raidctl` and `cgdconfig` tools provided by [rumprun-posix](http://repo.rumpkernel.org/rumprun-posix), respectively.
 
 ## RAIDframe
 
@@ -30,7 +30,7 @@ $ rump_server -lrumpdev -lrumpdev_disk -lrumpvfs  -lrumpdev_raidframe -d key=/di
 
 Note that since `/tmp/raid.conf` is a host file, we need to expose it to the rump kernel.  It is also possible to create the configuration file inside the rump kernel, but we will not go into details or tradeoffs of that.
 
-Now, we are ready to run the standard raidctl initialization procedure. Assuming you are in the rumprun directory, adjust the paths as necessary otehrwise:
+Now, we are ready to run the standard raidctl initialization procedure. Assuming you are in the rumprun-posix directory, adjust the paths as necessary otehrwise:
 
 ```
 $ ./bin/raidctl -C /raid.conf raid0
@@ -59,7 +59,7 @@ Run a rump server with cgd support:
 $ rump_server -lrumpdev -lrumpdev_disk -lrumpvfs  -lrumpdev_cgd -lrumpkern_crypto -lrumpdev_rnd -d key=/disk1,hostpath=/tmp/d1,size=16777216 unix:///tmp/cgd
 ```
 
-Use `cgdconfig` to create a configuration file. Notably, we used a static, stored key configuration file instead of a passphrase generated keyfile. The reason for this is quite simple: a rump kernel does not (yet) have console input, so reading the passphrase using rumprun is not possible.
+Use `cgdconfig` to create a configuration file. Notably, we used a static, stored key configuration file instead of a passphrase generated keyfile. The reason for this is quite simple: a rump kernel does not (yet) have console input, so reading the passphrase using rumprun-posix is not possible.
 
 ```
 $ ./bin/cgdconfig -g -o /cgd.conf -k storedkey aes-cbc 192

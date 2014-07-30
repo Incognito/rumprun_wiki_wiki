@@ -11,13 +11,13 @@ If you want to prepare your own from an arbitrary buildrump.sh revision, do:
 
 Note: if you do not start with a clean buildrump.sh pull, you may have to run `tarup.sh` with `-f` parameter.
 
-[[rumprun|Repo:-rumprun]]
+[[rumprun-posix|Repo:-rumprun-posix]]
 -------------------------
 
-* `rm -rf rumprun` (yes, you must start with a fresh clone)
-* `git pull http://repo.rumpkernel.org/rumprun`
-* `cd rumprun`
+* `rm -rf rumprun-posix` (yes, you must start with a fresh clone)
+* `git pull http://repo.rumpkernel.org/rumprun-posix`
+* `cd rumprun-posix`
 * `./buildnb.sh justcheckout`
 * `find . -name .git | xargs rm -rf`
 
-Then tar and/or copy the rumprun directory where you want to, and build normally with buildnb + make.
+Then tar and/or copy the rumprun-posix directory where you want to, and build normally with buildnb + make.

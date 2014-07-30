@@ -46,8 +46,8 @@ making it easier to track kernel events.
 
 For the packet generator to be able to run, you must configure the TCP/IP
 stack that it is using (cf. `ifconfig` etc.).  The easiest way to do this is
-to use [rumprun](http://repo.rumpkernel.org/rumprun).  Edit the path
-at the top of `config.sh.example` to point to your rumprun directory,
+to use [rumprun-posix](http://repo.rumpkernel.org/rumprun-posix).  Edit the path
+at the top of `config.sh.example` to point to your rumprun-posix directory,
 and you are good to go.
 
 Run the tool with for example:

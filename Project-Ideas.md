@@ -7,4 +7,4 @@ difficulty and category (and is mostly TODO)
 * convert librumpuser to use autoconf (or equivalent) instead of homegrown #ifdefs
 * add auth support for remote clients
 * [[OSX support|Project ideas: OSX support]]
-* add support for "offline mode" tarballs to rumprun, similar to what tarup.sh does for buildrump.sh
+* add support for "offline mode" tarballs to rumprun-posix, similar to what tarup.sh does for buildrump.sh

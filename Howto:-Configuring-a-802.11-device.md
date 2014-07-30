@@ -1,17 +1,17 @@
 The aim of this howto is show how to configure an IEEE802.11 wireless PCI device in a userspace rump kernel
-using [[rumprun|Repo:-rumprun]].  This howto builds up on many other components, so in case you have no
+using [[rumprun-posix|Repo:-rumprun-posix]].  This howto builds up on many other components, so in case you have no
 prior experience with rump kernels, some amount of patience will be required to successfully follow
 the howto.
 
 We will assume that the target network uses WPA.  We will also assumed that you have already
 followed the instructions for setting up userspace PCI device drivers and built the necessary
-components (see [[here|Repo:-pci-userspace-linux]]). Finally, we assume that you have rumprun available.
+components (see [[here|Repo:-pci-userspace-linux]]). Finally, we assume that you have rumprun-posix available.
 
 Let's assume you have a rump kernel server already running with the necessary components
 loaded.  If not, see the self-contained example in http://repo.rumpkernel.org/pci-userspace-linux/tree/master/examples/if_iwn -- you could also use `rump_server`, but using a self-contained C program may be
 easier to handle.
 
-In any case, let's assume your kernel server is running, and you've started your rumprun session.
+In any case, let's assume your kernel server is running, and you've started your rumprun-posix session.
 Attaching the 802.11 NIC to a WPA-protected network follows almost exactly the same procedure
 as on a standard NetBSD host.  First, we start by examining the interface:
 
@@ -84,5 +84,5 @@ iwn0: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> mtu 1500
 (that's a lot of MAC addressy and other uniquely identifying stuff to
 blank out! ;)
 
-Then, you can proceed to use rumprun to configure IP level networking.
-For example IPv6 networking is covered [[here|Howto:-configure-ipv6-networking-with-rumprun]].
+Then, you can proceed to use rumprun-posix to configure IP level networking.
+For example IPv6 networking is covered [[here|Howto:-configure-ipv6-networking]].

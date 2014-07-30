@@ -41,4 +41,4 @@ First, your host must be configured correctly for the rump kernel to be able to 
 
 Second, you must configure the rump kernel to do whatever you want to do with the device.
 That is a very open-ended task, but for example configuring a 802.11 adapter to access
-a WPA-protected network is documented [[here|Howto:-Configuring-a-802.11-device-with-rumprun]].
+a WPA-protected network is documented [[here|Howto:-Configuring-a-802.11-device]].

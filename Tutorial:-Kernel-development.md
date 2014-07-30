@@ -22,7 +22,7 @@ in reading the full tutorial text, you can just run the commands.
 Installing prerequisites
 ------------------------
 
-For this tutorial, we will need _buildrump.sh_ and _rumprun_.  If you
+For this tutorial, we will need _buildrump.sh_ and _rumprun-posix_.  If you
 already have them built, you may skip this step.
 
 For buildrump.sh, run (terminal 1):
@@ -33,10 +33,10 @@ $ ./buildrump.sh -T rumptools -q
 $ cd ..
 ```
 
-For rumprun, run (terminal 1):
+For rumprun-posix, run (terminal 1):
 
 ```
-$ git clone http://repo.rumpkernel.org/rumprun rr
+$ git clone http://repo.rumpkernel.org/rumprun-posix rr
 $ cd rr
 $ ./buildnb.sh
 $ make
@@ -52,7 +52,7 @@ Running a rump kernel
 
 First, we need to bootstrap the rump kernel and access the file system
 driver.  There are many way to do this, but the easiest way is to run
-`rump_server` and use rumprun commands for driving the server.  This is
+`rump_server` and use rumprun-posix commands for driving the server.  This is
 also the route that we will take.
 
 We need a configuration which supports the tmpfs file system driver we
@@ -91,7 +91,7 @@ We gave a relative pathname to a unix socket.  If you do a directory
 listing in the current directory while the server is running, you will
 see a file system socket `ctrl`.
 
-Now, we will use rumprun in terminal 2:
+Now, we will use rumprun-posix in terminal 2:
 ```
 $ . rr/rumpremote.sh
 rumpremote (NULL)$ export RUMP_SERVER=unix://ctrl
