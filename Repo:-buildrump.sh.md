@@ -7,7 +7,7 @@ top of a high-level hypercall interface which is straightforward to
 implement for most environments.  This repository includes the hypercall
 implementation for running in userspace on POSIX hosts, with alternative
 implementations such as for the
-[Xen hypervisor](https://github.com/rumpkernel/rumpuser-xen/)
+[Xen hypervisor](https://github.com/rumpkernel/rumprun-xen/)
 and the [Linux kernel](https://github.com/rumpkernel/rumpuser-linuxkernel)
 being hosted elsewhere.
 
@@ -23,7 +23,7 @@ of how to use these services are as follows:
 * [ljsyscall](https://github.com/justincormack/ljsyscall) provides
   a Lua interface to rump kernels, allowing easy access from applications
   written in Lua
-* [rumpuser-xen](https://github.com/rumpkernel/rumpuser-xen) enables
+* [rumprun-xen](https://github.com/rumpkernel/rumprun-xen) enables
   running applications as standalone Xen DomU's (includes libc support)
 
 Rump kernels address the part of the software stack typically handled
@@ -140,7 +140,7 @@ Kernel-only mode
 If the `-k` kernel-only parameter is specified, the script will
 omit building the POSIX hypercall implementation.  This is useful if
 you are developing your own hypercall layer implementation.  See the
-[rumpuser-xen](https://github.com/rumpkernel/rumpuser-xen) repository
+[rumprun-xen](https://github.com/rumpkernel/rumprun-xen) repository
 for the canonical example of using `-k`.
 
 Setting compile flags

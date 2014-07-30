@@ -1,4 +1,4 @@
-This page documents issues when wanting to run applications on top of a standalone rump kernel, e.g. [rumprun](http://repo.rumpkernel.org/rumprun/) and [rumpuser-xen](http://repo.rumpkernel.org/rumpuser-xen/) scenarios.
+This page documents issues when wanting to run applications on top of a standalone rump kernel, e.g. [rumprun-posix](http://repo.rumpkernel.org/rumprun-posix/) and [rumprun-xen](http://repo.rumpkernel.org/rumprun-xen/) scenarios.
 
 __Status__: Support is far along enough for people to be able to experiment with their own applications
 using the offered tools.
@@ -7,12 +7,12 @@ using the offered tools.
 
 problem: no clear "recipe" to compile and bundle existing programs.
 
-status: __DONE__'ish: exists in rumpuser-xen and can build off-the-internet software.  Still need to
+status: __DONE__'ish: exists in rumprun-xen and can build off-the-internet software.  Still need to
 figure out how to embed configuration information (e.g. network config) into the standalone stacks.
 
 ## pthreads
 
-status: __DONE__'ish: initial support pthread in both a rumprun userspace stack (using rumpfiber) and Xen committed
+status: __DONE__'ish: initial support pthread in both a rumprun-posix userspace stack (using rumpfiber) and Xen committed
 
 ## nanosleep/gettimeofday/timing
 

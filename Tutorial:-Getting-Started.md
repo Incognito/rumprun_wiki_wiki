@@ -5,7 +5,7 @@ The following should work at least on more or less any Linux system and NetBSD s
 Building
 ========
 
-First, we build the [[rumprun|Repo:-rumprun]] package.  This will give us four things we need for the rest of the tutorial:
+First, we build the [[rumprun-posix|Repo:-rumprun-posix]] package.  This will give us four things we need for the rest of the tutorial:
 
 * rump kernel components
 * hypercall implementation for POSIX'y userspace (allows rump kernels to run in userspace)
@@ -17,8 +17,8 @@ Note the subtle difference between the second and the third bullet point.  Essen
 In any case, the build is a matter of cloning the repo and running a script:
 
 ```
-git clone http://repo.rumpkernel.org/rumprun
-cd rumprun
+git clone http://repo.rumpkernel.org/rumprun-posix
+cd rumprun-posix
 ./buildnb.sh
 ```
 
@@ -62,7 +62,7 @@ Ok, um, where did it go?  By default, a `rump_server` will background itself, an
 
 Under the `bin` directory you can find the same utilities as in the `bin-rr` directory.  The difference between the two is that while the latter binaries have the entire kernel baked into them, the former only contain logic to contact a remote rump kernel.  You can verify this with the `ldd` utility.  The binaries in `bin` will be linked to librumpclient.
 
-To direct the application to the right rump kernel server, the environment variable `$RUMP_SERVER` is used.  There is also a bash script, when if sourced, sets the prompt so that the value of `$RUMP_SERVER` is visible.  That will help keep track of which rump kernel server the commands are being sent to.  The script also sets `$PATH` so that the `bin` directory containing the applications build by rumprun is first.  Let's give it a spin.
+To direct the application to the right rump kernel server, the environment variable `$RUMP_SERVER` is used.  There is also a bash script, when if sourced, sets the prompt so that the value of `$RUMP_SERVER` is visible.  That will help keep track of which rump kernel server the commands are being sent to.  The script also sets `$PATH` so that the `bin` directory containing the applications build by rumprun-posix is first.  Let's give it a spin.
 
 ```
 $ . ./rumpremote.sh
@@ -172,7 +172,7 @@ tmpfs on /tmp type tmpfs (local)
 Building your own applications
 ==============================
 
-So you can run rump kernels with various component configurations and change their configurations using various applications we provided.  The next thing you are probably thinking about is bundling your own applications instead of the ones we provide.  Short answer: it's possible (obviously, see above), but we're still working on how to make it "consumer grade".  Some experiments are currently done on the [[Xen platform|Repo:-rumpuser-xen]], where it is possible to build application stacks using wrappers to the `configure` and `make` build tools.  Have a look in the [app-tools directory](https://github.com/rumpkernel/rumpuser-xen/tree/master/app-tools) and at what the Travis CI [automated test script](https://github.com/rumpkernel/rumpuser-xen/blob/master/.travis.yml) does.
+So you can run rump kernels with various component configurations and change their configurations using various applications we provided.  The next thing you are probably thinking about is bundling your own applications instead of the ones we provide.  Short answer: it's possible (obviously, see above), but we're still working on how to make it "consumer grade".  Some experiments are currently done on the [[Xen platform|Repo:-rumprun-xen]], where it is possible to build application stacks using wrappers to the `configure` and `make` build tools.  Have a look in the [app-tools directory](https://github.com/rumpkernel/rumprun-xen/tree/master/app-tools) and at what the Travis CI [automated test script](https://github.com/rumpkernel/rumprun-xen/blob/master/.travis.yml) does.
 
 Rest assured, we will write more documentation on the subject as the material develops and the plot thickens.
 

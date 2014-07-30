@@ -6,8 +6,8 @@ system hierarchy.  To satisfy these demands, we mount file systems in
 the rump kernel file system namespace.  Any file system type, e.g. NFS,
 would do, but it's usually simplest mount a prepopulated image.
 
-## rumpuser-xen
+## rumprun-xen
 
-For rumpuser-xen, we supply prepopulated images in http://repo.rumpkernel.org/rumpuser-xen/tree/master/img.  The same images can be applied to other "standalone" scenarios as well.  If your host does not support FFS, you
+For rumprun-xen, we supply prepopulated images in http://repo.rumpkernel.org/rumprun-xen/tree/master/img.  The same images can be applied to other "standalone" scenarios as well.  If your host does not support FFS, you
 can still examine and modify the images using the portable
 [fs-utils](https://github.com/stacktic/fs-utils) tool suite.

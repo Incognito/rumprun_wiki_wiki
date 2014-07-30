@@ -19,18 +19,18 @@ Finally, in yet another terminal, run `gdb`, attach to the remote gdb server, se
 
 ```
 $ gdb -q rump-kernel
-Reading symbols from /home/pooka/rumpuser-xen/rump-kernel...done.
+Reading symbols from /home/pooka/rumprun-xen/rump-kernel...done.
 (gdb) target remote:1234
 Remote debugging using :1234
 0x00000000 in _text ()
 (gdb) break ffs_mount
-Breakpoint 1 at 0x25150: file /home/pooka/rumpuser-xen/rumpsrc/sys/rump/fs/lib/libffs/../../../../ufs/ffs/ffs_vfsops.c, line 348.
+Breakpoint 1 at 0x25150: file /home/pooka/rumprun-xen/rumpsrc/sys/rump/fs/lib/libffs/../../../../ufs/ffs/ffs_vfsops.c, line 348.
 (gdb) c
 Continuing.
 
 Breakpoint 1, ffs_mount (mp=0x506000, path=0x1c92fc "/etc", data=0x3710a0,
     data_len=0x2ffeb4)
-    at /home/pooka/rumpuser-xen/rumpsrc/sys/rump/fs/lib/libffs/../../../../ufs/ffs/ffs_vfsops.c:348
+    at /home/pooka/rumprun-xen/rumpsrc/sys/rump/fs/lib/libffs/../../../../ufs/ffs/ffs_vfsops.c:348
 348     {
 (gdb)
 ```

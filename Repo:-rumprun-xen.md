@@ -1,4 +1,4 @@
-This page describes [rumpuser-xen](http://repo.rumpkernel.org/rumpuser-xen).
+This page describes [rumprun-xen](http://repo.rumpkernel.org/rumprun-xen).
 
 This repository contains code that implements the rump kernel hypercall
 interfaces for the Xen hypervisor platform.  It enables running rump
