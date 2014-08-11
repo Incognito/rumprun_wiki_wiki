@@ -8,3 +8,4 @@ Main pages for repositories:
 - [[rumpfiber|Repo:-rumpfiber]]
 - [[rumprun-posix|Repo:-rumprun-posix]]
 - [[rumprun-xen|Repo:-rumprun-xen]]
+- [[rumpuser-baremetal|Repo:-rumpuser-baremetal]]
