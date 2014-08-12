@@ -16,7 +16,7 @@ make
 Creating a bootable ISO image with grub
 ---------------------------------------
 
-Follow [the instructions at OSDev](http://wiki.osdev.org/Bare_Bones#Building_a_bootable_cdrom_image) and use the file `rk.bin` instead of `myos.bin`. Note that qemu still needs the `-net nic` and `-net user` options when running the cdrom.
+Follow [the instructions at OSDev](http://wiki.osdev.org/Bare_Bones#Building_a_bootable_cdrom_image) and use the file `rk.bin` instead of `myos.bin`.
 
 VirtualBox
 ----------
