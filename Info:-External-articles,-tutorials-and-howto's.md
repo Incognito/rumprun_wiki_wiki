@@ -4,7 +4,7 @@
     Xen](http://blog.NetBSD.org/tnf/entry/pci_driver_support_for_rump) (2013)
 -   [Experiment with a rump kernel hypervisor for the Linux
     kernel](http://blog.NetBSD.org/tnf/entry/a_rump_kernel_hypervisor_for)
-    (allows rump kernels to run *in* the Linux kernel) (2013)
+    which allows rump kernels to run *in* the Linux kernel (2013)
 -   [Experiment on compiling rump kernels to javascript and running them
     in the
     browser](http://blog.NetBSD.org/tnf/entry/kernel_drivers_compiled_to_javascript) (2012)
