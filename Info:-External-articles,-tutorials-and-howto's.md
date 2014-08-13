@@ -1,3 +1,5 @@
+-   [An Internet-Ready OS From Scratch in a Week — Rump Kernels on Bare
+    Metal](http://blog.netbsd.org/tnf/entry/an_internet_ready_os_from) (2014)
 -   [Running rump kernels and applications on Xen without a full
     OS](http://blog.NetBSD.org/tnf/entry/running_applications_on_the_xen) (2013)
 -   [PCI device driver support in rump kernels on
