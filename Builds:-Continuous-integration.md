@@ -3,6 +3,7 @@ Travis CI (Linux/x86_64):
 * [buildrump.sh/POSIX: static & dynamic, clang & gcc](https://travis-ci.org/rumpkernel/buildrump.sh) ![Build Status](https://travis-ci.org/rumpkernel/buildrump.sh.png?branch=master)
 * [rumprun Xen](https://travis-ci.org/rumpkernel/rumprun-xen) ![Build Status](https://travis-ci.org/rumpkernel/rumprun-xen.png?branch=master)
 * [rumprun POSIX](https://travis-ci.org/rumpkernel/rumprun-posix) ![Build Status](https://travis-ci.org/rumpkernel/rumprun-posix.png?branch=master)
+* [rump kernels on bare metal](https://travis-ci.org/rumpkernel/rumpuser-baremetal) ![Build Status](https://travis-ci.org/rumpkernel/rumpuser-baremetal.png?branch=master)
 * [DPDK TCP/IP stack driver](https://travis-ci.org/rumpkernel/dpdk-rumptcpip) ![Build Status](https://travis-ci.org/rumpkernel/dpdk-rumptcpip.png?branch=master)
 * [netmap TCP/IP stack driver](https://travis-ci.org/rumpkernel/netmap-rumptcpip) ![Build Status](https://travis-ci.org/rumpkernel/netmap-rumptcpip.png?branch=master)
 * [PCI drivers in userspace](https://travis-ci.org/rumpkernel/pci-userspace) ![Build Status](https://travis-ci.org/rumpkernel/pci-userspace.png?branch=master)
