@@ -55,7 +55,7 @@ Going remote
 First, we need to start a server.  The build process creates one under `./rumpdyn/bin/rump_server`.  As a mandatory argument, the server takes an URL which indicates from where the server listens to for requests.  The easiest way is to use local domain sockets, which are identified by `unix://` and the remainder of the argument is the pathname.  Let's try it out:
 
 ```
-$ ./rumpdyn/bin/rump_server unix:///tmp/rumpkernsock
+$ ./rumpdyn/bin/rump_server unix:///tmp/rumpctrlsock
 ```
 
 Ok, um, where did it go?  By default, a `rump_server` will background itself, and that is what happened here.  You can check that the server is running with `ps`.  You can even kill it with `kill`.  However, we will show a more civilized for the kill in a while.
