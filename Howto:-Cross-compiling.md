@@ -14,8 +14,8 @@ export CC=arm-linux-androideabi-gcc
 NetBSD lets you build cross compilers easily using the ``build.sh`` script. Something along these lines should work - you need to build distribution not just tools, and you must set sysroot.
 
 ```
-./build.sh -m sparc64 tools
-./build.sh -m sparc64 distribution
+./build.sh -U -m sparc64 tools
+./build.sh -U -m sparc64 distribution
 
 export PATH=$PWD/obj/tooldir.NetBSD-7.0_BETA-amd64/bin:$PATH
 export CC=sparc64--netbsd-gcc
