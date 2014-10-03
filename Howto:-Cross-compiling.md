@@ -1,6 +1,6 @@
 The build scripts are all set up for cross compiling, and it should be relatively straightforward.
 
-==Linux==
+### Linux
 
 If you have a multilib Linux distro things are very easy, you should be able to just do
 
@@ -9,7 +9,7 @@ export CC=arm-linux-androideabi-gcc
 ./buildrump.sh
 ```
 
-==NetBSD==
+### NetBSD
 
 NetBSD lets you build cross compilers easily using the ``build.sh`` script. Something along these lines should work - you need to build distribution not just tools, and you must set sysroot.
 
