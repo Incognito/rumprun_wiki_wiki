@@ -113,26 +113,7 @@ script with the `-h` flag.
 Crosscompiling
 --------------
 
-If the environment variable `$CC` is set, its value is used as the compiler
-instead of `cc`.  This allows not only to select between compiling with
-gcc or clang, but also allows to specify a crosscompiler.  If `$CC` is set
-and does not contain the value `cc`, `gcc`, or `clang` the script assumes
-a crosscompiler and will by default use tools with names based on the
-target of `$CC` with the format `target-tool` (e.g. `target-nm`).
-
-Crosscompiling for an ARM system might look like this (first command
-is purely informational):
-
-	$ arm-linux-gnueabihf-gcc -dumpmachine
-	arm-linux-gnueabihf
-	$ env CC=arm-linux-gnueabihf-gcc ./buildrump.sh [params]
-
-Since the target is `arm-linux-gnueabihf`, `arm-linux-gnueabihf-nm` etc.
-must be found from `$PATH`.  The assumption is that the crosscompiler
-can find the target platform headers and libraries which are required
-for building the hypercall library.  You can override the defaults
-by setting `$AR`, `$NM` and/or `$OBJCOPY` in the environment before
-running the script.
+See [[Howto: Cross compiling]].
 
 Kernel-only mode
 ----------------
