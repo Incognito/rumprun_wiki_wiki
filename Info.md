@@ -1,5 +1,6 @@
 General information:
 
+- [[Community|Info:-Community]]
 - [[Events|Info:-Events]]
 - [[External articles, tutorials and howto's|Info:-External-articles,-tutorials-and-howto's]]
 - [[File system images|Info:-File-system-images]]
