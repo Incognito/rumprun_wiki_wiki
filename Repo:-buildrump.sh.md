@@ -77,7 +77,7 @@ Clone the repository and run:
 
 You will now find the kernel drivers and necessary headers in `./rump`
 ready for use.  Examples on how to use the resulting drivers are available
-in the `tests` and `examples` directories.
+in the `tests` directories.
 
 The long(er) version
 --------------------
