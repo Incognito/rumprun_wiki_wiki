@@ -4,7 +4,6 @@ General information:
 - [[External articles, tutorials and howto's|Info:-External-articles,-tutorials-and-howto's]]
 - [[File system images|Info:-File-system-images]]
 - [[Hackathons|Info:-Hackathons]]
-- [[Major Changes|Info:-Major-Changes]]
 - [[News|Info:-News]]
 - [[Notes on hardware platforms|Info:-Notes-on-hardware-platforms]]
 - [[Publications and Talks|Info:-Publications-and-Talks]]
