@@ -1,6 +1,7 @@
 Welcome to the rump kernel wiki.
 
-If you are new to rump kernels, see http://www.rumpkernel.org/ for a short introduction.
+If you are new to rump kernels, see http://www.rumpkernel.org/ for a short introduction, including
+hyperlinks to key pages on this wiki.
 
 You can reach all the pages on this wiki from the navigation bar on the right.
 
