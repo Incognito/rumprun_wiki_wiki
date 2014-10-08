@@ -1,7 +1,6 @@
-This page contains talks and publications for rump kernels and uses of rump kernels.
-All entries should contain a link to at least one of the following: paper, slides, video.  Use the format "_Title_; short description. Venue. [links]"
+This page contains links to talks on rump kernels.  All entries should contain a link to at least one of the following: paper, slides or video.  Use the format "_Title_; short description. Venue. [links]".  A date is required for each entry.
 
-Note: since publications and talks remain unchanged, old ones might no longer accurately describe the current state of the art.
+_Note_: articles which were not presented as a talk are linked from the separate [[Articles|Info:-External-articles,-tutorials-and-howto's]] page.
 
 -   _Rump Kernels, Just Components_; talks about rump kernels as reusable
     and platform-agnostic drivers and targets a developer audience.  FOSDEM 2014 Microkernel devroom.  [[video](http://video.fosdem.org/2014/H2214/Sunday/Rump_Kernels_Just_Components.webm),
