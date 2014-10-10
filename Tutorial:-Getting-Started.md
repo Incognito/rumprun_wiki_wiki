@@ -1,9 +1,25 @@
-This tutorial explains the very basic concepts of using rump kernels.  We will go over the concepts in the comfort of userspace.  "Why userspace?", you ask.  First, it is the most convenient platform to do experimentation in.  Second, most concepts map more or less directly to embedded and cloud platforms, so it is even beneficial to get a hang of debugging and building and testing your projects in userspace before potentially moving them to the final target platform or platforms.
+This tutorial is meant as an up-to-date guide for people first coming across rump kernels, and wanting to both understand them and use them.  There are two parts.  First we list a few items of suggested reading.  The second, and bulk, part of this tutorial is about playing around with the code.  People interested only in playing around with the code can [[skip the reading|Tutorial:-Getting-Started#Hands-on!]].
+
+If you find this tutorial lacking in any way, please suggest improvements on the rump kernel mailing list (see the [[Community|Info:-Community]] page for more info on the list).
+
+Reading
+=======
+
+The most succinct description of the architecture, motivation and history, including some use cases, is the ;login: magazine article "Rump Kernels: No OS? No Problem!".  You can find a free copy [here](http://rumpkernel.org/misc/usenix-login-2014/).
+
+For more in-depth knowledge, reading [The Design and Implementation of the Anykernel and Rump Kernels](http://lib.tkk.fi/Diss/2012/isbn9789526049175/isbn9789526049175.pdf) is recommended.  Notably, read or skim chapters 2 and 3.  Since the book was written in 2011-2012, some parts will be out-of-date, but chapters 2 and 3 are still mostly accurate.  As a rule of thumb, if anything conflicts with the article we suggested to read first, that information is out-of-date in the book.  (we are working on an updated version of the book, which will hopefully be finished by the end of 2014).
+
+After reading those, you should have a solid understanding of what and why a rump kernel is.  If you still want to study more, check out the [[Articles|Info: External articles, tutorials-and-howto's]] and [[Publications|Info: Publications and Talks]] pages on this wiki.
+
+Hands on!
+=========
+
+We will go over the practical part in the comfort of userspace.  "Why userspace?", you ask.  First, it is the most convenient platform to do experimentation in.  Second, most concepts map more or less directly to embedded and cloud platforms, so it is even beneficial to get a hang of debugging and building and testing your projects in userspace before potentially moving them to the final target platform or platforms.
 
 The following should work at least on more or less any Linux system and NetBSD systems.
 
 Building
-========
+--------
 
 First, we build the [[rumprun-posix|Repo:-rumprun-posix]] package.  This will give us four things we need for the rest of the tutorial:
 
@@ -23,7 +39,7 @@ cd rumprun-posix
 ```
 
 Trying it out
-=============
+-------------
 
 So we built things.  Now what?  Look into the `bin-rr` directory.  You will see a bunch of potentially familiar userland utilities, e.g. `ls`, `sysctl` and `ifconfig`.  Let's run one:
 
@@ -50,7 +66,7 @@ Our change had no effect.  What's up?  In fact, the change did have effect, but 
 If we again think about the scenario where rump kernels are used on an embedded device or cloud hypervisor, there is no mechanism for creating processes.  The necessary utilities will be baked into a single image and run most likely as threads.  Therefore, the problem does not exist in most target environments.  We could try baking things into a single image in userspace too, but continuous baking and testing is not the most convenient way when iterating and figuring things out.  Luckily, we have an ace up our sleeve in userspace: remote syscalls.  We can configure things so that the rump kernel lives as a server in one process, listens to remote requests, and applications make syscalls as remote requests.  This preserves a very natural usage, since the crash/exit of an application does not affect the rump kernel.
 
 Going remote
-============
+------------
 
 First, we need to start a server.  The build process creates one under `./rumpdyn/bin/rump_server`.  As a mandatory argument, the server takes an URL which indicates from where the server listens to for requests.  The easiest way is to use local domain sockets, which are identified by `unix://` and the remainder of the argument is the pathname.  Let's try it out:
 
@@ -105,7 +121,7 @@ mount_tmpfs: tmpfs on /tmp: Operation not supported by device
 Bitter!  Looks like you'll have to keep reading this tutorial.
 
 rumpremote extra tricks
-=======================
+-----------------------
 
 Assuming you have sourced `rumpremote.sh`, you can list all of the available commands with `rumpremote_listcmds`.  Another way would be to list the contents of the `bin` directory.  You can test for an individual command with `rumpremote_hascmd` (which may give peace of mind if you e.g. want to execute `rm -rf /`).  Finally, you can "shell out" with `rumpremote_hostcmd`.  Let's try these out.
 
@@ -145,7 +161,7 @@ rumpremote (unix:///tmp/rumpctrlsock)$ ls -l /file
 ```
 
 Coping with components
-======================
+----------------------
 
 Let's assume we want to run some driver in a rump kernel.  That driver needs all of its dependencies to work.  How to figure out what the dependencies are?  For the impatient, there is `rump_allserver`, which simply loads all components that were available when `rump_allserver` was built.  However, it is better to get into the habit of surgically selecting only the necessary components.  This will keep footprint of the rump kernel to a minimum.  We can use the tool `rump_wmd` (Where's My Dependency) to resolve dependencies.  For example, let's assume we want a rump kernel to support the FFS file system driver.
 
@@ -170,7 +186,7 @@ tmpfs on /tmp type tmpfs (local)
 ```
 
 Building your own applications
-==============================
+------------------------------
 
 So you can run rump kernels with various component configurations and change their configurations using various applications we provided.  The next thing you are probably thinking about is bundling your own applications instead of the ones we provide.  Short answer: it's possible (obviously, see above), but we're still working on how to make it "consumer grade".  Some experiments are currently done on the [[Xen platform|Repo:-rumprun-xen]], where it is possible to build application stacks using wrappers to the `configure` and `make` build tools.  Have a look in the [app-tools directory](https://github.com/rumpkernel/rumprun-xen/tree/master/app-tools) and at what the Travis CI [automated test script](https://github.com/rumpkernel/rumprun-xen/blob/master/.travis.yml) does.
 
@@ -178,7 +194,7 @@ Rest assured, we will write more documentation on the subject as the material de
 
 
 Homework
-========
+--------
 
 Try out at least some of the commands listed by `rumpremote_listcmds`.  Some of them require rather specially configured rump kernels (e.g. `wpa_supplicant`), and those are out of the scope of this tutorial.  However, you should for example be able to configure a rump server up to a point where `ping 127.0.0.1` works.
 
