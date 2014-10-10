@@ -1,7 +1,7 @@
-Project News (limited to a few items):
+Project News (limited to 8 items):
 
 __October 10, 2014__:
-Article published in USENIX ;login: magazine's October issue: [Rump Kernels: No OS? No problem!](http://rumpkernel.org/misc/usenix-login-2014/)
+Article published in USENIX ;login: magazine's October issue ([link](http://rumpkernel.org/misc/usenix-login-2014/))
 
 __October 1, 2014__:
 Rump kernel logo and licensing terms announced ([link](http://permalink.gmane.org/gmane.comp.rumpkernel.user/439))
@@ -19,4 +19,4 @@ __July 12, 2014__:
 Fibers available as an alternative to threads in userspace ([link](http://permalink.gmane.org/gmane.comp.rumpkernel.user/314))
 
 __June 27, 2014__:
-Pthreads are now supported by the Xen stack ([repo](https://github.com/rumpkernel/rumprun-xen/))
+Pthreads are now supported by the Xen stack ([link](https://github.com/rumpkernel/rumprun-xen/))
