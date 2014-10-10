@@ -17,3 +17,6 @@ Rump kernels available for bare metal and hypervisor platforms ([link](http://bl
 
 __July 12, 2014__:
 Fibers available as an alternative to threads in userspace ([link](http://permalink.gmane.org/gmane.comp.rumpkernel.user/314))
+
+__June 27, 2014__:
+Pthreads are now supported by the Xen stack ([repo](https://github.com/rumpkernel/rumprun-xen/))
