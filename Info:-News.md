@@ -1,4 +1,7 @@
-Project News (limited to five items):
+Project News (limited to a few items):
+
+__October 10, 2014__:
+Article published in USENIX ;login: magazine's October issue: [Rump Kernels: No OS? No problem!](http://rumpkernel.org/misc/usenix-login-2014/)
 
 __October 1, 2014__:
 Rump kernel logo and licensing terms announced ([link](http://permalink.gmane.org/gmane.comp.rumpkernel.user/439))
