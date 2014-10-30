@@ -1,5 +1,8 @@
 Project News (limited to 8 items):
 
+__October 29, 2014__:
+fs-utils is now hosted under repo.rumpkernel.org ([link](http://repo.rumpkernel.org/fs-utils))
+
 __October 10, 2014__:
 Article published in USENIX ;login: magazine's October issue ([link](http://rumpkernel.org/misc/usenix-login-2014/))
 
