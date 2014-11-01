@@ -15,7 +15,7 @@ Building
 
 To build, run: 
 ````
-./buildnb.sh buildrump
+./buildnb.sh
 ```
 
 This will automatically fetch and build all dependencies, so assuming you
@@ -23,7 +23,13 @@ have build tools (compiler etc.) installed, you are good to go.
 
 If you already have a rump kernel install you need to make sure rumprun-posix can find the libraries (and for the tests, the `rump_server` binary, so you may need to set `LIBRARY_PATH` and `LD_LIBRARY_PATH`, and run:
 ````
-./buildnb.sh
+./buildnb.sh nobuildrump
+```
+
+If you want experimental ZFS support to be included, run:
+
+```
+./buildnb.sh zfs
 ```
 
 Running
