@@ -1,8 +1,8 @@
-This page describes [dpdk-rumptcpip](http://repo.rumpkernel.org/dpdk-rumptcpip).
+This page describes [drv-netif-dpdk](http://repo.rumpkernel.org/drv-netif-dpdk).
 
-dpdk-rumptcpip uses a [rump kernel](http://rumpkernel.org) to provide a
-userspace TCP/IP stack for use with the Intel Data Plane Development Kit
-[DPDK](http://dpdk.org/).
+drv-netif-dpdk is a [DPDK](http://dpdk.org) network interface for [rump
+kernels](http://rumpkernel.org).  The combined result is a TCP/IP stack
+doing packet I/O via DPDK.
 
 in diagram form:
 
@@ -11,7 +11,7 @@ in diagram form:
         ||--------------------------||
         || rump kernel (TCP/IP etc.)||
         ||--------------------------||
-        || dpdk-rumptcpip (dpdkif)  ||
+        || drv-netif-dpdk (dpdkif)  ||
         ||--------------------------||
         || DPDK                     ||
         |----------------------------|

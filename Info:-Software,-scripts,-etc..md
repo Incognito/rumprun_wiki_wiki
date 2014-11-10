@@ -9,6 +9,6 @@
 -   [fs-utils: File system image access
     utilities](https://github.com/stacktic/fs-utils)
 -   Fast userspace packet processing: TCP/IP stack for use with
-    [DPDK](http://repo.rumpkernel.org/dpdk-rumptcpip), 
-    [netmap](http://repo.rumpkernel.org/netmap-rumptcpip) or
+    [DPDK](http://repo.rumpkernel.org/drv-netif-dpdk),
+    [netmap](http://repo.rumpkernel.org/drv-netif-netmap) or
     [Snabb Switch](https://github.com/anttikantee/snabbswitch/tree/rumpkernel/)

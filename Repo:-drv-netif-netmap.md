@@ -1,7 +1,8 @@
-This page describes [netmap-rumptcpip](http://repo.rumpkernel.org/netmap-rumptcpip).
+This page describes [drv-netif-netmap](http://repo.rumpkernel.org/drv-netif-netmap).
 
-netmap-rumptcpip uses a rump kernel to provide a userspace TCP/IP stack for use with the
-[netmap](http://info.iet.unipi.it/~luigi/netmap/) packet processing framework.
+drv-netif-netmap is a [netmap](http://info.iet.unipi.it/~luigi/netmap/)
+network interface for [rump kernels](http://rumpkernel.org).  The combined
+result is a TCP/IP stack doing packet I/O via netmap.
 
 Build instructions
 ------------------

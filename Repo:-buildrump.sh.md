@@ -17,8 +17,8 @@ of how to use these services are as follows:
 
 * [fs-utils](https://github.com/stacktic/fs-utils) uses file
   system drivers to provide applications for accessing file system images
-* TCP/IP stack for the [DPDK](https://github.com/rumpkernel/dpdk-rumptcpip)
-  and [netmap](https://github.com/rumpkernel/netmap-rumptcpip)
+* TCP/IP stack for the [DPDK](https://github.com/rumpkernel/drv-netif-dpdk)
+  and [netmap](https://github.com/rumpkernel/drv-netif-netmap)
   userspace packet processing frameworks
 * [ljsyscall](https://github.com/justincormack/ljsyscall) provides
   a Lua interface to rump kernels, allowing easy access from applications
