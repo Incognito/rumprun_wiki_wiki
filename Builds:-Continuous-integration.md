@@ -4,8 +4,8 @@ Travis CI (Linux/x86_64):
 * [rumprun Xen](https://travis-ci.org/rumpkernel/rumprun-xen) ![Build Status](https://travis-ci.org/rumpkernel/rumprun-xen.png?branch=master)
 * [rumprun POSIX](https://travis-ci.org/rumpkernel/rumprun-posix) ![Build Status](https://travis-ci.org/rumpkernel/rumprun-posix.png?branch=master)
 * [rump kernels on bare metal](https://travis-ci.org/rumpkernel/rumpuser-baremetal) ![Build Status](https://travis-ci.org/rumpkernel/rumpuser-baremetal.png?branch=master)
-* [DPDK TCP/IP stack driver](https://travis-ci.org/rumpkernel/drv-netif-dpdk) ![Build Status](https://travis-ci.org/rumpkernel/drv-netif-dpdk.png?branch=master)
-* [netmap TCP/IP stack driver](https://travis-ci.org/rumpkernel/drv-netif-netmap) ![Build Status](https://travis-ci.org/rumpkernel/drv-netif-netmap.png?branch=master)
+* [network interface driver for DPDK backend](https://travis-ci.org/rumpkernel/drv-netif-dpdk) ![Build Status](https://travis-ci.org/rumpkernel/drv-netif-dpdk.png?branch=master)
+* [network interface driver for netmap backend](https://travis-ci.org/rumpkernel/drv-netif-netmap) ![Build Status](https://travis-ci.org/rumpkernel/drv-netif-netmap.png?branch=master)
 * [PCI drivers in userspace](https://travis-ci.org/rumpkernel/pci-userspace) ![Build Status](https://travis-ci.org/rumpkernel/pci-userspace.png?branch=master)
 * [fs-utils](https://travis-ci.org/rumpkernel/fs-utils) ![Build Status](https://travis-ci.org/rumpkernel/fs-utils.png?branch=master)
 
