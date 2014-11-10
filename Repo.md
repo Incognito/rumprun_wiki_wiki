@@ -1,8 +1,8 @@
 Main pages for repositories:
 
 - [[buildrump.sh|Repo:-buildrump.sh]]
-- [[dpdk-rumptcpip|Repo:-dpdk-rumptcpip]]
-- [[netmap-rumptcpip|Repo:-netmap-rumptcpip]]
+- [[drv-netif-dpdk|Repo:-drv-netif-dpdk]]
+- [[drv-netif-netmap|Repo:-drv-netif-netmap]]
 - [[pci-userspace|Repo:-pci-userspace]]
 - [[rump-pktgenif|Repo:-rump-pktgenif]]
 - [[rumprun-posix|Repo:-rumprun-posix]]
