@@ -6,11 +6,10 @@ Building
 --------
 
 Building is not yet consumer-grade, but for the brave: read and edit 
-`buildme.sh`, then edit `Makefile` and execute:
+`buildme.sh`, then read and necessary edit `Makefile` and execute:
 
 ```
 sh buildme.sh
-make
 ```
 
 Creating a bootable ISO image with grub
