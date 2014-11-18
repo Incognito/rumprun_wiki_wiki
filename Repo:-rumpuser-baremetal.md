@@ -16,7 +16,7 @@ make
 Creating a bootable ISO image with grub
 ---------------------------------------
 
-Follow [the instructions at OSDev](http://wiki.osdev.org/Bare_Bones#Building_a_bootable_cdrom_image) and use the file `rk.bin` instead of `myos.bin`.
+Run `make iso`.  You will need `xorriso` and `grub-mkrescue` installed on your build host.
 
 VirtualBox
 ----------
