@@ -67,6 +67,7 @@ Examples of hosts buildrump.sh has been tested on are as follows:
 
 - DragonFly BSD
     - DragonFly  3.2-RELEASE DragonFly v3.2.1.9.g80b03f-RELEASE #2: Wed Oct 31 20:17:57 PDT 2012     root@pkgbox32.dragonflybsd.org:/usr/obj/build/home/justin/src/sys/GENERIC  __i386__
+    - DragonFly dragonfly.myriabit.eu 4.0-RELEASE DragonFly v4.0.0.32.gce3e27-RELEASE #25: Mon Nov 24 20:15:26 PST 2014     root@pkgbox64.dragonflybsd.org:/usr/obj/build/home/justin/src/sys/X86_64_GENERIC  __x86_64__
 
 - FreeBSD
     - FreeBSD frab 9.1-PRERELEASE FreeBSD 9.1-PRERELEASE #5 r243866: Wed Dec  5 02:15:02 CET 2012     root@vetinari:/usr/obj/usr/src/sys/RINCEWIND  __amd64__ (static rump kernel components, with thanks to Philip for test host access)
