@@ -2,6 +2,7 @@ This page contains links to talks on rump kernels.  All entries should contain a
 
 _Note_: articles which were not presented as a talk are linked from the separate [[Articles|Info:-External-articles,-tutorials-and-howto's]] page.
 
+-   _Rump kernels and {why,how} we got here_; overview and history. New Directions in Operating Systems, 2014. [[video](https://www.youtube.com/watch?v=GoB73cVyScI), [slides](http://operatingsystems.io/slides/rumpkernel.pdf)]
 -   _Running Applications on the NetBSD Rump Kernel_; talks about new developments and running applications.  EuroBSDCon 2014 \[[slides](http://eurobsdcon.myriabit.eu/)] (video available shortly).
 -   _Rump Kernels, Just Components_; talks about rump kernels as reusable
     and platform-agnostic drivers and targets a developer audience.  FOSDEM 2014 Microkernel devroom.  [[video](http://video.fosdem.org/2014/H2214/Sunday/Rump_Kernels_Just_Components.webm),
