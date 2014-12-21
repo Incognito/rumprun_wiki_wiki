@@ -14,7 +14,7 @@ Live Travis reports are sent to __#rumpkernel-builds__ on irc.freenode.net.
 Buildbot:
 
 * [buildrump.sh stable, multiple operating systems and architectures](http://build.myriabit.eu:8011/waterfall)
-* [buildrump.sh NetBSD HEAD, multiple operating systems and architectures](http://build.myriabit.eu:8012/waterfall) (*)
+* [NetBSD HEAD, buildrump.sh & rumprun-posix, multiple host systems and architectures](http://build.myriabit.eu:8012/waterfall) (*)
 * [ljsyscall, includes rump kernel tests on various platforms](http://build.myriabit.eu:8010/waterfall)
 * [rumprun-posix, multiple platforms](http://build.myriabit.eu:8013/waterfall)
 
