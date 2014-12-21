@@ -18,4 +18,4 @@ Buildbot:
 * [ljsyscall, includes rump kernel tests on various platforms](http://build.myriabit.eu:8010/waterfall)
 * [rumprun-posix, multiple platforms](http://build.myriabit.eu:8013/waterfall)
 
-\* since these builds are not against a "known good" timestamp of NetBSD sources, there may be transient failures due to problems in the NetBSD tree.
+\* hourly runs with NetBSD HEAD.  Since these runs are not against a "known good" timestamp of NetBSD sources, there may be transient failures.
