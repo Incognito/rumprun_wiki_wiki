@@ -25,13 +25,15 @@ the `libxen-dev` package).
 
 	./buildxen.sh
 
-To run, use the standard Xen tools:
+To run, use the `rumprun` tool:
 
-	xl create -c domain_config
+	rumprun xen -i tests/hello/hello
 
-Check out `domain_config` to change which tests/demos are run.
-By default, a httpd will be run.  You will need a Xen network
-setup for it to work.
+This will run a simple "Hello, World" demo as a domU, attaching to its console.
+
+Running the `rumprun` tool with no parameters will display a short usage message.
+More demos can be found under `tests/`, and a demo of running an unmodified httpd
+can be found at https://github.com/mato/rump-mathopd.
 
 Debugging
 ---------
