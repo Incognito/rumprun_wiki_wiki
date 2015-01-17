@@ -1,17 +1,16 @@
-You need an Android cross compiler. You can install the Android NDK, but it is easier to use the version that your Linux distro provides if possible. For example for Debian and Ubuntu the package you need is ```gcc-arm-linux-androideabi``` for ARM Android or ```gcc-i686-linux-android``` for x86. There are no Android MIPS cross compilers packaged though. This will provide ```arm-linux-gnueabi-*``` tools, all set up to use the Android headers.
+You need an Android cross compiler from the Android NDK. It has only been tested on a recent version.
 
-You may or may not need to use ```BUILDRUMP_LDFLAGS="-fuse-ld=bfd"```; if ```arm-linux-androideabi-gcc -Wl,--version``` says the linker is GNU gold then you will as the ```gold``` linker does not build correctly. As of recent rump kenerl versions this should no longer be necessary as ```gold``` is supported.
-
-To build, set
+To build, set your PATH as appropriate and set the sysroot as required for example:
 ````
 export CC=arm-linux-androideabi-gcc
-./buildrump.sh -V MKPIC=no fullbuild
+./buildrump.sh -F CPPFLAGS=--sysroot=/home/justin/android-ndk-r10d/platforms/android-21/arch-arm -F ACLFLAGS=--sysroot=/home/justin/android-ndk-r10d/platforms/android-21/arch-arm
 ````
+
+If you use the gcc 4.9.1 you may need to set `-F CFLAGS=-Wno-error=maybe-uninitialized`, although this should be fixed.
 
 You can build the tests (they will not run, there is no qemu-user for Android) with
 
 ````
-export LDFLAGS="-fuse-ld=bfd"
 ./buildrump.sh tests
 ```
 
