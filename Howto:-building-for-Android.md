@@ -10,7 +10,7 @@ If you use the gcc 4.9.1 you may need to set `-F CFLAGS=-Wno-error=maybe-uniniti
 
 You can build the tests (they will not run, there is no qemu-user for Android) with
 
-Then you can run the tests on a device or simulator. However there are possibly some toolchain issues still to be resolved.
+Then you can run the tests on a device or simulator. However there are possibly some toolchain issues still to be resolved on some platforms.
 
 ````
 adb -d push obj/brtests/fstest/fstest /data/local/tmp
