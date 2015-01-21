@@ -1,5 +1,11 @@
 Project News (limited to 8 items):
 
+__January 21, 2014__:
+Full httpd + FastCGI + PHP application stack running on Rump Kernels on Xen ([link] (http://article.gmane.org/gmane.comp.rumpkernel.user/709))
+
+__November 30, 2014__:
+Video of Antti Kantee's talk on Rump Kernels from operatingsystems.io is now available ([link](https://www.youtube.com/watch?v=WiMNuGTRgbA&index=5&list=PLmRrx948XMnEUlzKOCYn3AzT8OAInP_5M))
+
 __October 29, 2014__:
 fs-utils is now hosted under repo.rumpkernel.org ([link](http://repo.rumpkernel.org/fs-utils))
 
@@ -17,9 +23,3 @@ Status report and roadmap ([link](http://permalink.gmane.org/gmane.comp.rumpkern
 
 __August 8, 2014__:
 Rump kernels available for bare metal and hypervisor platforms ([link](http://blog.netbsd.org/tnf/entry/an_internet_ready_os_from))
-
-__July 12, 2014__:
-Fibers available as an alternative to threads in userspace ([link](http://permalink.gmane.org/gmane.comp.rumpkernel.user/314))
-
-__June 27, 2014__:
-Pthreads are now supported by the Xen stack ([link](https://github.com/rumpkernel/rumprun-xen/))
