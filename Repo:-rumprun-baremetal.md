@@ -1,16 +1,20 @@
-The page describes the [rumpuser-baremetal repository](http://repo.rumpkernel.org/rumpuser-baremetal).
+The page describes the [rumprun-baremetal repository](http://repo.rumpkernel.org/rumprun-baremetal).
 
-Rumpuser-baremtal provides rump kernel support on raw hardware, and by extension hypervisors on the cloud.  The repository includes the "OS" required for booting the hardware up to the state where running rump kernels is possible, the hypercalls for making the rump kernel function, and furthermore some enabling bits for running POSIX applications on top of the rump kernel.
+Rumprun-baremtal provides rump kernel support on raw hardware, and by extension hypervisors on the cloud.  The repository includes the "OS" required for booting the hardware up to the state where running rump kernels is possible, the hypercalls for making the rump kernel function, and furthermore the enabling bits for running POSIX applications on top of the rump kernel.
 
 Building
 --------
 
-Building is not yet consumer-grade, but for the brave: read and edit 
-`buildme.sh`, then read and necessary edit `Makefile` and execute:
+Generally, assuming you are building on x86, the following should work:
 
 ```
-sh buildme.sh
+sh buildme.sh -- -F ACLFLAGS=-m32
 ```
+
+Other targets
+-------------
+Other targets are not yet supported, so if you want to build for those, you need to write the
+machine dependent parts.  (patches very welcome ;-)
 
 Creating a bootable ISO image with grub
 ---------------------------------------
@@ -25,3 +29,7 @@ Running
 -------
 
 Run the resulting image just like you would any other OS with e.g. QEMU or VirtualBox.
+
+Alternatively, you can copy the result of `make iso` to a USB flash drive and boot on hardware.
+Notably, by default there is only very limited network driver support in the default image, so do not
+expect things to automatically work on any system you can find.
