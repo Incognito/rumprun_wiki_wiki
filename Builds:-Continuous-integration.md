@@ -8,6 +8,7 @@ Travis CI (Linux/x86_64):
 * [network interface driver for netmap backend](https://travis-ci.org/rumpkernel/drv-netif-netmap) ![Build Status](https://travis-ci.org/rumpkernel/drv-netif-netmap.png?branch=master)
 * [PCI drivers in userspace](https://travis-ci.org/rumpkernel/pci-userspace) ![Build Status](https://travis-ci.org/rumpkernel/pci-userspace.png?branch=master)
 * [fs-utils](https://travis-ci.org/rumpkernel/fs-utils) ![Build Status](https://travis-ci.org/rumpkernel/fs-utils.png?branch=master)
+* [rump-pktgenif](https://travis-ci.org/rumpkernel/rump-pktgenif) ![Build Status](https://travis-ci.org/rumpkernel/rump-pktgenif.png?branch=master)
 
 Live Travis reports are sent to __#rumpkernel-builds__ on irc.freenode.net.
 
