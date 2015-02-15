@@ -52,7 +52,7 @@ Talks
 Theses
 ------
 -   _The Design and Implementation of the Anykernel and Rump Kernels_.  Antti Kantee, Aalto University, 2012.
-    [[link](http://lib.tkk.fi/Diss/2012/isbn9789526049175/isbn9789526049175.pdf)]
+    [[pdf](http://lib.tkk.fi/Diss/2012/isbn9789526049175/isbn9789526049175.pdf)]
 
 Blog posts
 ----------
