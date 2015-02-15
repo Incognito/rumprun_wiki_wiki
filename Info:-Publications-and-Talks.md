@@ -2,7 +2,8 @@ This page is divided into following subsections:
 
 * [[Articles|Info:-Publications-and-talks#articles-and-publications]].  If the article was presented, link to video/slides may be included.
 * [[Talks|Info:-Publications-and-talks#talks]], with links to either the video or slides.
-* [[Blog posts|Info:-Publications-and-talks#blog-posts]]
+* [[Theses|Info:-Publications-and-talks#thesis]], academic theses.
+* [[Blog posts|Info:-Publications-and-talks#blog-posts]].
 
 When adding new entries, try to remain consistent with the entries in the relevant
 subsection.
@@ -47,6 +48,11 @@ Talks
     [[video](http://video.fosdem.org/2013/maintracks/K.1.105/The_Anykernel_and_Rump_Kernels.webm),
     [slides](https://fosdem.org/2013/schedule/event/operating_systems_anykernel/attachments/slides/244/export/events/attachments/operating_systems_anykernel/slides/244/fosdem2013_rumpkern.pdf),
     [interview](https://archive.fosdem.org/2013/interviews/2013-antii-kantee/)]
+
+Theses
+------
+-   _The Design and Implementation of the Anykernel and Rump Kernels_.  Antti Kantee, Aalto University, 2012.
+    [[link](http://lib.tkk.fi/Diss/2012/isbn9789526049175/isbn9789526049175.pdf)]
 
 Blog posts
 ----------
