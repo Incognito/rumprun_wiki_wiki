@@ -1,18 +1,13 @@
-This page contains links to talks on rump kernels.  All entries should contain a link to at least one of the following: paper, slides or video.  Use the format "_Title_; short description. Venue. [links]".  A date (year) is required for each entry.
+This page is divided into following subsections:
 
-_Note_: articles which were not presented as a talk are linked from the separate [[Articles|Info:-External-articles,-tutorials-and-howto's]] page.
+* [[Articles|Info:-Publications-and-talks#articles]]
+* [[Talks|Info:-Publications-and-talks#talks]]
+* [[Blog posts|Info:-Publications-and-talks#blog-posts]]
 
--   _Rump kernels and {why,how} we got here_; overview and history. New Directions in Operating Systems, 2014. [[video](https://www.youtube.com/watch?v=GoB73cVyScI), [slides](http://operatingsystems.io/slides/rumpkernel.pdf)]
--   _Running Applications on the NetBSD Rump Kernel_; talks about new developments and running applications.  EuroBSDCon 2014 [[video](https://va.ludost.net/files/eurobsdcon/2014/Pirin/03.Saturday/02.Running%20Applications%20on%20the%20NetBSD%20Rump%20Kernel%20-%20Justin%20Cormack.mp4), [slides](http://eurobsdcon.myriabit.eu/)]. __NOTE__: video link may change in the future
--   _Rump Kernels, Just Components_; talks about rump kernels as reusable
-    and platform-agnostic drivers and targets a developer audience.  FOSDEM 2014 Microkernel devroom.  [[video](http://video.fosdem.org/2014/H2214/Sunday/Rump_Kernels_Just_Components.webm),
-    [slides](https://fosdem.org/2014/schedule/event/01_uk_rump_kernels/attachments/slides/398/export/events/attachments/01_uk_rump_kernels/slides/398/fosdem2014.pdf)]
--   _The Anykernel and Rump Kernels_; gives a general overview and
-    demonstrates rump kernels on Windows and in Firefox.
-    FOSDEM 2013 Operating Systems track.
-    [[video](http://video.fosdem.org/2013/maintracks/K.1.105/The_Anykernel_and_Rump_Kernels.webm),
-    [slides](https://fosdem.org/2013/schedule/event/operating_systems_anykernel/attachments/slides/244/export/events/attachments/operating_systems_anykernel/slides/244/fosdem2013_rumpkern.pdf),
-    [interview](https://archive.fosdem.org/2013/interviews/2013-antii-kantee/)]
+Articles
+--------
+
+-   _Rump Kernels: No OS? No Problem!_; a summary of rump kernels, especially from the perspective of rumprun.  USENIX ;login:, October 2014 [[paper](http://rumpkernel.org/misc/usenix-login-2014/)]
 -   _Rump Device Drivers: Shine On You Kernel Diamond_; describes device
     driver and USB.  AsiaBSDCon 2010.
     [[paper](http://ftp.NetBSD.org/pub/NetBSD/misc/pooka/tmp/rumpdev.pdf),
@@ -34,3 +29,40 @@ _Note_: articles which were not presented as a talk are linked from the separate
     describes networking in rump kernels.  AsiaBSDCon 2009.
     [[paper](http://2009.asiabsdcon.org/papers/abc2009-P5A-paper.pdf),
     [video](http://www.youtube.com/watch?v=RxFctq8A0WI)]
+
+Talks
+-----
+
+-   _Rump kernels and {why,how} we got here_; overview and history. New Directions in Operating Systems, 2014. [[video](https://www.youtube.com/watch?v=GoB73cVyScI), [slides](http://operatingsystems.io/slides/rumpkernel.pdf)]
+-   _Running Applications on the NetBSD Rump Kernel_; talks about new developments and running applications.  EuroBSDCon 2014 [[video](https://va.ludost.net/files/eurobsdcon/2014/Pirin/03.Saturday/02.Running%20Applications%20on%20the%20NetBSD%20Rump%20Kernel%20-%20Justin%20Cormack.mp4), [slides](http://eurobsdcon.myriabit.eu/)]. __NOTE__: video link may change in the future
+-   _Rump Kernels, Just Components_; talks about rump kernels as reusable
+    and platform-agnostic drivers and targets a developer audience.  FOSDEM 2014 Microkernel devroom.  [[video](http://video.fosdem.org/2014/H2214/Sunday/Rump_Kernels_Just_Components.webm),
+    [slides](https://fosdem.org/2014/schedule/event/01_uk_rump_kernels/attachments/slides/398/export/events/attachments/01_uk_rump_kernels/slides/398/fosdem2014.pdf)]
+-   _The Anykernel and Rump Kernels_; gives a general overview and
+    demonstrates rump kernels on Windows and in Firefox.
+    FOSDEM 2013 Operating Systems track.
+    [[video](http://video.fosdem.org/2013/maintracks/K.1.105/The_Anykernel_and_Rump_Kernels.webm),
+    [slides](https://fosdem.org/2013/schedule/event/operating_systems_anykernel/attachments/slides/244/export/events/attachments/operating_systems_anykernel/slides/244/fosdem2013_rumpkern.pdf),
+    [interview](https://archive.fosdem.org/2013/interviews/2013-antii-kantee/)]
+
+Blog posts
+----------
+
+-   [An Internet-Ready OS From Scratch in a Week — Rump Kernels on Bare
+    Metal](http://blog.netbsd.org/tnf/entry/an_internet_ready_os_from) (NetBSD blog, 2014)
+-   [Running rump kernels and applications on Xen without a full
+    OS](http://blog.NetBSD.org/tnf/entry/running_applications_on_the_xen) (NetBSD blog, 2013)
+-   [PCI device driver support in rump kernels on
+    Xen](http://blog.NetBSD.org/tnf/entry/pci_driver_support_for_rump) (NetBSD blog, 2013)
+-   [Experiment with a rump kernel hypervisor for the Linux
+    kernel](http://blog.NetBSD.org/tnf/entry/a_rump_kernel_hypervisor_for)
+    which allows rump kernels to run *in* the Linux kernel (NetBSD blog, 2013)
+-   [Experiment on compiling rump kernels to javascript and running them
+    in the
+    browser](http://blog.NetBSD.org/tnf/entry/kernel_drivers_compiled_to_javascript) (NetBSD blog, 2012)
+-   [Kernel Servers using
+    Rump [Kernels]](http://www.NetBSD.org/docs/rump/sysproxy.html) (NetBSD website, 2011)
+-   [Tutorial On Rump Kernel Servers and
+    Clients](http://www.NetBSD.org/docs/rump/sptut.html) (NetBSD website, 2011)
+-   [Revolutionizing Kernel Development: Testing With
+    Rump [Kernels]](http://blog.NetBSD.org/tnf/entry/revolutionizing_kernel_development_testing_with) (NetBSD blog, 2010)
