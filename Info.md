@@ -3,7 +3,6 @@ General information:
 - [[Community|Info:-Community]]
 - [[Comparison of rump kernels with similar technologies|Info:-Comparison-of-rump-kernels-with-similar-technologies]]
 - [[Events|Info:-Events]]
-- [[External articles, tutorials and howto's|Info:-External-articles,-tutorials-and-howto's]]
 - [[File system images|Info:-File-system-images]]
 - [[Hackathons|Info:-Hackathons]]
 - [[News|Info:-News]]
