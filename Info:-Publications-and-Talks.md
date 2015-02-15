@@ -1,11 +1,14 @@
 This page is divided into following subsections:
 
-* [[Articles|Info:-Publications-and-talks#articles]]
-* [[Talks|Info:-Publications-and-talks#talks]]
+* [[Articles|Info:-Publications-and-talks#articles-and-publications]].  If the article was presented, link to video/slides may be included.
+* [[Talks|Info:-Publications-and-talks#talks]], with links to either the video or slides.
 * [[Blog posts|Info:-Publications-and-talks#blog-posts]]
 
-Articles
---------
+When adding new entries, try to remain consistent with the entries in the relevant
+subsection.
+
+Articles and publications
+-------------------------
 
 -   _Rump Kernels: No OS? No Problem!_; a summary of rump kernels, especially from the perspective of rumprun.  USENIX ;login:, October 2014 [[paper](http://rumpkernel.org/misc/usenix-login-2014/)]
 -   _Rump Device Drivers: Shine On You Kernel Diamond_; describes device
