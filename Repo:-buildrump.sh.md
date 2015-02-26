@@ -31,14 +31,6 @@ by an OS kernel.  For running unmodified userspace applications
 against system call services provided by rump kernels, see
 [rumprun-posix](https://github.com/rumpkernel/rumprun-posix/).
 
-For full details on rump kernels, go to http://www.rumpkernel.org/.
-For a video overview including various demos, watch the
-[FOSDEM 2013 presentation](http://video.fosdem.org/2013/maintracks/K.1.105/The_Anykernel_and_Rump_Kernels.webm).
-
-Discuss buildrump.sh on rumpkernel-users@lists.sourceforge.net
-([subscribe](https://lists.sourceforge.net/lists/listinfo/rumpkernel-users)
-before posting), or join __#rumpkernel__ on __irc.freenode.net__.
-
 Running `buildrump.sh` requires a network connection for fetching NetBSD
 kernel driver source code.  Self-contained archives can be created using
 the `tarup.sh` script, and snapshots are available for download from
