@@ -51,10 +51,10 @@ Talks
 
 Theses
 ------
--   _The Design and Implementation of the Anykernel and Rump Kernels_.  Antti Kantee, Aalto University, 2012.
-    [[pdf](http://lib.tkk.fi/Diss/2012/isbn9789526049175/isbn9789526049175.pdf)]
 -   _User space approach to audio device driving on UNIX-like systems_.  Robert Millan, Universitat Politècnica de Catalunya, 2015.
     [[pdf](http://upcommons.upc.edu/pfc/bitstream/2099.1/25316/1/104462.pdf)]
+-   _The Design and Implementation of the Anykernel and Rump Kernels_.  Antti Kantee, Aalto University, 2012.
+    [[pdf](http://lib.tkk.fi/Diss/2012/isbn9789526049175/isbn9789526049175.pdf)]
 
 Blog posts
 ----------
