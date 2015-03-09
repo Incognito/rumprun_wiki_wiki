@@ -55,6 +55,8 @@ Theses
     [[pdf](http://upcommons.upc.edu/pfc/bitstream/2099.1/25316/1/104462.pdf)]
 -   _The Design and Implementation of the Anykernel and Rump Kernels_.  Antti Kantee, Aalto University, 2012.
     [[pdf](http://lib.tkk.fi/Diss/2012/isbn9789526049175/isbn9789526049175.pdf)]
+-   _A Split TCP/IP Stack Implementation for GNU/Linux_. Martin Unzner, TU Dresden, 2014.
+    [[pdf](http://os.inf.tu-dresden.de/papers_ps/unzner-diplom.pdf)]
 
 Blog posts
 ----------
