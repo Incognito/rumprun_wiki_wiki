@@ -5,8 +5,8 @@ This page is divided into following subsections:
 * [[Theses|Info:-Publications-and-talks#theses]], academic theses featuring rump kernels in some capacity.
 * [[Blog posts|Info:-Publications-and-talks#blog-posts]].
 
-When adding new entries, try to remain consistent with the entries in the relevant
-subsection.
+When adding new entries, try to remain consistent with the existing entries in the relevant
+subsection.  Use reverse chronological sort within subsections.
 
 Articles and publications
 -------------------------
