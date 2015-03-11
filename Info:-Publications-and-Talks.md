@@ -24,6 +24,7 @@ Articles and publications
   + EuroBSDCon 2009
   + fs-utils, an mtools-like utility kit which uses rump kernel file systems as a backend
 - __Rump File Systems: Kernel Code Reborn__ [[paper](http://usenix.org/events/usenix09/tech/full_papers/kantee/kantee.pdf), [slides](http://usenix.org/events/usenix09/tech/slides/kantee.pdf)]
+  + _Antti Kantee_
   + 2009 USENIX Annual Technical Conference
   + kernel file system code and its uses in userspace
 - __Kernel Development in Userspace - The Rump Approach__ [[paper](http://www.bsdcan.org/2009/schedule/attachments/104_rumpdevel.pdf), [slides](http://www.bsdcan.org/2009/schedule/attachments/105_bsdcan09-kantee.pdf)]
@@ -39,7 +40,7 @@ Talks
 -----
 
 - __Rumprun for Rump Kernels: Instant Unikernels for POSIX applications__ [[slides](http://operatingsystems.io/slides/rumprun-rump-kernels-lucina.pdf)]
-  + Martin Lucina
+  + _Martin Lucina_
   + New Directions in Operating Systems, 2014
   + demonstrates the rumprun tool for deploying Rump Kernels as Unikernels on Xen
 - __Rump kernels and {why,how} we got here__ [[video](https://www.youtube.com/watch?v=GoB73cVyScI), [slides](http://operatingsystems.io/slides/rumpkernel.pdf)]
