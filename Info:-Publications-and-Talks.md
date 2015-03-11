@@ -11,12 +11,13 @@ subsection.  Use reverse chronological sort within subsections.
 Articles and publications
 -------------------------
 
--   __Rump Kernels: No OS? No Problem!__.  _Antti Kantee, Justin Cormack_.  USENIX ;login:, October 2014 [[paper](http://rumpkernel.org/misc/usenix-login-2014/)]
+- __Rump Kernels: No OS? No Problem!__.  _Antti Kantee, Justin Cormack_. USENIX ;login:, October 2014
   + summary of rump kernels, especially from the perspective of rumprun.
--   _Rump Device Drivers: Shine On You Kernel Diamond_; describes device
-    driver and USB.  AsiaBSDCon 2010.
+  + [paper](http://rumpkernel.org/misc/usenix-login-2014/)
+- __Rump Device Drivers: Shine On You Kernel Diamond__. _Antti Kantee_.  AsiaBSDCon 2010.
     [[paper](http://ftp.NetBSD.org/pub/NetBSD/misc/pooka/tmp/rumpdev.pdf),
     [video](http://www.youtube.com/watch?v=3AJNxa33pzk)]
+  +  describes device drivers and USB
 -   _Fs-utils: File Systems Access Tools for Userland_ describes
     fs-utils, an mtools-like utility kit which uses rump kernel file
     systems as a backend.
