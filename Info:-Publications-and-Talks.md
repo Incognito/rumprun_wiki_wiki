@@ -1,7 +1,7 @@
 This page is divided into following subsections:
 
-* [[Articles|Info:-Publications-and-talks#articles-and-publications]].  If the article was presented, link to video/slides may be included.
-* [[Talks|Info:-Publications-and-talks#talks]], with links to either the video or slides.
+* [[Articles|Info:-Publications-and-talks#articles-and-publications]].  If the article was presented, link to video/slides may be included.  All entries _must_ have a `[paper]` link.
+* [[Talks|Info:-Publications-and-talks#talks]], with links to either the video or slides.  Conference presentations without an accompanying paper go here.
 * [[Theses|Info:-Publications-and-talks#theses]], academic theses featuring rump kernels in some capacity.
 * [[Blog posts|Info:-Publications-and-talks#blog-posts]].
 
