@@ -18,11 +18,10 @@ Articles and publications
     [[paper](http://ftp.NetBSD.org/pub/NetBSD/misc/pooka/tmp/rumpdev.pdf),
     [video](http://www.youtube.com/watch?v=3AJNxa33pzk)]
   +  describes device drivers and USB
--   _Fs-utils: File Systems Access Tools for Userland_ describes
-    fs-utils, an mtools-like utility kit which uses rump kernel file
-    systems as a backend.
-    EuroBSDCon 2009.
-    [[paper](http://www.ukuug.org/events/eurobsdcon2009/papers/ebc09_fs-utils.pdf)]
+- __Fs-utils: File Systems Access Tools for Userland__. _Arnaud Ysmal, Antti Kantee_
+  + fs-utils, an mtools-like utility kit which uses rump kernel file systems as a backend
+  + EuroBSDCon 2009
+  + [paper](http://www.ukuug.org/events/eurobsdcon2009/papers/ebc09_fs-utils.pdf)
 -   _Rump File Systems: Kernel Code Reborn_; describes kernel file system
     code and its uses in userspace.  2009 USENIX Annual Technical Conference.
     [[paper](http://usenix.org/events/usenix09/tech/full_papers/kantee/kantee.pdf),
