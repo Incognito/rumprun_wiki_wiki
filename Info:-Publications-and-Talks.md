@@ -37,6 +37,7 @@ Articles and publications
 Talks
 -----
 
+-   _Rumprun for Rump Kernels: Instant Unikernels for POSIX applications_; demonstrates the rumprun tool for deploying Rump Kernels as Unikernels on Xen. New Directions in Operating Systems, 2014. [[slides](http://operatingsystems.io/slides/rumprun-rump-kernels-lucina.pdf)]
 -   _Rump kernels and {why,how} we got here_; overview and history. New Directions in Operating Systems, 2014. [[video](https://www.youtube.com/watch?v=GoB73cVyScI), [slides](http://operatingsystems.io/slides/rumpkernel.pdf)]
 -   _Running Applications on the NetBSD Rump Kernel_; talks about new developments and running applications.  EuroBSDCon 2014 [[video](https://va.ludost.net/files/eurobsdcon/2014/Pirin/03.Saturday/02.Running%20Applications%20on%20the%20NetBSD%20Rump%20Kernel%20-%20Justin%20Cormack.mp4), [slides](http://eurobsdcon.myriabit.eu/)]. __NOTE__: video link may change in the future
 -   _Rump Kernels, Just Components_; talks about rump kernels as reusable
