@@ -1,42 +1,6 @@
-This page describes [rumprun-xen](http://repo.rumpkernel.org/rumprun-xen).
+<!-- RUMPWIKI_NOINDEX -->
 
-This repository contains code that implements the rump kernel hypercall
-interfaces for the Xen hypervisor platform.  It enables running rump
-kernels and application code as a single-image guest on top of Xen
-without having to boot an entire OS.  The advantage of using rump
-kernels is being able use unmodified kernel-quality drivers as part of
-a single-image application, with the memory footprint being a fraction
-of that of a full OS, yet still achieving the isolation provided by Xen.
+The rumprun-xen repository has been merged with
+[[rumprun|Repo:-rumprun]].
 
-For applications a POSIX-y interface is provided.  Some applications,
-such as those using file systems or sockets interfaces or pthreads, will more or
-less work out-of-the-box.  Limitations include applications which do
-not fit into a single-process no-VM model, such as applications using
-`fork()` or `execve()`.  These limitations may sometimes be overcome by
-various forms of emulation.
-
-
-Using / Testing
----------------
-
-To build, clone this repository and run the following command.  You
-need Xen headers for a successful build (e.g. on Ubuntu they're in
-the `libxen-dev` package).
-
-	./buildxen.sh
-
-To run, use the `rumprun` tool:
-
-	rumprun xen -i tests/hello/hello
-
-This will run a simple "Hello, World" demo as a domU, attaching to its console.
-
-Running the `rumprun` tool with no parameters will display a short usage message.
-More demos can be found under `tests/`, and a demo of running an unmodified httpd
-can be found at https://github.com/mato/rump-mathopd.
-
-Debugging
----------
-
-Debugging the rump kernel Xen stack is described on a separate
-page: [[Howto:-Debugging-rumprun-xen-with-gdb]].
+Please update your links.
