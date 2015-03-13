@@ -7,24 +7,11 @@ top of a high-level hypercall interface which is straightforward to
 implement for most environments.  This repository includes the hypercall
 implementation for running in userspace on POSIX hosts, with alternative
 implementations such as for the
-[Xen hypervisor](https://github.com/rumpkernel/rumprun-xen/)
-and the [Linux kernel](https://github.com/rumpkernel/rumpuser-linuxkernel)
+[Xen hypervisor](http://wiki.rumpkernel.org/Platforms:-Xen-DomU)
 being hosted elsewhere.
 
 In other words, rump kernels enable embedding unmodified kernel drivers
-in various environments and using the drivers as services.  Some examples
-of how to use these services are as follows:
-
-* [fs-utils](https://github.com/stacktic/fs-utils) uses file
-  system drivers to provide applications for accessing file system images
-* TCP/IP stack for the [DPDK](https://github.com/rumpkernel/drv-netif-dpdk)
-  and [netmap](https://github.com/rumpkernel/drv-netif-netmap)
-  userspace packet processing frameworks
-* [ljsyscall](https://github.com/justincormack/ljsyscall) provides
-  a Lua interface to rump kernels, allowing easy access from applications
-  written in Lua
-* [rumprun-xen](https://github.com/rumpkernel/rumprun-xen) enables
-  running applications as standalone Xen DomU's (includes libc support)
+in various environments and using the drivers as services.
 
 Rump kernels address the part of the software stack typically handled
 by an OS kernel.  For running unmodified userspace applications
@@ -113,7 +100,7 @@ Kernel-only mode
 If the `-k` kernel-only parameter is specified, the script will
 omit building the POSIX hypercall implementation.  This is useful if
 you are developing your own hypercall layer implementation.  See the
-[rumprun-xen](https://github.com/rumpkernel/rumprun-xen) repository
+[rumprun](http://repo.rumpkernel.org/rumprun) repository
 for the canonical example of using `-k`.
 
 Setting compile flags

@@ -188,9 +188,19 @@ tmpfs on /tmp type tmpfs (local)
 Building your own applications
 ------------------------------
 
-So you can run rump kernels with various component configurations and change their configurations using various applications we provided.  The next thing you are probably thinking about is bundling your own applications instead of the ones we provide.  Short answer: it's possible (obviously, see above), but we're still working on how to make it "consumer grade".  Some experiments are currently done on the [[Xen platform|Repo:-rumprun-xen]], where it is possible to build application stacks using wrappers to the `configure` and `make` build tools.  Have a look in the [app-tools directory](https://github.com/rumpkernel/rumprun-xen/tree/master/platform/xen/app-tools) and at what the Travis CI [automated test script](https://github.com/rumpkernel/rumprun-xen/blob/master/.travis.yml) does.
+So you can run rump kernels with various component configurations
+and change their configurations using various applications we
+provided.  The next thing you are probably thinking about is
+bundling your own applications instead of the ones we provide.
+Short answer: it's possible (obviously, see above), but we're still
+working on how to make it "consumer grade".  Some experiments
+are currently done on the [[bare metal and Xen platforms|Repo:-rumprun]],
+where it is possible to build application stacks using wrappers to
+the `configure` and `make` build tools.  Have a look in the [app-tools
+directory](https://github.com/rumpkernel/rumprun/tree/master/app-tools).
 
-Rest assured, we will write more documentation on the subject as the material develops and the plot thickens.
+Rest assured, we will write more documentation on the subject as the
+material develops and the plot thickens.
 
 
 Homework
