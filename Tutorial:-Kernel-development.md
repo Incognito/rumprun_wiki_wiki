@@ -74,7 +74,7 @@ So, for tmpfs we just need tmpfs itself and rumpvfs.
 
 To start a rump server which serves the tmpfs file system, in terminal 1:
 ```
-$ rr/rumpdyn/bin/rump_server -lrumpfs_tmpfs -lrumpfs_tmpfs -lrumpvfs -s unix://ctrl
+$ rr/buildrump.sh/rump/bin/rump_server -lrumpfs_tmpfs -lrumpfs_tmpfs -lrumpvfs -s unix://ctrl
 ```
 
 Note that the server stays in the foreground.  This is because we
