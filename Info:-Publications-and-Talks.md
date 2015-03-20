@@ -15,7 +15,7 @@ Articles and publications
   +  _Justin Cormack_
   + AsiaBSDCon 2015
   + see title for summary ;-)
-  + fun fact: slides are hosted on a rump kernel running on Xen
+  + fun fact: slides are hosted on a rumprun stack running on Xen
 - __Rump Kernels: No OS? No Problem!__ [[paper](http://rumpkernel.org/misc/usenix-login-2014/)]
   +  _Antti Kantee, Justin Cormack_
   + USENIX ;login:, October 2014
