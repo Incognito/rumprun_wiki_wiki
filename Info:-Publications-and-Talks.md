@@ -11,6 +11,11 @@ subsection.  Use reverse chronological sort within subsections.
 Articles and publications
 -------------------------
 
+- __The rump kernel: A tool for driver development and a toolkit for applications__ [paper/video upcoming, [slides](http://asiabsdcon2015.myriabit.eu/)]
+  +  _Justin Cormack_
+  + AsiaBSDCon 2015
+  + see title for summary ;-)
+  + fun fact: slides are hosted on a rump kernel running on Xen
 - __Rump Kernels: No OS? No Problem!__ [[paper](http://rumpkernel.org/misc/usenix-login-2014/)]
   +  _Antti Kantee, Justin Cormack_
   + USENIX ;login:, October 2014
@@ -39,6 +44,10 @@ Articles and publications
 Talks
 -----
 
+- __Development of vxlan(4) using rump kernel__ [video upcoming, [slides](http://www.netbsd.org/gallery/presentations/goda/2015_AsiaBSDCon/development_of_vxlan_using_rumpkernel.pdf)]
+  + _Kazuya GODA_
+  + AsiaBSDCon 2015 NetBSD BoF
+  + step-by-step howto of developing the vxlan driver for NetBSD
 - __Rumprun for Rump Kernels: Instant Unikernels for POSIX applications__ [[slides](http://operatingsystems.io/slides/rumprun-rump-kernels-lucina.pdf)]
   + _Martin Lucina_
   + New Directions in Operating Systems, 2014
