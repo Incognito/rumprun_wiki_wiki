@@ -38,6 +38,8 @@ cd rumprun-posix
 ./buildnb.sh
 ```
 
+Note: if the buildnb.sh script fails, especially after updating the repo, try running it again after updating the sub-modules using `git submodule update`.
+
 Trying it out
 -------------
 
