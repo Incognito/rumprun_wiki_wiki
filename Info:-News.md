@@ -1,5 +1,8 @@
 Project News (limited to 8 items):
 
+__April, 2015__:
+rump kernels included in a linux.com article series on unikernels ([part 1](http://www.linux.com/news/enterprise/cloud-computing/819993-7-unikernel-projects-to-take-on-docker-in-2015), [part 2](http://www.linux.com/news/enterprise/cloud-computing/820669-why-unikernels-improve-internet-security), [part 3](http://www.linux.com/news/enterprise/cloud-computing/821243-unikernel-use-cases-containers))
+
 __January 21, 2015__:
 Full httpd + FastCGI + PHP application stack running on Rump Kernels on Xen ([link] (http://article.gmane.org/gmane.comp.rumpkernel.user/709))
 
@@ -20,6 +23,3 @@ First rump kernel hackathon to be held in London November 26 ([[link|Info:-Hacka
 
 __August 27, 2014__:
 Status report and roadmap ([link](http://permalink.gmane.org/gmane.comp.rumpkernel.user/416))
-
-__August 8, 2014__:
-Rump kernels available for bare metal and hypervisor platforms ([link](http://blog.netbsd.org/tnf/entry/an_internet_ready_os_from))
