@@ -1,5 +1,4 @@
-About
------
+This page describes [fs-utils](http://repo.rumpkernel.org/fs-utils).
 
 The goal of fs-utils is to provide a set of utilities for accessing and
 modifying file system images without having to use host kernel mounts.
