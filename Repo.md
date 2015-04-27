@@ -8,7 +8,6 @@ Main pages for repositories:
 - [[rump-pktgenif|Repo:-rump-pktgenif]]
 - [[rumprun-posix|Repo:-rumprun-posix]]
 - [[rumprun|Repo:-rumprun]]
-- [[src-netbsd|Repo:-src-netbsd]]
 
 The Big Picture
 ===============
