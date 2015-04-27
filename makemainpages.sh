@@ -42,4 +42,6 @@ for cat in ${CATEGORIES}; do
 		txt=$(echo ${page} | sed "s/${cat}:-*//;${dashsub};s/\.md$//;")
 		echo "- [[${txt}|${page%%.md}]]" >> ${cat}.md
 	done
+
+	[ -f ${cat}.trailer ] && cat ${cat}.trailer >> ${cat}.md
 done
