@@ -1,13 +1,12 @@
 #!/bin/sh
 
 # NOTE!  Do not include categories with manual top level, e.g. Platforms!
-CATEGORIES="Builds Info Howto Performance Repo Tutorial"
+CATEGORIES="Builds Info Howto Performance Tutorial"
 
 DESC_Builds='Automated builds and binary packages:'
 DESC_Howto='Documentation for specific issues:'
 DESC_Info='General information:'
 DESC_Performance='Performance and optimizing performance:'
-DESC_Repo='Main pages for repositories:'
 DESC_Tutorial='Detailed tutorials aimed at starting from zero and
 working towards mastering a subject:'
 
@@ -28,11 +27,7 @@ for cat in ${CATEGORIES}; do
 	eval desc=\${DESC_${cat}}
 	[ -z "${desc}" ] && { echo ${cat} is missing DESC; exit 1; }
 
-	if [ "${cat}" = "Repo" ]; then
-		dashsub=''
-	else
-		dashsub='s/-/ /g'
-	fi
+	dashsub='s/-/ /g'
 
 	echo ${desc} > ${cat}.md
 	echo >> ${cat}.md
@@ -42,6 +37,4 @@ for cat in ${CATEGORIES}; do
 		txt=$(echo ${page} | sed "s/${cat}:-*//;${dashsub};s/\.md$//;")
 		echo "- [[${txt}|${page%%.md}]]" >> ${cat}.md
 	done
-
-	[ -f ${cat}.trailer ] && cat ${cat}.trailer >> ${cat}.md
 done
