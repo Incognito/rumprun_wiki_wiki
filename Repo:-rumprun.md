@@ -25,6 +25,12 @@ amount of code shared between platforms, and generally speaking only
 bootstrap code and glue to I/O devices and the clock are required for
 supporting a new platform.
 
+Major subsections on this page are:
+* [[Building|Repo:-rumprun#building]]
+* [[Running|Repo:-rumprun#running]]
+* [[Platforms|Repo:-rumprun#platforms]]
+* [[Debugging|Repo:-rumprun#debugging]]
+
 
 Building
 ========
