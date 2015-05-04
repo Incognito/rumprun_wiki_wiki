@@ -6,7 +6,7 @@ Main pages for repositories:
 - [[fs-utils|Repo:-fs-utils]]
 - [[pci-userspace|Repo:-pci-userspace]]
 - [[rump-pktgenif|Repo:-rump-pktgenif]]
-- [[rumprun-posix|Repo:-rumprun-posix]]
+- [[rumpctrl|Repo:-rumpctrl]]
 - [[rumprun|Repo:-rumprun]]
 
 The Big Picture
@@ -59,5 +59,4 @@ standalone implementation is historical: fs-utils were created originally
 in 2008 when the rumprun unikernel did not exist.  Currently, fs-utils
 is not broken so we have not had a dire need to fix it.
 
-TODO: rumpctrl (or whatever the name of that repo currently
-under debate ends up being)
+TODO: rumpctrl
