@@ -6,4 +6,4 @@ difficulty and category (and is mostly TODO)
 * create a Valgrind HOWTO (on this wiki) which details common pitfalls, tricks and tips
 * add auth support for remote clients
 * [[OSX support|Project ideas: OSX support]]
-* add support for "offline mode" tarballs to rumprun-posix, similar to what tarup.sh does for buildrump.sh
+* add support for "offline mode" tarballs to rumpctrl and rumprun, similar to what tarup.sh does for buildrump.sh

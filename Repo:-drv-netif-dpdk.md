@@ -40,7 +40,7 @@ debug and fix any resulting problems yourself.
 For more information on how to use the resulting userspace TCP/IP stack,
 see e.g. the [buildrump.sh repo](https://github.com/rumpkernel/buildrump.sh)
 or http://rumpkernel.org/.  To portably configure the TCP/IP stack,
-using [rumprun-posix](https://github.com/rumpkernel/rumprun-posix/) is recommended.
+using [rumpctrl](http://repo.rumpkernel.org/rumpctrl) is recommended.
 There are some very simple examples in the `examples` directory.
 
 __NOTE__: To successfully use the TCP/IP stack, you must have the host correctly
