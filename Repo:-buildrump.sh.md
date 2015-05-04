@@ -16,7 +16,7 @@ in various environments and using the drivers as services.
 Rump kernels address the part of the software stack typically handled
 by an OS kernel.  For running unmodified userspace applications
 against system call services provided by rump kernels, see
-[rumprun-posix](https://github.com/rumpkernel/rumprun-posix/).
+[[rumpctrl|Repo:-rumpctrl]].
 
 Running `buildrump.sh` requires a network connection for fetching NetBSD
 kernel driver source code.  Self-contained archives can be created using
