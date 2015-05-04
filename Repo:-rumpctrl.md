@@ -18,7 +18,7 @@ To build, run:
 
 This will automatically fetch and build all dependencies.
 
-<--
+<!--
 XXX: "nobuildrump" mode doesn't work currently
 
 If you already have a rump kernel install you need to make sure rumpctrl can find the libraries (and for the tests, the `rump_server` binary, so you may need to set `LIBRARY_PATH` and `LD_LIBRARY_PATH`, and run:
