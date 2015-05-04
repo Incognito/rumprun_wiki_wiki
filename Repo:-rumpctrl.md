@@ -1,14 +1,12 @@
-This page describes [rumprun-posix](http://repo.rumpkernel.org/rumprun-posix).
+This page describes [rumpctrl](http://repo.rumpkernel.org/rumpctrl).
 
-Rumprun is a wrapper for running programs that were written for a normal POSIX (NetBSD) system to run them under a rump kernel.  Rumprun is especially useful for running NetBSD configuration tools on non-NetBSD systems for the purposes of configuring rump kernels.
+Rumpctrl provides configuration, control and diagnostic utilities for
+rump kernels.  These utilities can be run on a POSIX-type userspace
+platform to remotely inspect and adjust the status of rump kernels via
+the _sysproxy_ remote system call facility.  This repository provides
+both the build framework and a selection of familiar utilities such as
+`ifconfig`, `mount`, `sysctl`, and more.
 
-Rumprun takes NetBSD program (see Makefile) and compiles it using the NetBSD ABI.  The system calls that the program makes are being served by a rump kernel instead of the host kernel.
-
-Currently tested on Linux and NetBSD, and should be generally
-portable. A good deal of NetBSD utilities will already work
-(see end of this file for list of ones built out-of-the-box).
-Currently only known to work on i386 and amd64 architectures,
-but others are being worked on as they need small fixes.
 
 Building
 ========
@@ -18,15 +16,18 @@ To build, run:
 ./buildnb.sh
 ```
 
-This will automatically fetch and build all dependencies, so assuming you
-have build tools (compiler etc.) installed, you are good to go.
+This will automatically fetch and build all dependencies.
 
-If you already have a rump kernel install you need to make sure rumprun-posix can find the libraries (and for the tests, the `rump_server` binary, so you may need to set `LIBRARY_PATH` and `LD_LIBRARY_PATH`, and run:
+<--
+XXX: "nobuildrump" mode doesn't work currently
+
+If you already have a rump kernel install you need to make sure rumpctrl can find the libraries (and for the tests, the `rump_server` binary, so you may need to set `LIBRARY_PATH` and `LD_LIBRARY_PATH`, and run:
 ````
 ./buildnb.sh nobuildrump
 ```
+-->
 
-If you want experimental ZFS support to be included, run:
+If you want support for the experimental ZFS utilities to be included, run:
 
 ```
 ./buildnb.sh zfs
@@ -35,34 +36,25 @@ If you want experimental ZFS support to be included, run:
 Running
 =======
 
-There are two possibilities for operation mode: remote clients and local clients.  Both are
-described below.  If you are unsure which mode is relevant for you, you most likely
-want remote clients.
+The model of operation is such that the rump kernel runs in a separate
+domain from the control applications.  The rumpctrl utilities run as
+userspace processes, and the rump kernel can be for example a userspace
+rump kernel server, or a rumprun unikernel running on Xen.
 
-Remote clients
---------------
+The environment variable `$RUMP_SERVER` determines which method and
+address the rumpctrl utility uses for communicating with the rump kernel.
+Currently, two methods are supported (as of writing this more
+are being planned):
 
-When using remote clients, you run the rump kernel runs in a separate process
-from the applications and communicates using IPC.  The operation mode resembles
-a typical OS setup, where the kernel is disjoint from the applications running
-on it.
+* `unix`: local domain sockets
+* `tcp`: TCP communication
 
-The most straightforward way to do this is in conjunction
-with the readily available `rump_server` program.  A brief
-example follows.
+The address is given in an URL-like fashion, e.g. `unix:///path/to/socket`
+or `tcp://1.2.3.4:12345`.
 
-First, we run the server, for example with IP networking components:
-
-````
-$ ./rumpdyn/bin/rump_server -lrumpnet -lrumpnet_net -lrumpnet_netinet -lrumpnet_netinet6 -lrumpnet_shmif unix://csock
-$
-````
-
-Now we can make system calls to `rump_server` via the local domain
-socket (`unix://csock`).  We control the location that programs
-access by setting the env variable `$RUMP_SERVER`.
-
-To configure one shmif interface:
+For example, assuming a rump kernel server accepting sysproxy requests
+via a unix domain socket located at path `csock`, we can create and
+configure a networking interface in the following fashion:
 
 ```
 $ . rumpremote.sh
@@ -78,32 +70,18 @@ shmif0: flags=8043<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500
 	inet 1.2.3.4 netmask 0xffffff00 broadcast 1.2.3.255
 ```
 
-The interface will persist until `rump_server` is killed or halted,
-like in a regular system an interface will persist until the
-system is rebooted.  The exception is, of course, if you remove the interface
-before reboot with `ifconfig shmif0 destroy`.
-
-Using local clients
--------------------
-
-As opposed to remote clients, with local clients both the rump kernel and client(s) exist in the
-same host process.
-
-This mode is under development and there will be examples shortly. The build process is
-similar but you link in the rump kernel instead of just the rumpclient library.
-
 
 Bundled programs
 ================
 
-A few dozen NetBSD utilities such as `ifconfig`, `sysctl`, `dd` and `wpa_supplicant`
-are bundled with rumprun-posix.  You can list the currently available ones by running
-`rumpremote_listcmds` (the routine is provided by `rumpremote.sh`).
+A few dozen NetBSD utilities such as `ifconfig`, `sysctl`, `dd` and
+`wpa_supplicant` are bundled with rumpctrl.  You can list the currently
+available ones by running `rumpremote_listcmds` (the routine is provided
+by `rumpremote.sh`).
 
-Generally speaking, supporting a
-program is a matter of pulling in the unmodified NetBSD source code and
-adding the name of the program to `Makefile`, so if you have requests,
-do not hesitate to file an issue.
+Generally speaking, supporting a program is a matter of pulling in the
+unmodified NetBSD source code and adding the name of the program to
+`Makefile`, so if you have requests, do not hesitate to file an issue.
 
 The manual page for each command
 is available from http://man.NetBSD.org/,
@@ -124,4 +102,4 @@ FAQ
 ===
 
 - Why does shell redirecting not work?  E.g. `wpa_passphrase net passkey > wpa.conf` creates the config file on the host instead of in the rump kernel.
-    - Your shell is not a rumprun-posix program, so shell redirects are interpreted in host context.  As a workaround, use `dd`, which is a rumprun program, e.g. `wpa_passphrase net passkey | dd of=wpa.conf`
+    - Your shell is not a rumpctrl program, so shell redirects are interpreted in host context.  As a workaround, use `dd`, which is a rumprun program, e.g. `wpa_passphrase net passkey | dd of=wpa.conf`
