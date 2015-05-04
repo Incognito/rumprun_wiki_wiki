@@ -57,12 +57,12 @@ via a unix domain socket located at path `csock`, we can create and
 configure a networking interface in the following fashion:
 
 ```
-$ . rumpremote.sh
-rumpremote (NULL)$ export RUMP_SERVER=unix://csock
-rumpremote (unix://csock)$ ifconfig shmif0 create
-rumpremote (unix://csock)$ ifconfig shmif0 linkstr busmem
-rumpremote (unix://csock)$ ifconfig shmif0 inet 1.2.3.4 netmask 0xffffff00
-rumpremote (unix://csock)$ ifconfig shmif0
+$ . rumpctrl.sh
+rumpctrl (NULL)$ export RUMP_SERVER=unix://csock
+rumpctrl (unix://csock)$ ifconfig shmif0 create
+rumpctrl (unix://csock)$ ifconfig shmif0 linkstr busmem
+rumpctrl (unix://csock)$ ifconfig shmif0 inet 1.2.3.4 netmask 0xffffff00
+rumpctrl (unix://csock)$ ifconfig shmif0
 shmif0: flags=8043<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500
 	address: b2:a0:57:b0:8a:69
 	linkstr: busmem
@@ -76,8 +76,8 @@ Bundled programs
 
 A few dozen NetBSD utilities such as `ifconfig`, `sysctl`, `dd` and
 `wpa_supplicant` are bundled with rumpctrl.  You can list the currently
-available ones by running `rumpremote_listcmds` (the routine is provided
-by `rumpremote.sh`).
+available ones by running `rumpctrl_listcmds` (the routine is provided
+by `rumpctrl.sh`).
 
 Generally speaking, supporting a program is a matter of pulling in the
 unmodified NetBSD source code and adding the name of the program to
