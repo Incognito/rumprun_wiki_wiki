@@ -1,5 +1,10 @@
 The page describes the [rumprun
-repository](http://repo.rumpkernel.org/rumprun), which provides the
+repository](http://repo.rumpkernel.org/rumprun).
+If you are completely unfamiliar the rump kernel ecosystem, we suggest following
+the [[Getting Started Tutorial|Tutorial:-Getting-Started]] before attempting to
+read the rest of this page.
+
+The rumprun repository provides the
 rumprun unikernel for various platforms.  Rumprun uses the drivers offered
 by rump kernels, adds a libc and an application environment on top, and
 provides a toolchain with which to build existing POSIX-y applications
