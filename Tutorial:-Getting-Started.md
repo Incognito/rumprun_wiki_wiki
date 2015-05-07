@@ -192,7 +192,7 @@ If you want, as an exercise create an ISO image and use a `rump_server`
 and the `rumpfs_cd9660` driver to access the contents.  You will need
 to use the `-d` argument to `rump_server` to map the image to the
 rump kernel namespace.  Check out the
-(rump server manpage)[cgi-bin/man-cgi?rump_server++NetBSD-current]
+[rump server manpage](http://man.netbsd.org/cgi-bin/man-cgi?rump_server++NetBSD-current)
 if you need more information about the `-d` parameter.
 
 Building your own applications
