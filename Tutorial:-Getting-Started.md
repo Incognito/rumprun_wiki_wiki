@@ -1,5 +1,3 @@
-__NOTE: this tutorial is not fully up-to-date with reality. we are working on it__
-
 This tutorial is meant as an up-to-date guide for people coming across rump kernels for the first time, and wanting to understand them and/or to use them.  There are two parts.  First we list a few items of suggested reading.  The second, and bulk, part of this tutorial is about playing around with the code.  People interested only in playing around with the code can [[skip the reading|Tutorial:-Getting-Started#hands-on]].
 
 If you find this tutorial lacking in any way, please suggest improvements on the rump kernel mailing list (see the [[Community|Info:-Community]] page for more info on the list).
