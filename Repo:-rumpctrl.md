@@ -53,7 +53,12 @@ The address is given in an URL-like fashion, e.g. `unix:///path/to/socket`
 or `tcp://1.2.3.4:12345`.
 
 For example, assuming a rump kernel server accepting sysproxy requests
-via a unix domain socket located at path `csock`, we can create and
+via a unix domain socket located at path `csock` for example created with
+
+```
+./rumpdyn/bin/rump_allserver unix://csock
+```
+Then we can create and
 configure a networking interface in the following fashion:
 
 ```
