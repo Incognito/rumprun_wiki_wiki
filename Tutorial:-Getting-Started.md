@@ -89,7 +89,7 @@ kern.hostname = look_at_them_run
 Sweet!  Let's use `ls` to see what files the rump kernel is hosting.
 
 ```
-rumpremote (unix:///tmp/rumpctrlsock)$ ls -l
+rumpctrl (unix:///tmp/rumpctrlsock)$ ls -l
 ls: .: Function not implemented
 ```
 
@@ -123,47 +123,53 @@ rumpctrl extra tricks
 Assuming you have sourced `rumpctrl.sh`, you can list all of the available commands with `rumpctrl_listcmds`.  Another way would be to list the contents of the `bin` directory.  You can test for an individual command with `rumpctrl_hascmd` (which may give peace of mind if you e.g. want to execute `rm -rf /`).  Finally, you can "shell out" with `rumpctrl_hostcmd`.  Let's try these out.
 
 ```
-rumpctrl (unix:///tmp/rumpctrlsock)$ rumpremote_listcmds 
+rumpctrl (unix:///tmp/rumpctrlsock)$ rumpctrl_listcmds 
 arp		ed		mknod		newfs_msdos	route
 [...]
-rumpctrl (unix:///tmp/rumpctrlsock)$ rumpremote_hascmd ls
+rumpctrl (unix:///tmp/rumpctrlsock)$ rumpctrl_hascmd ls
 #t
-rumpremote (unix:///tmp/rumpctrlsock)$ rumpremote_hascmd top
+rumpctrl (unix:///tmp/rumpctrlsock)$ rumpctrl_hascmd top
 #f
-rumpremote (unix:///tmp/rumpctrlsock)$ ls -l /
+rumpctrl (unix:///tmp/rumpctrlsock)$ ls -l /
 total 2
 drwxr-xr-x  2 0  0  512 Jul 28 23:10 dev
 drwxrwxrwt  2 0  0  512 Jul 28 23:10 tmp
-rumpremote (unix:///tmp/rumpctrlsock)$ rumpremote_hostcmd ls -l /
+rumpctrl (unix:///tmp/rumpctrlsock)$ rumpctrl_hostcmd ls -l /
 total 110
 drwxr-xr-x   2 root root  4096 Jul 23 23:01 bin
 [...]
 ```
 
-Note: shell redirects or `cd` will not work with rumpremote.  The behaviour expected -- the shell is running in host userspace, not guest userspace -- but needs to be taken into account.
+In case you are wondering if we should have used `rumpctrl_hostcmd` to run
+`rump_server` when we restarted it, you are on the right track.  We did not
+do that because `rumpctrl_hostcmd` had not been introduced yet and because
+we are sure that the is no `rump_server` rumpctrl command (well, at least
+__I__ am sure).
+
+Note: shell redirects or `cd` will not work with rumpctrl.  The behaviour expected -- the shell is running in host userspace, not guest userspace -- but needs to be taken into account.
 
 ```
-rumpremote (unix:///tmp/rumpctrlsock)$ cd /dev
-ERROR: cd not available in rumpremote mode /dev
-rumpremote (unix:///tmp/rumpctrlsock)$ echo messages from earth > /file
+rumpctrl (unix:///tmp/rumpctrlsock)$ cd /dev
+ERROR: cd not available in rumpctrl mode /dev
+rumpctrl (unix:///tmp/rumpctrlsock)$ echo messages from earth > /file
 bash: /file: Permission denied
-rumpremote (unix:///tmp/rumpctrlsock)$ ls -l /file
+rumpctrl (unix:///tmp/rumpctrlsock)$ ls -l /file
 ls: /file: No such file or directory
-rumpremote (unix:///tmp/rumpctrlsock)$ echo messages from earth | dd of=/file
+rumpctrl (unix:///tmp/rumpctrlsock)$ echo messages from earth | dd of=/file
 0+1 records in
 0+1 records out
 20 bytes transferred in 0.001 secs (20000 bytes/sec)
-rumpremote (unix:///tmp/rumpctrlsock)$ ls -l /file
+rumpctrl (unix:///tmp/rumpctrlsock)$ ls -l /file
 -rw-r--r--  1 0  0  20 Jul 29 04:24 /file
 ```
 
 Coping with components
 ----------------------
 
-Let's assume we want to run some driver in a rump kernel.  That driver needs all of its dependencies to work.  How to figure out what the dependencies are?  For the impatient, there is `rump_allserver`, which simply loads all components that were available when `rump_allserver` was built.  However, it is better to get into the habit of surgically selecting only the necessary components.  This will keep footprint of the rump kernel to a minimum.  We can use the tool `rump_wmd` (Where's My Dependency) to resolve dependencies.  For example, let's assume we want a rump kernel to support the FFS file system driver.
+Let's assume we want to run some driver in a rump kernel.  That driver needs all of its dependencies to work.  How to figure out what the dependencies are?  For the impatient, there is `rump_allserver`, which simply loads all components that were available when `rump_allserver` was built.  However, it is better to get into the habit of surgically selecting only the necessary components.  This will keep footprint of the rump kernel to a minimum and also allow you to include drivers which were built and installed separate from `rump_allserver`.  We can use the tool `rump_wmd` (Where's My Dependency) to resolve dependencies.  For example, let's assume we want a rump kernel to support the FFS file system driver.
 
 ```
-rumpremote (unix:///tmp/rumpctrlsock)$ rumpremote_hostcmd ./rumpdyn/bin/rump_wmd -L./rumpdyn/lib -lrumpfs_ffs
+rumpctrl (unix:///tmp/rumpctrlsock)$ rumpctrl_hostcmd ./rumpdyn/bin/rump_wmd -L./rumpdyn/lib -lrumpfs_ffs
 DEBUG0: Searching component combinations. This may take a while ...
 DEBUG0: Found a set
 -lrumpdev -lrumpdev_disk -lrumpvfs -lrumpfs_ffs
@@ -172,15 +178,22 @@ DEBUG0: Found a set
 Now, we could start a rump kernel server with FFS, but we'll actually start one which supports tmpfs, to not have to magically come up with an FFS image to mount.  Before we can start another server, we have to halt the previously running one.  Note, you can halt a server only once, as demonstrated below.
 
 ```
-rumpremote (unix:///tmp/rumpctrlsock)$ halt
-rumpremote (unix:///tmp/rumpctrlsock)$ halt
+rumpctrl (unix:///tmp/rumpctrlsock)$ halt
+rumpctrl (unix:///tmp/rumpctrlsock)$ halt
 rumpclient init failed
-rumpremote (unix:///tmp/rumpctrlsock)$ ./rumpdyn/bin/rump_server -lrumpfs_tmpfs -lrumpvfs unix:///tmp/rumpctrlsock
-rumpremote (unix:///tmp/rumpctrlsock)$ mount_tmpfs /swap /tmp
-rumpremote (unix:///tmp/rumpctrlsock)$ mount
+rumpctrl (unix:///tmp/rumpctrlsock)$ rumpctrl_hostcmd ./rumpdyn/bin/rump_server -lrumpfs_tmpfs -lrumpvfs unix:///tmp/rumpctrlsock
+rumpctrl (unix:///tmp/rumpctrlsock)$ mount_tmpfs /swap /tmp
+rumpctrl (unix:///tmp/rumpctrlsock)$ mount
 rumpfs on / type rumpfs (local)
 tmpfs on /tmp type tmpfs (local)
 ```
+
+If you want, as an exercise create an ISO image and use a `rump_server`
+and the `rumpfs_cd9660` driver to access the contents.  You will need
+to use the `-d` argument to `rump_server` to map the image to the
+rump kernel namespace.  Check out the
+(rump server manpage)[cgi-bin/man-cgi?rump_server++NetBSD-current]
+if you need more information about the `-d` parameter.
 
 Building your own applications
 ------------------------------
@@ -192,18 +205,15 @@ bundling your own applications instead of the ones we provide.
 Short answer: it's possible (obviously, see above), but we're still
 working on how to make it "consumer grade".  Some experiments
 are currently done on the [[bare metal and Xen platforms|Repo:-rumprun]],
-where it is possible to build application stacks using wrappers to
-the `configure` and `make` build tools.  Have a look in the [app-tools
-directory](https://github.com/rumpkernel/rumprun/tree/master/app-tools).
-
-Rest assured, we will write more documentation on the subject as the
-material develops and the plot thickens.
+where it is possible to build rumprun unikernels using wrappers to
+the `configure` and `make` build tools.  See the [[rumprun|Repo:-rumprun]]
+wiki page for current information on the subject.
 
 
 Homework
 --------
 
-Try out at least some of the commands listed by `rumpremote_listcmds`.  Some of them require rather specially configured rump kernels (e.g. `wpa_supplicant`), and those are out of the scope of this tutorial.  However, you should for example be able to configure a rump server up to a point where `ping 127.0.0.1` works.
+Try out at least some of the commands listed by `rumpctrl_listcmds`.  Some of them require rather specially configured rump kernels (e.g. `wpa_supplicant`), and those are out of the scope of this tutorial.  However, you should for example be able to configure a rump server up to a point where `ping 127.0.0.1` works.
 
 The manual pages for all of the commands are available at http://man.netbsd.org/
 
