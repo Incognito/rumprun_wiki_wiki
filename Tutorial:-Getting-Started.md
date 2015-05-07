@@ -169,7 +169,7 @@ Coping with components
 Let's assume we want to run some driver in a rump kernel.  That driver needs all of its dependencies to work.  How to figure out what the dependencies are?  For the impatient, there is `rump_allserver`, which simply loads all components that were available when `rump_allserver` was built.  However, it is better to get into the habit of surgically selecting only the necessary components.  This will keep footprint of the rump kernel to a minimum and also allow you to include drivers which were built and installed separate from `rump_allserver`.  We can use the tool `rump_wmd` (Where's My Dependency) to resolve dependencies.  For example, let's assume we want a rump kernel to support the FFS file system driver.
 
 ```
-rumpctrl (unix:///tmp/rumpctrlsock)$ rumpctrl_hostcmd ./rumpdyn/bin/rump_wmd -L./rumpdyn/lib -lrumpfs_ffs
+rumpctrl (unix:///tmp/rumpctrlsock)$ rumpctrl_hostcmd ./buildrump.sh/rump/bin/rump_wmd -L./buildrump.sh/rump/lib -lrumpfs_ffs
 DEBUG0: Searching component combinations. This may take a while ...
 DEBUG0: Found a set
 -lrumpdev -lrumpdev_disk -lrumpvfs -lrumpfs_ffs
@@ -181,7 +181,7 @@ Now, we could start a rump kernel server with FFS, but we'll actually start one 
 rumpctrl (unix:///tmp/rumpctrlsock)$ halt
 rumpctrl (unix:///tmp/rumpctrlsock)$ halt
 rumpclient init failed
-rumpctrl (unix:///tmp/rumpctrlsock)$ rumpctrl_hostcmd ./rumpdyn/bin/rump_server -lrumpfs_tmpfs -lrumpvfs unix:///tmp/rumpctrlsock
+rumpctrl (unix:///tmp/rumpctrlsock)$ rumpctrl_hostcmd ./buildrump.sh/rump/bin/rump_server -lrumpfs_tmpfs -lrumpvfs unix:///tmp/rumpctrlsock
 rumpctrl (unix:///tmp/rumpctrlsock)$ mount_tmpfs /swap /tmp
 rumpctrl (unix:///tmp/rumpctrlsock)$ mount
 rumpfs on / type rumpfs (local)
