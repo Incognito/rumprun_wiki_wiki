@@ -1,4 +1,7 @@
 This page describes [rumpctrl](http://repo.rumpkernel.org/rumpctrl).
+If you are completely unfamiliar the rump kernel ecosystem, we suggest following
+the [[Getting Started Tutorial|Tutorial:-Getting-Started]] before attempting to
+read the rest of this page.
 
 Rumpctrl provides configuration, control and diagnostic utilities for
 rump kernels.  These utilities can be run on a POSIX-type userspace
