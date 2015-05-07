@@ -22,23 +22,23 @@ in reading the full tutorial text, you can just run the commands.
 Installing prerequisites
 ------------------------
 
-For this tutorial, we will need _rumprun-posix_.  If you
-already have it built, you may skip this step.
+For this tutorial, we will need _buildrump.sh_ and _rumpctrl_.  If you
+have these already built (e.g. because you completed [[Getting Started|Tutorial:-Getting-Started]])), you may skip the following step.
 
 1. Run (terminal 1):
 
 ```
-$ git clone http://repo.rumpkernel.org/rumprun-posix rr
-$ cd rr
+$ git clone http://repo.rumpkernel.org/buildrump.sh br
+$ cd br
+$ ./buildrump.sh
+$ cd ..
+$ git clone http://repo.rumpkernel.org/rumpctrl rc
+$ cd rc
 $ ./buildnb.sh
-$ make
-$ cd buildrump.sh
-$ ./buildrump.sh -T rumptools -q
-$ cd ../../
+$ cd ..
 ```
 
-
-Assuming you did not get any errors, you now have all of the necessary
+Assuming you did not get any errors, you now have all the necessary
 tools.
 
 
@@ -64,7 +64,7 @@ To figure out its dependencies, we can use the `rump_wmd` command
 
 In terminal 1:
 ```
-$ rr/buildrump.sh/rump/bin/rump_wmd -Lrr/buildrump.sh/rump/lib -lrumpfs_tmpfs
+$ br/rump/bin/rump_wmd -Lbr/rump/lib -lrumpfs_tmpfs
 DEBUG0: Searching component combinations. This may take a while ...
 DEBUG0: Found a set
 -lrumpvfs -lrumpfs_tmpfs
@@ -74,7 +74,7 @@ So, for tmpfs we just need tmpfs itself and rumpvfs.
 
 To start a rump server which serves the tmpfs file system, in terminal 1:
 ```
-$ rr/buildrump.sh/rump/bin/rump_server -lrumpfs_tmpfs -lrumpfs_tmpfs -lrumpvfs -s unix://ctrl
+$ br/rump/bin/rump_server -lrumpfs_tmpfs -lrumpfs_tmpfs -lrumpvfs -s unix://ctrl
 ```
 
 Note that the server stays in the foreground.  This is because we
@@ -88,9 +88,9 @@ see a file system socket `ctrl`.
 
 Now, we will use rumprun-posix in terminal 2:
 ```
-$ . rr/rumpremote.sh
-rumpremote (NULL)$ export RUMP_SERVER=unix://ctrl
-rumpremote (unix://ctrl)$ sysctl vfs.generic.fstypes
+$ . ./rc/rumpctrl.sh
+rumpctrl (NULL)$ export RUMP_SERVER=unix://ctrl
+rumpctrl (unix://ctrl)$ sysctl vfs.generic.fstypes
 vfs.generic.fstypes = rumpfs tmpfs
 ```
 
@@ -102,10 +102,10 @@ running rump_server, but here we'll just run rump_server under gdb.
 So, in terminal 1, press ctrl-c and then run:
 
 ```
-$ gdb rr/buildrump.sh/rump/bin/rump_server 
+$ gdb br/rump/bin/rump_server 
 [...]
 (gdb) run -lrumpfs_tmpfs -lrumpvfs -s unix://ctrl
-Starting program: /home/pooka/tmp/demo/rr/buildrump.sh/rump/bin/rump_server -lrumpfs_tmpfs -lrumpvfs -s unix://ctrl
+Starting program: /home/pooka/tmp/demo/br/rump/bin/rump_server -lrumpfs_tmpfs -lrumpvfs -s unix://ctrl
 [...]
 ```
 
@@ -115,7 +115,7 @@ ctrl-c in terminal 1, and then running
 
 ```
 (gdb) break tmpfs_mkdir
-Breakpoint 1 at 0x7ffff6bcae60: file /home/pooka/tmp/demo/rr/buildrump.sh/src/sys/rump/fs/lib/libtmpfs/../../../../fs/tmpfs/tmpfs_vnops.c, line 808.
+Breakpoint 1 at 0x7ffff6bcae60: file /home/pooka/tmp/demo/br/src/sys/rump/fs/lib/libtmpfs/../../../../fs/tmpfs/tmpfs_vnops.c, line 808.
 (gdb) c
 Continuing.
 ```
@@ -126,12 +126,12 @@ we do not have to resetup terminal 2 despite restarting rump_server
 since the new rump_server uses the same URL):
 
 ```
-rumpremote (unix://ctrl)$ mkdir /mnt
-rumpremote (unix://ctrl)$ mount_tmpfs swap /mnt
-rumpremote (unix://ctrl)$ mount
+rumpctrl (unix://ctrl)$ mkdir /mnt
+rumpctrl (unix://ctrl)$ mount_tmpfs swap /mnt
+rumpctrl (unix://ctrl)$ mount
 rumpfs on / type rumpfs (local)
 tmpfs on /mnt type tmpfs (local)
-rumpremote (unix://ctrl)$ mkdir /mnt/test
+rumpctrl (unix://ctrl)$ mkdir /mnt/test
 ```
 
 Note that the last command does not return, and looking into terminal 1,
@@ -141,7 +141,7 @@ we see that we have hit the breakpoint:
 [Switching to Thread 0x7fffeebb3700 (LWP 6832)]
 
 Breakpoint 1, tmpfs_mkdir (v=0x7fffeebb2c10)
-    at /home/pooka/tmp/demo/rr/buildrump.sh/src/sys/rump/fs/lib/libtmpfs/../../../../fs/tmpfs/tmpfs_vnops.c:808
+    at /home/pooka/tmp/demo/br/src/sys/rump/fs/lib/libtmpfs/../../../../fs/tmpfs/tmpfs_vnops.c:808
 808	{
 (gdb) 
 ```
@@ -155,12 +155,12 @@ reference, let's do one thing:
 (gdb) up
 #1  0x00007ffff7aa2b11 in VOP_MKDIR (dvp=0x6d86f0, vpp=0x7fffeebb2ca8, 
     cnp=<optimised out>, vap=<optimised out>)
-    at /home/pooka/tmp/demo/rr/buildrump.sh/src/lib/librump/../../sys/rump/../kern/vnode_if.c:835
+    at /home/pooka/tmp/demo/br/src/lib/librump/../../sys/rump/../kern/vnode_if.c:835
 835		error = (VCALL(dvp, VOFFSET(vop_mkdir), &a));
 (gdb) 
 #2  0x00007ffff6e0b959 in do_sys_mkdirat (l=<optimised out>, fdat=-100, 
     path=<optimised out>, mode=493, seg=UIO_USERSPACE)
-    at /home/pooka/tmp/demo/rr/buildrump.sh/src/lib/librumpvfs/../../sys/rump/../kern/vfs_syscalls.c:4576
+    at /home/pooka/tmp/demo/br/src/lib/librumpvfs/../../sys/rump/../kern/vfs_syscalls.c:4576
 4576		error = VOP_MKDIR(nd.ni_dvp, &nd.ni_vp, &nd.ni_cnd, &vattr);
 (gdb) p nd
 $14 = {ni_atdir = 0x0, ni_pathbuf = 0x6da000, ni_pnbuf = 0x6dcc00 "/mnt/test", 
@@ -190,7 +190,7 @@ source and recompile the driver.
 In terminal 3, run:
 
 ```
-$ cd rr/buildrump.sh/src/sys/rump/fs/lib/libtmpfs
+$ cd br/src/sys/rump/fs/lib/libtmpfs
 $ $EDITOR ../../../../fs/tmpfs/tmpfs_vnops.c
 ```
 
@@ -206,16 +206,16 @@ following line there:
 Save the file and then, still in terminal 3, run:
 
 ```
-$ ../../../../../../rumptools/rumpmake 
+$ ../../../../../obj/tooldir/rumpmake 
     compile  libtmpfs/tmpfs_vnops.o
     compile  libtmpfs/tmpfs_vnops.pico
       build  libtmpfs/librumpfs_tmpfs.a
       build  libtmpfs/librumpfs_tmpfs_pic.a
       build  libtmpfs/librumpfs_tmpfs.so.0.0
-$ ../../../../../../rumptools/rumpmake install
-    install  /home/pooka/tmp/demo/rr/buildrump.sh/rumptools/dest/usr/lib/librumpfs_tmpfs.a
-    install  /home/pooka/tmp/demo/rr/buildrump.sh/rumptools/dest/usr/lib/librumpfs_tmpfs_pic.a
-    install  /home/pooka/tmp/demo/rr/buildrump.sh/rumptools/dest/usr/lib/librumpfs_tmpfs.so.0.0
+$ ../../../../../rumptools/rumpmake install
+    install  /home/pooka/tmp/demo/br/obj/tooldir/dest/usr/lib/librumpfs_tmpfs.a
+    install  /home/pooka/tmp/demo/br/obj/tooldir/dest/usr/lib/librumpfs_tmpfs_pic.a
+    install  /home/pooka/tmp/demo/br/obj/tooldir/dest/usr/lib/librumpfs_tmpfs.so.0.0
 ```
 
 (Yes, the pathname to rumpmake isn't exactly convenient.  You would
@@ -227,7 +227,7 @@ we did above:
 
 ```
 $ rm ctrl
-$ rr/buildrump.sh/rump/bin/rump_server -lrumpfs_tmpfs -lrumpvfs -s unix://ctrl
+$ br/rump/bin/rump_server -lrumpfs_tmpfs -lrumpvfs -s unix://ctrl
 ```
 
 (We need to remove the ctrl socket manually if we exit rump_server
@@ -239,11 +239,11 @@ since it's a new rump kernel instance and the root file system of
 a rump kernel an in-memory file system:
 
 ```
-rumpremote (unix://ctrl)$ mkdir /mnt
-rumpremote (unix://ctrl)$ mount_tmpfs swap /mnt
-rumpremote (unix://ctrl)$ mkdir /mnt/test1
-rumpremote (unix://ctrl)$ mkdir /mnt/test2
-rumpremote (unix://ctrl)$ mkdir /mnt/test37
+rumpctrl (unix://ctrl)$ mkdir /mnt
+rumpctrl (unix://ctrl)$ mount_tmpfs swap /mnt
+rumpctrl (unix://ctrl)$ mkdir /mnt/test1
+rumpctrl (unix://ctrl)$ mkdir /mnt/test2
+rumpctrl (unix://ctrl)$ mkdir /mnt/test37
 ```
 
 Observe the prints in terminal 1:
@@ -296,18 +296,18 @@ these days make it exceedingly difficult to get and/or find the core
 files.  In that case, you can simply run rump_server in gdb).  In terminal 1:
 
 ```
-$ gdb rr/buildrump.sh/rump/bin/rump_server core
+$ gdb br/rump/bin/rump_server core
 GNU gdb (GDB) 7.6.1-ubuntu
 [...]
 (gdb) bt
 [...]
 #5  0x00007fa58e92601c in panic (fmt=<optimised out>)
-    at /home/pooka/tmp/demo/rr/buildrump.sh/src/lib/librump/../../sys/rump/../kern/subr_prf.c:200
+    at /home/pooka/tmp/demo/br/src/lib/librump/../../sys/rump/../kern/subr_prf.c:200
 #6  0x00007fa58da42174 in tmpfs_mkdir (v=<optimised out>)
-    at /home/pooka/tmp/demo/rr/buildrump.sh/src/sys/rump/fs/lib/libtmpfs/../../../../fs/tmpfs/tmpfs_vnops.c:823
+    at /home/pooka/tmp/demo/br/src/sys/rump/fs/lib/libtmpfs/../../../../fs/tmpfs/tmpfs_vnops.c:823
 #7  0x00007fa58e919b11 in VOP_MKDIR (dvp=0x1fd56f0, vpp=0x7fa585a29ca8, 
     cnp=<optimised out>, vap=<optimised out>)
-    at /home/pooka/tmp/demo/rr/buildrump.sh/src/lib/librump/../../sys/rump/../kern/vnode_if.c:835
+    at /home/pooka/tmp/demo/br/src/lib/librump/../../sys/rump/../kern/vnode_if.c:835
 [...]
 ```
 
@@ -317,7 +317,7 @@ in terminal 1:
 ```
 (gdb) frame 6
 #6  0x00007fa58da42174 in tmpfs_mkdir (v=<optimised out>)
-    at /home/pooka/tmp/demo/rr/buildrump.sh/src/sys/rump/fs/lib/libtmpfs/../../../../fs/tmpfs/tmpfs_vnops.c:822
+    at /home/pooka/tmp/demo/br/src/sys/rump/fs/lib/libtmpfs/../../../../fs/tmpfs/tmpfs_vnops.c:822
 822		if (dvp != NULL) panic("tmpfs_mkdir: parent directory is NULL");
 (gdb) print dvp
 $1 = (vnode_t *) 0x1fd56f0
