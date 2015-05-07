@@ -9,7 +9,7 @@ Reading
 
 The most succinct description of the architecture, motivation and history, including some use cases, is the ;login: magazine article "Rump Kernels: No OS? No Problem!".  You can find a free copy [here](http://rumpkernel.org/misc/usenix-login-2014/).
 
-For more in-depth knowledge, reading [The Design and Implementation of the Anykernel and Rump Kernels](http://lib.tkk.fi/Diss/2012/isbn9789526049175/isbn9789526049175.pdf) is recommended.  Notably, read or skim chapters 2 and 3.  Since the book was written in 2011-2012, some parts will be out-of-date, but chapters 2 and 3 are still mostly accurate.  As a rule of thumb, if anything conflicts with the article we suggested to read first, that information is out-of-date in the book.  (we are working on an updated version of the book, which will hopefully be finished by the end of 2014).
+For more in-depth knowledge, reading [The Design and Implementation of the Anykernel and Rump Kernels](http://lib.tkk.fi/Diss/2012/isbn9789526049175/isbn9789526049175.pdf) is recommended.  Notably, read or skim chapters 2 and 3.  Since the book was written in 2011-2012, some parts will be out-of-date, but chapters 2 and 3 are still mostly accurate.  As a rule of thumb, if anything conflicts with the article we suggested to read first, that information is out-of-date in the book.  (we are working on an updated version of the book, which will hopefully be finished by the end of 2015).
 
 After reading those, you should have a solid understanding of what and why a rump kernel is.  If you still want to study more, check out the [[Articles|Info: External articles, tutorials-and-howto's]] and [[Publications|Info: Publications and Talks]] pages on this wiki.
 
@@ -23,77 +23,70 @@ The following should work at least on more or less any Linux system and NetBSD s
 Building
 --------
 
-First, we build the [[rumprun-posix|Repo:-rumprun-posix]] package.  This will give us four things we need for the rest of the tutorial:
+First, we do a full build of the [[buildrump.sh|Repo:-buildrump.sh]] package.  This will give us two things we need for the rest of the tutorial:
 
-* rump kernel components
+* rump kernel components (i.e. the building blocks of rump kernels)
 * hypercall implementation for POSIX'y userspace (allows rump kernels to run in userspace)
-* application stack support (allows POSIX applications, i.e. "userspace", to run on rump kernels)
+
+A kernel alone is slightly boring.  We will also need the [[rumpctrl|Repo:-rumpctrl]] package, which will give us the ability to interact with rump kernel instances:
+
 * a selection of userland utilities, mostly configuration-oriented (think `ifconfig` etc.)
+* a transport mechanism for the userland utilities to communicate with remote rump kernels
 
-Note the subtle difference between the second and the third bullet point.  Essentially we are layering the rump kernel onto the host userspace, and a guest userspace on top of the rump kernel.  One might question why you would want to run a second userspace.  One valid scenario is when you want to use a rump kernel in userspace, e.g. as a userspace network stack -- you need the guest userspace for easy configuration of the rump kernel (again, think `ifconfig`).  We already mentioned a second valid scenario: to serve as a convenient testing/development platform and help you ramp up for embedded/cloud platforms.
+Notably, the `buildrump.sh` stage is necessary only if you want to run rump kernels in userspace, but `rumpctrl` is useful no matter which platform you run your production rump kernels on (Xen, KVM, ...).
 
-In any case, the build is a matter of cloning the repo and running a script:
+In more concrete terms, for `buildrump.sh`:
 
 ```
-git clone http://repo.rumpkernel.org/rumprun-posix
-cd rumprun-posix
+git clone http://repo.rumpkernel.org/buildrump.sh
+cd buildrump.sh
+./buildrump.sh
+```
+
+And for `rumpctrl`:
+
+```
+git clone http://repo.rumpkernel.org/rumpctrl
+cd rumpctrl
 ./buildnb.sh
 ```
 
-Note: if the buildnb.sh script fails, especially after updating the repo, try running it again after updating the sub-modules using `git submodule update`.
+(Notably, the above process is slightly wasteful in terms of bandwidth usage and will clone the `src-netbsd` repository twice.  Advanced users can clone the repository manually and use the `-s` argument to the build scripts to specify the location.  However, we opted for simplicity in this tutorial.)
+
 
 Trying it out
 -------------
 
-So we built things.  Now what?  Look into the `bin-rr` directory.  You will see a bunch of potentially familiar userland utilities, e.g. `ls`, `sysctl` and `ifconfig`.  Let's run one:
+So we built things.  Now what?  Let's assume you've changed back to the top level directory (i.e. `cd ..` after the last build command).  Look into the `./rumpctrl/bin` directory.  You will see a bunch of potentially familiar userland utilities, e.g. `ls`, `sysctl` and `ifconfig`.  What happens if we try to run one?
 
 ```
-$ ./bin-rr/ls -l
-total 2
-drwxr-xr-x  2 0  0  512 Jul 28 19:53 dev
-drwxrwxrwt  2 0  0  512 Jul 28 19:53 tmp
+$ ./rumpctrl/bin/ifconfig 
+error: RUMP_SERVER not set
+rumpclient init failed
 ```
 
-Not much there, huh?  That is because a rump kernel has a fictional root file system, and does not need any files to operate.  The `/dev` directory hosts device nodes, as normal, and the `/tmp` directory, while not strictly speaking necessary, is created for convenience, as some userspace utilities expect it to exist.
+Fail happens.  Why?  On a regular system, each userland utility communicates implicitly with the host kernel.  For example, when you run `ls`, the utility makes the appropriate system calls to the host kernel.  However, there is no implicit rump kernel.  That is the reason why we must explicitly tell the rumpctrl utilities which rump kernel we wish for it to communicate with.  That information is conveyed by an URL in the `RUMP_SERVER` environment variable.  To know the right URL to set, we must first start a rump kernel server.
 
-Now let's try to change the rump kernel's state using `sysctl`:
-
-```
-$ ./bin-rr/sysctl -w kern.hostname=myhostname
-kern.hostname: rump-10564.watou -> myhostname
-$ ./bin-rr/sysctl kern.hostname
-kern.hostname = rump-10586.watou
-```
-
-Our change had no effect.  What's up?  In fact, the change did have effect, but what is happening here is that the rump kernel is hosted in the same process as the userspace utility we are running.  When the utility exits, so does the rump kernel.  When the second `sysctl` process runs, a new rump kernel is bootstrapped, and the `sysctl` command examines the newly bootstrapped rump kernel's state.  We can gauge two things out of this phenomenon: 1) bootstrapping a rump kernel is very fast 2) modifying the state of a kernel that will exit immediately is not very useful.  So what's the point?
-
-If we again think about the scenario where rump kernels are used on an embedded device or cloud hypervisor, there is no mechanism for creating processes.  The necessary utilities will be baked into a single image and run most likely as threads.  Therefore, the problem does not exist in most target environments.  We could try baking things into a single image in userspace too, but continuous baking and testing is not the most convenient way when iterating and figuring things out.  Luckily, we have an ace up our sleeve in userspace: remote syscalls.  We can configure things so that the rump kernel lives as a server in one process, listens to remote requests, and applications make syscalls as remote requests.  This preserves a very natural usage, since the crash/exit of an application does not affect the rump kernel.
-
-Going remote
-------------
-
-First, we need to start a server.  The build process creates one under `./rumpdyn/bin/rump_server`.  As a mandatory argument, the server takes an URL which indicates from where the server listens to for requests.  The easiest way is to use local domain sockets, which are identified by `unix://` and the remainder of the argument is the pathname.  Let's try it out:
+If you followed the above build process, you will have a rump kernel server available under `./buildrump.sh/rump/bin/rump_server`.  As a mandatory argument, the server takes an URL which indicates from where the server listens to for requests.  The easiest way is to use local domain sockets, which are identified by `unix://` and the remainder of the argument is the pathname.  Let's try it out:
 
 ```
-$ ./rumpdyn/bin/rump_server unix:///tmp/rumpctrlsock
+$ ./buildrump.sh/rump/bin/rump_server unix:///tmp/rumpctrlsock
 ```
 
 Ok, um, where did it go?  By default, a `rump_server` will background itself, and that is what happened here.  You can check that the server is running with `ps`.  You can even kill it with `kill`.  However, we will show a more civilized for the kill in a while.
 
-Under the `bin` directory you can find the same utilities as in the `bin-rr` directory.  The difference between the two is that while the latter binaries have the entire kernel baked into them, the former only contain logic to contact a remote rump kernel.  You can verify this with the `ldd` utility.  The binaries in `bin` will be linked to librumpclient.
-
-To direct the application to the right rump kernel server, the environment variable `$RUMP_SERVER` is used.  There is also a bash script, when if sourced, sets the prompt so that the value of `$RUMP_SERVER` is visible.  That will help keep track of which rump kernel server the commands are being sent to.  The script also sets `$PATH` so that the `bin` directory containing the applications build by rumprun-posix is first.  Let's give it a spin.
+You can set `$RUMP_SERVER` manually to the URL you specified when you ran the server.  There is also a bash script, when if sourced, sets the prompt so that the value of `$RUMP_SERVER` is visible.  That will help keep track of which rump kernel server the commands are being sent to.  The script also sets `$PATH` so that the `bin` directory containing the applications build by rumpctrl is first.  Let's give it a spin.
 
 ```
-$ . ./rumpremote.sh
-rumpremote (NULL)$ export RUMP_SERVER=unix:///tmp/rumpctrlsock
-rumpremote (unix:///tmp/rumpctrlsock)$ $ sysctl -w kern.hostname=now_it_sticks
-kern.hostname: rump-12224.watou -> now_it_sticks
-rumpremote (unix:///tmp/rumpctrlsock)$ sysctl kern.hostname
-kern.hostname = now_it_sticks
+$ . ./rumpctrl.sh
+rumpctrl (NULL)$ export RUMP_SERVER=unix:///tmp/rumpctrlsock
+rumpctrl (unix:///tmp/rumpctrlsock)$ $ sysctl -w kern.hostname=look_at_them_run
+kern.hostname: rump-12224.watou -> look_at_them_run
+rumpctrl (unix:///tmp/rumpctrlsock)$ sysctl kern.hostname
+kern.hostname = look_at_them_run
 ```
 
-Sweet!  Let's use `ls` to see if the same files we observed earlier are still available.
+Sweet!  Let's use `ls` to see what files the rump kernel is hosting.
 
 ```
 rumpremote (unix:///tmp/rumpctrlsock)$ ls -l
@@ -103,13 +96,13 @@ ls: .: Function not implemented
 Sour!  What's going on?  Rump kernels are component-oriented, which means that we must indicate which components we want the rump kernel to support.  When we ran `rump_server` earlier, we did not specify that it should support file systems.  No file systems, no `ls`.  So, let's halt the rump kernel and try again.
 
 ```
-rumpremote (unix:///tmp/rumpctrlsock)$ halt
-rumpremote (unix:///tmp/rumpctrlsock)$ ./rumpdyn/bin/rump_server -lrumpvfs unix:///tmp/rumpctrlsock
-rumpremote (unix:///tmp/rumpctrlsock)$ ls -l
+rumpctrl (unix:///tmp/rumpctrlsock)$ halt
+rumpctrl (unix:///tmp/rumpctrlsock)$ ./buildrump.sh/rump/bin/rump_server -lrumpvfs unix:///tmp/rumpctrlsock
+rumpctrl (unix:///tmp/rumpctrlsock)$ ls -l
 total 2
 drwxr-xr-x  2 0  0  512 Jul 28 23:10 dev
 drwxrwxrwt  2 0  0  512 Jul 28 23:10 tmp
-rumpremote (unix:///tmp/rumpctrlsock)$ mount
+rumpctrl (unix:///tmp/rumpctrlsock)$ mount
 rumpfs on / type rumpfs (local)
 ```
 
@@ -118,22 +111,22 @@ Better.  We'll get to how you're supposed to know about `-lrumpvfs` later in thi
 Now, can we mount tmpfs inside the rump kernel server?
 
 ```
-rumpremote (unix:///tmp/rumpctrlsock)$ mount_tmpfs /swap /tmp
+rumpctrl (unix:///tmp/rumpctrlsock)$ mount_tmpfs /swap /tmp
 mount_tmpfs: tmpfs on /tmp: Operation not supported by device
 ```
 
 Bitter!  Looks like you'll have to keep reading this tutorial.
 
-rumpremote extra tricks
------------------------
+rumpctrl extra tricks
+---------------------
 
-Assuming you have sourced `rumpremote.sh`, you can list all of the available commands with `rumpremote_listcmds`.  Another way would be to list the contents of the `bin` directory.  You can test for an individual command with `rumpremote_hascmd` (which may give peace of mind if you e.g. want to execute `rm -rf /`).  Finally, you can "shell out" with `rumpremote_hostcmd`.  Let's try these out.
+Assuming you have sourced `rumpctrl.sh`, you can list all of the available commands with `rumpctrl_listcmds`.  Another way would be to list the contents of the `bin` directory.  You can test for an individual command with `rumpctrl_hascmd` (which may give peace of mind if you e.g. want to execute `rm -rf /`).  Finally, you can "shell out" with `rumpctrl_hostcmd`.  Let's try these out.
 
 ```
-rumpremote (unix:///tmp/rumpctrlsock)$ rumpremote_listcmds 
+rumpctrl (unix:///tmp/rumpctrlsock)$ rumpremote_listcmds 
 arp		ed		mknod		newfs_msdos	route
 [...]
-rumpremote (unix:///tmp/rumpctrlsock)$ rumpremote_hascmd ls
+rumpctrl (unix:///tmp/rumpctrlsock)$ rumpremote_hascmd ls
 #t
 rumpremote (unix:///tmp/rumpctrlsock)$ rumpremote_hascmd top
 #f
