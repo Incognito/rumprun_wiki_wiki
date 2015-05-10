@@ -115,44 +115,12 @@ The second example is about examining the contents of a downloaded ISO image:
 
 Installation Instructions
 =========================
-
 Binary Packages
 ---------------
 
 If available, installing a binary package is recommended.
-Known packages are:
-
-* Void Linux: `xbps-install -S fs-utils`
-* Arch Linux: [pacman](https://build.opensuse.org/package/binaries/home:staal1978/fs-utils?repository=Arch_Core) (OBS), [AUR](https://aur.archlinux.org/packages/netbsd-fs-utils-git/)
-* OpenSUSE Linux:
-12.3 [RPM](https://build.opensuse.org/package/binaries/home:staal1978/fs-utils?repository=openSUSE_12.3) (OBS)
-|| Tumbleweed [RPM](https://build.opensuse.org/package/binaries/home:staal1978/fs-utils?repository=openSUSE_Factory) (OBS)
-|| Factory [RPM](https://build.opensuse.org/package/binaries/home:staal1978/fs-utils?repository=openSUSE_Factory) (OBS)
-|| SLE_11_SP2 [RPM](https://build.opensuse.org/package/binaries/home:staal1978/fs-utils?repository=SLE_11_SP2) (OBS)
-* Fedora Linux:
-17 [RPM](https://build.opensuse.org/package/binaries/home:staal1978/fs-utils?repository=Fedora_17) (OBS)
-|| 18 [RPM](https://build.opensuse.org/package/binaries/home:staal1978/fs-utils?repository=Fedora_18) (OBS)
-|| RHEL 6 [RPM](https://build.opensuse.org/package/binaries/home:staal1978/fs-utils?repository=RedHat_RHEL-6) (OBS)
-|| CentOS 6 [RPM](https://build.opensuse.org/package/binaries/home:staal1978/fs-utils?repository=CentOS_CentOS-6) (OBS)
-* Mandriva Linux 2011: [RPM](https://build.opensuse.org/package/binaries/home:staal1978/fs-utils?repository=Mandriva_2011) (OBS)
-* Debian Linux:
-7 [DEB](https://build.opensuse.org/package/binaries/home:staal1978/fs-utils?repository=Debian_7.0) (OBS)
-* Ubuntu Linux:
-13.04 [DEB](https://build.opensuse.org/package/binaries/home:staal1978/fs-utils?repository=xUbuntu_13.04) (OBS)
-* NetBSD: pkgsrc/filesystems/fs-utils
-* Solaris: pkgsrc/filesystems/fs-utils
-
-The links for some of packages are provided by the
-[openSUSE Build Service](https://build.opensuse.org/package/show?package=rump&project=home%3Astaal1978).
-You can download and install the packages manually, but in this case you
-first need to ensure that rump kernel components are installed
-(available as binary packages
-[here](http://repo.rumpkernel.org/buildrump.sh)).
-It is recommended to add the OBS repositories for the right distro
-and architecture to the package manager. This way, dependencies will
-be automatically resolved and updates will installed when available.
-Consult your distribution's documentation for further instructions.
-
+for more details, see
+https://github.com/rumpkernel/wiki/wiki/Builds:-Binary-packages
 
 Building from Source
 --------------------
