@@ -16,6 +16,8 @@ Future work on fs-utils will concentrate on documentation, diagnostic
 messages, increasing platform support, testing, and possibly some new
 utilities.
 
+The original paper describing fs-utils can be found [here](https://www.netbsd.org/~stacktic/ebc09_fs-utils_paper.pdf)
+
 Supported File Systems
 ----------------------
 - block device based file systems: cd9660, efs, ext2, hfs, ffs, fat, lfs, ntfs, sysvbfs, udf, v7fs
