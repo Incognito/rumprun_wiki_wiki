@@ -21,7 +21,7 @@ Fedora 21 [RPM](https://build.opensuse.org/package/binaries/home:staal1978/rump?
 * Debian Linux:
 7 [DEB](https://build.opensuse.org/package/binaries/home:staal1978/rump?repository=Debian_7.0) (OBS) || 8 [DEB](https://build.opensuse.org/package/binaries/home:staal1978/rump?repository=Debian_8.0) (OBS)
 * Ubuntu Linux:
-15.04 [DEB](https://build.opensuse.org/package/binaries/home:staal1978/rump?repository=xUbuntu_15.04) (OBS)
+15.04 [DEB](https://build.opensuse.org/package/binaries/home:staal1978/rump?repository=xUbuntu_15.04) (OBS) || 14.04 [DEB](https://build.opensuse.org/package/binaries/home:staal1978/rump?repository=xUbuntu_14.04) (OBS)
 * NetBSD: pkgsrc/misc/rump
 * DragonFly BSD: pkgsrc/misc/rump
 * Solaris: pkgsrc/misc/rump
