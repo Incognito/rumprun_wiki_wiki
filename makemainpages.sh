@@ -1,11 +1,12 @@
 #!/bin/sh
 
 # NOTE!  Do not include categories with manual top level, e.g. Platforms!
-CATEGORIES="Builds Info Howto Performance Tutorial"
+CATEGORIES="Builds Info Howto People Performance Tutorial"
 
 DESC_Builds='Automated builds and binary packages:'
 DESC_Howto='Documentation for specific issues:'
 DESC_Info='General information:'
+DESC_People='Personal spaces of contributors:'
 DESC_Performance='Performance and optimizing performance:'
 DESC_Tutorial='Detailed tutorials aimed at starting from zero and
 working towards mastering a subject:'
