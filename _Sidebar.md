@@ -4,6 +4,7 @@ Navigation:
 - [[Builds]]
 - [[Howtos|Howto]]
 - [[General Info|Info]]
+- [[People]]
 - [[Performance]]
 - [[Platforms]]
 - [[Project ideas]]
