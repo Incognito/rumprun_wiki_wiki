@@ -13,7 +13,7 @@ The currently supported platforms are:
 * [[Userspace (POSIX style)|Platforms: Userspace (POSIX Style)]],
   including Linux, Android, NetBSD, FreeBSD, OpenBSD, Dragonfly
   BSD, Solaris (+ derivates) and Windows (via Cygwin).
-* [[Bare metal|Platform: Bare Metal]]: hardware and hypervisor (e.g. KVM, VirtualBox ...)
+* [[Hardware and cloud|Platforms: Hardware]]: e.g. x86 PC, KVM, VirtualBox ...
 * [[Xen DomU|Platforms: Xen DomU]]
 * [[Genode OS Framework|Platforms: Genode OS Framework]]
 
