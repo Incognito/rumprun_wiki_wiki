@@ -202,7 +202,7 @@ provided.  The next thing you are probably thinking about is
 bundling your own applications instead of the ones we provide.
 Short answer: it's possible (obviously, see above), but we're still
 working on how to make it "consumer grade".  Some experiments
-are currently done on the [[bare metal and Xen platforms|Repo:-rumprun]],
+are currently done on the [[hardware and Xen platforms|Repo:-rumprun]],
 where it is possible to build rumprun unikernels using wrappers to
 the `configure` and `make` build tools.  See the [[rumprun|Repo:-rumprun]]
 wiki page for current information on the subject.

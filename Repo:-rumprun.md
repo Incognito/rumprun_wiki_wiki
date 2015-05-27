@@ -108,7 +108,7 @@ other helpful wrappers like one for `make` and `configure`.  Using them
 you can build cross-compile ready software in the normal fashion.
 
 For example, to compile a program consisting of a single C module
-for the bare metal platform, use:
+for the hw platform, use:
 
 ```
 rumprun-bmk-cc -o test test.c
@@ -152,14 +152,14 @@ as the platform instead of `xen`.
 Platforms
 =========
 
-hw
---
+Hardware (``hw'')
+-----------------
 
 The hw platform provides support on raw hardware, and by extension
 most hypervisors on the cloud.  The main difference between running
-on hardware or hypervisors is the approach to I/O.  On actual bare metal
-hardware drivers get used, while on a cloud hypervisor approaches such
-as _virtio_ come into play.
+on hardware or hypervisors is the approach to I/O.  On physical hardware
+the hardware drivers get used, while on a cloud hypervisor approaches
+such as _virtio_ come into play.
 
 
 Xen
