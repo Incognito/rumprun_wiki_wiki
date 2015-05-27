@@ -24,7 +24,7 @@ limitation is that the build system used by the application must support
 cross-compilation.  If necessary, these limitations may typically be
 overcome with a small amount of porting work.
 
-Platforms currently support by rumprun are baremetal/x86 and Xen/x86+x64,
+Platforms currently support by rumprun are hw/x86 and Xen/x86+x64,
 with more being worked on.  Platform support is modular with the maximal
 amount of code shared between platforms, and generally speaking only
 bootstrap code and glue to I/O devices and the clock are required for
@@ -133,9 +133,10 @@ Running
 
 The details of running a unikernel vary from platform to platform.
 For example, running a Xen guest requires creating a domain config
-file and running `xl`, while running the baremetal platform in `qemu`
-requires a different set of options.  We supply the `rumprun` tool to
-hide the details and provide a uniform experience for every platform.
+file and running `xl`, while running the hw platform in `qemu`
+(with or without kvm) requires a different set of options.  We supply the
+`rumprun` tool to hide the details and provide a uniform experience for
+every platform.
 
 For example, to rumprun a program with an interactive console on
 Xen, use:
@@ -151,12 +152,12 @@ as the platform instead of `xen`.
 Platforms
 =========
 
-Baremetal
----------
+hw
+--
 
-The baremetal platform provides support on raw hardware, and by extension
+The hw platform provides support on raw hardware, and by extension
 most hypervisors on the cloud.  The main difference between running
-on hardware or hypervisors is approach to I/O.  On actual bare metal
+on hardware or hypervisors is the approach to I/O.  On actual bare metal
 hardware drivers get used, while on a cloud hypervisor approaches such
 as _virtio_ come into play.
 
