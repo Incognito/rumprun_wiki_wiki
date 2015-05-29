@@ -40,19 +40,30 @@ Major subsections on this page are:
 Building
 ========
 
-There are two stages to building a rumprun unikernel.  First, you
+There are three stages to building a runnable rumprun unikernel.  We will
+first give an overview of the steps, and detail the procedures in
+subsequent sections.
+
+First, you
 must build the component libraries for constructing the unikernels.
 This is analogous to building the libraries your application requires,
 except you will also be building the "kernel" libraries.  This part
 of the build process consists invariably of executing one command,
 the syntax of which is detailed below.
 
-Second, you must build the application of your choosing to produce the
+Second, you must build the application of your choosing and produce the
 runnable rumprun unikernel image.  Notably, the build process never
 runs on a rump kernel, and therefore the rumprun unikernel is always
 cross-compiled.  For software with proper cross-compilation support,
 this second phase can be as simple as setting `$CC` and compiling the
 software as usual.
+
+Finally, you must "bake" the application(s) into the final runnable image.
+The backing stage links in the component libraries for the target configuration
+that you want.  For example, consider compiling your application for x86.
+If you now bake in PCI device drivers, you can boot your unikernel on a
+regular PC.  If you bake in virtio driver, you can use your unikernel on the
+cloud.
 
 
 Building the component libraries
@@ -93,8 +104,8 @@ and you want to build 32bit binaries, you would use the following:
 ```
 
 
-Building runnable unikernels
-----------------------------
+Building application binaries
+-----------------------------
 
 After the component libraries and toolchain wrappers for the
 platform/machine of your choice are built, you can build runnable
@@ -126,6 +137,20 @@ Simple, eh?
 nb. as of writing this (5/2015), it is likely that the names of the
 toolchain wrappers will change in the future so that they will for example
 allow the machine architecture to be specified in the wrapper names.
+
+Baking
+------
+
+Baking is done using the `rumpbake` tool.  It takes the binary produced by
+the compiler and produces a runnable image.  The mandatory parameters are the
+output image and target name.
+
+For example:
+```
+rumpbake -T hw_virtio -o test.bin test
+```
+
+Use `rumpbake -T list` to list the available targets.
 
 
 Running
