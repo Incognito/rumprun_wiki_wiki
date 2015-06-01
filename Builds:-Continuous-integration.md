@@ -1,4 +1,4 @@
-Travis CI (Linux/x86_64):
+Travis CI (build host is Linux/x86_64, target depends on repo):
 
 * [buildrump.sh/POSIX: static & dynamic, clang & gcc](https://travis-ci.org/rumpkernel/buildrump.sh) ![Build Status](https://travis-ci.org/rumpkernel/buildrump.sh.png?branch=master)
 * [rumprun (hw and Xen platforms)](https://travis-ci.org/rumpkernel/rumprun) ![Build Status](https://travis-ci.org/rumpkernel/rumprun.png?branch=master)
