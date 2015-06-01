@@ -147,10 +147,10 @@ output image and target name.
 
 For example:
 ```
-rumpbake -T hw_virtio -o test.bin test
+rumpbake hw_virtio test.bin test
 ```
 
-Use `rumpbake -T list` to list the available targets.
+Use `rumpbake list` to list the available targets.
 
 
 Running
