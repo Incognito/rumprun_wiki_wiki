@@ -23,6 +23,7 @@ To build the drivers, run `rumpmake` from
 
 ```
 src-linux-uio$ rumpmake dependall
+[build output omitted]
 src-linux-uio$ rumpmake install
 ```
 
