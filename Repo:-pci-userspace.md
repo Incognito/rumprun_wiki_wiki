@@ -19,14 +19,14 @@ not cover that here, it's documented in the
 [[buildrump.sh wiki|Repo:-buildrump.sh#tips-for-advanced-users]].
 
 To build the drivers, run `rumpmake` from
-[[buildrump.sh|repo:-buildrump.sh]] in the repo's `src` subdirectory:
+[[buildrump.sh|repo:-buildrump.sh]] in the repo's `src-linux-uio` subdirectory:
 
 ```
-src$ rumpmake dependall
-src$ rumpmake install
+src-linux-uio$ rumpmake dependall
+src-linux-uio$ rumpmake install
 ```
 
-Then, if you want, you can build the examples:
+Then, if you want, you can build the examples in the `examples` directory:
 
 ```
 examples$ rumpmake dependall
