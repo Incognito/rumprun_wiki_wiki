@@ -24,7 +24,7 @@ limitation is that the build system used by the application must support
 cross-compilation.  If necessary, these limitations may typically be
 overcome with a small amount of porting work.
 
-Platforms currently support by rumprun are hw/x86 and Xen/x86+x64,
+Platforms currently support by rumprun are hw/x86+x64 and Xen/x86+x64,
 with more being worked on.  Platform support is modular with the maximal
 amount of code shared between platforms, and generally speaking only
 bootstrap code and glue to I/O devices and the clock are required for
