@@ -1,4 +1,4 @@
-Main pages for repositories:
+Wiki pages of repositories:
 
 - [[buildrump.sh|Repo:-buildrump.sh]]
 - [[drv-netif-dpdk|Repo:-drv-netif-dpdk]]
@@ -20,8 +20,8 @@ The goal of rump kernels is to provide drivers which integrate into
 any system via a clean, defined interface: the rump kernel hypercall
 interface.  These drivers come from the _src-netbsd_ repository.
 While the concept of rump kernels is not in any way tied to NetBSD,
-currently NetBSD is the only operating system kernel which is inherently
-structured to support the rump kernel hypercall interface.  In the future,
+currently NetBSD is the only operating system kernel which is an _anykernel_,
+i.e. it NetBSD supports forming rump kernels out if its drivers.  In the future,
 we may offer _src-otheros_ backends as well; the rest of this document
 assumes only _src-netbsd_.
 
@@ -47,6 +47,12 @@ the libc layer along with a toolchain for compiling applications into
 runnable unikernels.  Since rump kernels provide a near-complete POSIX-y
 system call interface, you can run a great deal of existing, unmodified
 application software using the rumprun unikernel suite.
+
+The relationship between the _anykernel_ (src-netbsd), rump kernels
+(which are built using buildrump.sh) and the _unikernel_ (rumprun) is
+visualized by the following picture:
+
+![anyunirumpkernel](https://raw.githubusercontent.com/rumpkernel/wiki/master/img/anyunirumpkernel.png) 
 
 The _fs-utils_ repo provided a tool suite for accessing file system
 images, e.g. __ls__, __cp__, __rm__ etc.  If you are familiar with
