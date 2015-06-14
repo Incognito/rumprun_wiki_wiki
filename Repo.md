@@ -21,7 +21,7 @@ any system via a clean, defined interface: the rump kernel hypercall
 interface.  These drivers come from the _src-netbsd_ repository.
 While the concept of rump kernels is not in any way tied to NetBSD,
 currently NetBSD is the only operating system kernel which is an _anykernel_,
-i.e. it NetBSD supports forming rump kernels out if its drivers.  In the future,
+i.e. NetBSD supports forming rump kernels out if its drivers.  In the future,
 we may offer _src-otheros_ backends as well; the rest of this document
 assumes only _src-netbsd_.
 
@@ -34,7 +34,7 @@ use rump kernels, you will always need _src-netbsd_ and _buildrump.sh_.
 
 In addition to drivers coming from _src-netbsd_, there are some special
 case drivers which are not included in NetBSD.  One such example is the
-DPDK network interface driver.  These specialty drivers are provided by
+DPDK network interface driver.  These specialty drivers are provide by
 various _drv_ repos, e.g. _drv-netif-dpdk_ and can be linked into rump
 kernels to provide access to additional features.
 
