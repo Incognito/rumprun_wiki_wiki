@@ -34,7 +34,7 @@ use rump kernels, you will always need _src-netbsd_ and _buildrump.sh_.
 
 In addition to drivers coming from _src-netbsd_, there are some special
 case drivers which are not included in NetBSD.  One such example is the
-DPDK network interface driver.  These specialty drivers are provide by
+DPDK network interface driver.  These specialty drivers are provided by
 various _drv_ repos, e.g. _drv-netif-dpdk_ and can be linked into rump
 kernels to provide access to additional features.
 
@@ -54,7 +54,7 @@ visualized by the following picture:
 
 ![anyunirumpkernel](https://raw.githubusercontent.com/rumpkernel/wiki/master/img/anyunirumpkernel.png) 
 
-The _fs-utils_ repo provided a tool suite for accessing file system
+The _fs-utils_ repo provides a tool suite for accessing file system
 images, e.g. __ls__, __cp__, __rm__ etc.  If you are familiar with
 mtools, fs-utils provides essentially the same functionality, except
 that it work with all file system driver backend supported by rump
