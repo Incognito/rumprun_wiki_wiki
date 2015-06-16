@@ -1,7 +1,7 @@
 Travis CI (build host is Linux/x86_64, target depends on repo):
 
 * [buildrump.sh/POSIX: static & dynamic, clang & gcc](https://travis-ci.org/rumpkernel/buildrump.sh) ![Build Status](https://travis-ci.org/rumpkernel/buildrump.sh.png?branch=master)
-* [rumprun (hw and Xen platforms)](https://travis-ci.org/rumpkernel/rumprun) ![Build Status](https://travis-ci.org/rumpkernel/rumprun.png?branch=master)
+* [rumprun unikernel (hw and Xen platforms)](https://travis-ci.org/rumpkernel/rumprun) ![Build Status](https://travis-ci.org/rumpkernel/rumprun.png?branch=master)
 * [rumpctrl](https://travis-ci.org/rumpkernel/rumpctrl) ![Build Status](https://travis-ci.org/rumpkernel/rumpctrl.png?branch=master)
 * [network interface driver for DPDK backend](https://travis-ci.org/rumpkernel/drv-netif-dpdk) ![Build Status](https://travis-ci.org/rumpkernel/drv-netif-dpdk.png?branch=master)
 * [network interface driver for netmap backend](https://travis-ci.org/rumpkernel/drv-netif-netmap) ![Build Status](https://travis-ci.org/rumpkernel/drv-netif-netmap.png?branch=master)
