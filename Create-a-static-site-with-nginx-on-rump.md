@@ -11,7 +11,7 @@ A Rump Kernel lets you run an application without the bloat of an operating syst
 3. Connecting to qemu
 4. Putting our static site into rump-nginx.
 
-Note: This is all exparimental and you may need to tweak some scripts. There will be an explaination of the tools in enough detail that you will have a better chance at figuring out how to fix things if something goes wrong. If you're really stuck please join the #rumpkernel discussion at http://webchat.freenode.net/ .
+Note: This is all experimental and you may need to tweak some scripts. There will be an explanation of the tools in enough detail that you will have a better chance at figuring out how to fix things if something goes wrong. If you're really stuck please join the #rumpkernel discussion at http://webchat.freenode.net/ .
 
 # 1. Getting "Rumprun"
 
