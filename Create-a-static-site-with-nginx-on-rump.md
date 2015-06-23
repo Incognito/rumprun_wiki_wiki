@@ -41,7 +41,7 @@ Now that you have appended the directory where all your new tools are to your $P
 
 Read the errors and try to make sense of them. There is either an error with the code, or the way the parser reads the code. You can optionally disable C or C++ from building but you won't have a fully working toolchain (one of these will be missing). Do report the bug to where it belongs (either the GCC project, NetBSD, or Rump) so that it can be fixed.
 
-# Getting the rump-nginx to build and launch on qemu
+# 2. Getting the rump-nginx to build and launch on qemu
 
 Now that you have the toolchain installed, lets find a Rump unikernel that fits our needs. Lucky for us, one that builds Nginx already exists! You'll want to download that project into a new directory.
 
@@ -76,12 +76,12 @@ You should see QEMU launch, some debugging text scroll by, and finally end witho
 
 // TODO add an image of what a good qemu window looks like.
 
-# Connecting to qemu
+# 3. Connecting to qemu
 
 ...TODO...
 
 -tun/tap https://github.com/rumpkernel/wiki/wiki/Howto%3A-Networking-with-if_virt
 
-# Putting our static site into rump-nginx.
+# 4. Putting our static site into rump-nginx.
 
 ...TODO...
