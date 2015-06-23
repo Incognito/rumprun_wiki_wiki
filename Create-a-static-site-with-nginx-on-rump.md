@@ -31,7 +31,7 @@ Lucky us, everything needed to do a build is provided in a simple script, so we 
 
     ./build-rr hw
 
-This will take a while as you are compiling both C and C++ code (you should see a lot of text streaming by your terminal). Once you are done you must add the path of app-tools to your user path. This can be done quickly by typing this in (if you use Bash):
+This will take a while as you are compiling both C and C++ code (you should see a lot of text streaming by your terminal). Once you are done (you will know because it says "build-rr ran successfully") you must add the path of app-tools to your user path. This can be done quickly by typing this in (if you use Bash):
 
     export PATH=/path/to/rumprun/app-tools:$PATH
 
@@ -39,15 +39,42 @@ Now that you have appended the directory where all your new tools are to your $P
 
 ## If you run into problems compiling...
 
-...TODO...
-CC and CXX overrides or disabling
-Reporting a bug
-Debugging
+Read the errors and try to make sense of them. There is either an error with the code, or the way the parser reads the code. You can optionally disable C or C++ from building but you won't have a fully working toolchain (one of these will be missing). Do report the bug to where it belongs (either the GCC project, NetBSD, or Rump) so that it can be fixed.
 
 # Getting the rump-nginx to build and launch on qemu
 
-...TODO...
-reminder: I edited the run file to not use xen
+Now that you have the toolchain installed, lets find a Rump unikernel that fits our needs. Lucky for us, one that builds Nginx already exists! You'll want to download that project into a new directory.
+
+    git clone https://github.com/mato/rump-nginx.git
+    cd rump-nginx
+
+If you look inside your app-tools path you will see you have various executable available to you, one will be called something like "rumprun-arch-cc" where "arch" is replaced by something meaningful about the architecture you are compiling for.
+
+You will need to install a program called `genisoimage` onto your system to build an ISO file which can be used to load the image onto bare metal. If you're having a hard time finding the package: `genisoimage` is included in a package called `cdrkit` on many systems.
+
+So all we need to do right now is run make:
+
+    make
+
+And that's created the unikernel into `./bin/nginx`. We're almost ready, all that's left is to "bake" the image. Lets see what platforms you can bake for by using the command:
+
+    rumpbake list
+
+You will probably see `hw_generic` which is a suitable option for our purposes. Now we bake the unikernel into a bootable unikernel called "nginx.bin" (you can pick any name really):
+
+    rumpbake hw_generic nginx.bin bin/nginx
+
+Lastly, we will boot the image and provide the config files by using QEMU (make sure it is installed) by running this command:
+
+    rumprun qemu -M 128 -i \
+        -n inet,static,10.10.10.10/24 \
+        -b images/stubetc.iso,/etc \
+        -b images/data.iso,/data \
+        -- nginx.bin -c /data/conf/nginx.conf
+
+You should see QEMU launch, some debugging text scroll by, and finally end without any messages about "panic". If you see "panic" it means something is broken.
+
+// TODO add an image of what a good qemu window looks like.
 
 # Connecting to qemu
 
