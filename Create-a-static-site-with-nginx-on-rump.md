@@ -66,11 +66,13 @@ You will probably see `hw_generic` which is a suitable option for our purposes. 
 
 Lastly, we will boot the image and provide the config files by using QEMU (make sure it is installed) by running this command:
 
+```
     rumprun qemu -M 128 -i \
         -n inet,static,10.10.10.10/24 \
         -b images/stubetc.iso,/etc \
         -b images/data.iso,/data \
         -- nginx.bin -c /data/conf/nginx.conf
+```
 
 You should see QEMU launch, some debugging text scroll by, and finally end without any messages about "panic". If you see "panic" it means something is broken. You should expect to see something like "rumprun: call to sigaction ignored" which is fine. Rump has a different understanding of signals than you would expect on an operating system.
 
