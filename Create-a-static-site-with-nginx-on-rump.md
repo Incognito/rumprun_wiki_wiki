@@ -78,11 +78,49 @@ You should see QEMU launch, some debugging text scroll by, and finally end witho
 
 You can kill the window if everything looks good, and we'll go on to set up your networking correctly.
 
-# 3. Connecting to qemu
+# 3. Connecting to QEMU
 
-...TODO...
+Congratulations on launching a working Rump unikernel! Now we need to launch it on a network and configure your host machine so you can sent HTTP requests to it.
 
--tun/tap https://github.com/rumpkernel/wiki/wiki/Howto%3A-Networking-with-if_virt
+There are a few options here. QEMU does support port forwarding, but you may not find that useful for long lived or larger applications with complicated needs, so lets look into using [http://backreference.org/2010/03/26/tuntap-interface-tutorial/](Tun/Tap) (a purely software virtual network device).
+
+Lets tell our system we now have a tap device named "tun0", give it a network (not the same as one that you are connected to already), and turn it on (you may need to be root or use sudo).
+
+    ip tuntap add tun0 mode tap
+    ip addr add 10.0.120.100/24 dev tun0
+    ip link set dev tun0 up
+
+Now if you run the command `ip addr` you should expect to see a network device called "tun0" along with your other network devices (wireless, ethernet, etc).
+
+You want to pick a network that is not your own. So if your host machine's IP address is `192.168.1.20` you can pick `10.10.10.10` (or anything else, so long as it's one of those private )
+
+You can test that you created the device if you can ping it: `ping 10.0.120.100`.
+
+Finally, we can launch our Nginx Rump Unikernel on that network :)
+
+The following command will do these things in this order:
+
+1. Run QEMU as the emulator for the image
+2. (-i) Attach the guest console on startup
+3. (-M) Set the memory limit to 128 megabytes
+4. (-I) Create the guest network interface and attach an "iftag" to it.
+5. (-W) Configure the network interface for the VM's address (pick an IP on your TUN network with a different address than you used for the Tun0 interface)
+6. (-b) mount data.iso as a block device on /data of the unikernel
+7. (-b) mount subetc.iso as a block device on /etc of the unikernel
+8. (--) start nginx and tell it where the config file lives.
+
+    rumprun qemu -i -M 128 \
+        -I if,vioif,'-net tap,script=no,ifname=tun0'\
+        -W if,inet,static,10.0.120.101/24 \
+        -b images/data.iso,/data \
+        -b images/stubetc.iso,/etc \
+        -- ./nginx.bin -c /data/conf/nginx.conf
+
+[ There is a related guide for more ways to configure tun and tap for use with Rump.](https://github.com/rumpkernel/wiki/wiki/Howto%3A-Networking-with-if_virt)
+
+If everything works, you should be able to visit the IP address you provided to rumprun and see it working:
+
+![Running nginx on your tun network](http://imgur.com/eJS2Uqkl.png)
 
 # 4. Putting our static site into rump-nginx.
 
