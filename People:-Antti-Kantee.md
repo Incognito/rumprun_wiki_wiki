@@ -10,6 +10,5 @@ I work on many things.  Some sort of wishfully-thought short-term TODO list:
 * support fork(), low'ish priority without an immediate use case [rumprun]
 * ARM support [rumprun]
 * fix build to support object directories [rumprun, rumpctrl]
-* rework build to not require a rump _kernel_ build [rumpctrl]
 * re-abstract sysproxy transport to allow for non-socket implementations [rump kernels]
 * fix all bugs [everywhere] \(might take a while)
