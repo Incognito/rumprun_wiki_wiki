@@ -111,12 +111,14 @@ The following command will do these things in this order:
 7. (-b) mount subetc.iso as a block device on /etc of the unikernel
 8. (--) start nginx and tell it where the config file lives.
 
+```
     rumprun qemu -i -M 128 \
         -I if,vioif,'-net tap,script=no,ifname=tun0'\
         -W if,inet,static,10.0.120.101/24 \
         -b images/data.iso,/data \
         -b images/stubetc.iso,/etc \
         -- ./nginx.bin -c /data/conf/nginx.conf
+```
 
 [ There is a related guide for more ways to configure tun and tap for use with Rump.](https://github.com/rumpkernel/wiki/wiki/Howto%3A-Networking-with-if_virt)
 
