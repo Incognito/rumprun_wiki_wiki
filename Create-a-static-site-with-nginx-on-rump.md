@@ -52,17 +52,17 @@ If you look inside your app-tools path you will see you have various executable 
 
 You will need to install a program called `genisoimage` onto your system to build an ISO file which can be used to load the image onto bare metal. If you're having a hard time finding the package: `genisoimage` is included in a package called `cdrkit` on many systems.
 
-So all we need to do right now is run make:
+So all we need to do right now is run make, and point the C compiler to the version we just made with the toolchain:
 
-    make
+    RUMPRUN_CC=rumprun-bmk-cc make
 
-And that's created the unikernel into `./bin/nginx`. We're almost ready, all that's left is to "bake" the image. Lets see what platforms you can bake for by using the command:
+And that's created the Nginx part of the unikernel into `./bin/nginx`. We're almost ready, all that's left is to "bake" the image. Lets see what platforms you can bake for by using the command:
 
-    rumpbake list
+    rumpbake list 
 
 You will probably see `hw_generic` which is a suitable option for our purposes. Now we bake the unikernel into a bootable unikernel called "nginx.bin" (you can pick any name really):
 
-    rumpbake hw_generic nginx.bin bin/nginx
+    rumpbake hw_generic ./nginx.bin bin/nginx
 
 Lastly, we will boot the image and provide the config files by using QEMU (make sure it is installed) by running this command:
 
@@ -72,9 +72,11 @@ Lastly, we will boot the image and provide the config files by using QEMU (make 
         -b images/data.iso,/data \
         -- nginx.bin -c /data/conf/nginx.conf
 
-You should see QEMU launch, some debugging text scroll by, and finally end without any messages about "panic". If you see "panic" it means something is broken.
+You should see QEMU launch, some debugging text scroll by, and finally end without any messages about "panic". If you see "panic" it means something is broken. You should expect to see something like "rumprun: call to sigaction ignored" which is fine. Rump has a different understanding of signals than you would expect on an operating system.
 
-// TODO add an image of what a good qemu window looks like.
+![QEMU if everything built correctly.](http://imgur.com/czS3ei1l.png)
+
+You can kill the window if everything looks good, and we'll go on to set up your networking correctly.
 
 # 3. Connecting to qemu
 
