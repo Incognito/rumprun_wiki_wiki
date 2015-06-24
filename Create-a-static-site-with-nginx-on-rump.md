@@ -122,6 +122,13 @@ If everything works, you should be able to visit the IP address you provided to 
 
 ![Running nginx on your tun network](http://imgur.com/eJS2Uqkl.png)
 
+Feel free to kill your QEMU when you're done.
+
 # 4. Putting our static site into rump-nginx.
 
-...TODO...
+The files used in rump-nginx for the static site are in `./images/data/www` (and the config files for nginx are in `./images/data/conf`). Simply replace www's files with what you would like. If you're looking for a static site generator many great options exist such as [Sculpin](https://sculpin.io/) or [Jekyll](http://jekyllrb.com/).
+
+Now all you need to do is run the make, rumpbake, and rumprun commands from step 2 to rebuild your unikernel with the updated content.
+
+If you have issues reconnecting, double check that you haven't lost your tun0 device when you killed your emulator. It may have lost its IP address or gone into a "down" state. 
+
