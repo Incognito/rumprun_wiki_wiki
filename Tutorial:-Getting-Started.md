@@ -46,6 +46,7 @@ And for `rumpctrl`:
 ```
 git clone http://repo.rumpkernel.org/rumpctrl
 cd rumpctrl
+git submodule update --init
 ./buildnb.sh
 ```
 
