@@ -8,7 +8,6 @@ Documentation for specific issues:
 - [[Configuring a 802.11 device|Howto:-Configuring-a-802.11-device]]
 - [[Cross architecture execution|Howto:-Cross-architecture-execution]]
 - [[Cross compiling|Howto:-Cross-compiling]]
-- [[Debugging rumprun xen with gdb|Howto:-Debugging-rumprun-xen-with-gdb]]
 - [[Networking with if_virt|Howto:-Networking-with-if_virt]]
 - [[Profiling the TCP IP stack with LTTng|Howto:-Profiling-the-TCP-IP-stack-with-LTTng]]
 - [[building for Android|Howto:-building-for-Android]]
