@@ -1,9 +1,7 @@
-The default assumption made by rump kernel repositories is that a host will be connected to the Internet during the build phase.  This page documents how to prepare "offline" version of a specific package.  The offline version can then be copied to and used on a host without a network connection.  Note: these instructions are not guaranteed to remain constant, and generally speaking only apply to the current revisions of each package.  The situation will hopefully improve in the future with stable and consistent procedures.
+The default assumption made by rump kernel repositories is that a host will be connected to the Internet during the build phase.  This page documents how to prepare "offline" version of a specific package.  The offline version can then be copied to and used on a host without a network connection.
 
 [[buildrump.sh|Repo:-buildrump.sh]]
 -----------------------------------
-
-The easiest way is to download a pre-prepared tarball from [SourceForge](http://sourceforge.net/projects/rumpkernel/).  Downloading the tarball is also the only officially supported way.
 
 If you want to prepare your own from an arbitrary buildrump.sh revision, do:
 
@@ -11,12 +9,12 @@ If you want to prepare your own from an arbitrary buildrump.sh revision, do:
 
 Note: if you do not start with a clean buildrump.sh pull, you may have to run `tarup.sh` with `-f` parameter.
 
-[[rumpctrl|Repo:-rumpctrl]]
--------------------------
+Other repositories
+------------------
 
-* `git pull http://repo.rumpkernel.org/rumpctrl`
-* `cd rumpctrl`
+* `git pull http://repo.rumpkernel.org/repository`
+* `cd repository`
 * `git submodule update --init --recursive`
 * `find . -name .git | xargs rm -rf`
 
-Then tar and/or copy the rumpctrl directory where you want to, and build normally.
+Then tar and/or copy the _repository_ directory where you want to, and build normally.
