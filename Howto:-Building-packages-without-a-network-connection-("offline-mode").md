@@ -17,4 +17,4 @@ Other repositories
 * `git submodule update --init --recursive`
 * `find . -name .git | xargs rm -rf`
 
-Then tar and/or copy the _repository_ directory where you want to, and build normally.
+Then tar and/or copy the `repository` directory where you want to, and build normally.
