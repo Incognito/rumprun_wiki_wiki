@@ -119,17 +119,17 @@ other helpful wrappers like one for `make` and `configure`.  Using them
 you can build cross-compile ready software in the normal fashion.
 
 For example, to compile a program consisting of a single C module
-for the hw platform, use:
+for x86_64, use:
 
 ```
-rumprun-bmk-cc -o test test.c
+x86_64-rumprun-netbsd-cc -o test test.c
 ```
 
 Assuming you have a more complex project and a cross-compile respecting
 Makefile for it, you can use:
 
 ```
-rumprun-bmk-make
+x86_64-rumprun-netbsd-make
 ```
 
 Simple, eh?

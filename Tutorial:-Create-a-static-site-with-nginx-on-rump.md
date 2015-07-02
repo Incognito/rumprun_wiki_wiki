@@ -52,9 +52,11 @@ If you look inside your app-tools path you will see you have various executable 
 
 You will need to install a program called `genisoimage` onto your system to build an ISO file which can be used to load the image onto bare metal. If you're having a hard time finding the package: `genisoimage` is included in a package called `cdrkit` on many systems.
 
-So all we need to do right now is run make, and point the C compiler to the version we just made with the toolchain:
+So all we need to do right now is run make, and point the C compiler to
+the version we just made with the toolchain.  We assume you'll be compiling
+for 64bit x86:
 
-    RUMPRUN_CC=rumprun-bmk-cc make
+    RUMPRUN_CC=x86_64-rumprun-netbsd-cc make
 
 And that's created the Nginx part of the unikernel into `./bin/nginx`. We're almost ready, all that's left is to "bake" the image. Lets see what platforms you can bake for by using the command:
 
