@@ -7,9 +7,9 @@ A Rump Kernel lets you run an application without the bloat of an operating syst
 # What we will be doing
 
 1. Getting the "Rumprun" toolchain to build rump kernels
-2. Getting the rump-nginx to build and launch on qemu
+2. Getting nginx to build and launch on qemu
 3. Connecting to qemu
-4. Putting our static site into rump-nginx.
+4. Putting our static site into the nginx guest.
 
 Note: This is all experimental and you may need to tweak some scripts. There will be an explanation of the tools in enough detail that you will have a better chance at figuring out how to fix things if something goes wrong. If you're really stuck please join the #rumpkernel discussion at http://webchat.freenode.net/ .
 
@@ -41,14 +41,14 @@ Now that you have appended the directory where all your new tools are to your $P
 
 Read the errors and try to make sense of them. There is either an error with the code, or the way the parser reads the code. You can optionally disable C or C++ from building but you won't have a fully working toolchain (one of these will be missing). Do report the bug to where it belongs (either the GCC project, NetBSD, or Rump) so that it can be fixed.
 
-# 2. Getting the rump-nginx to build and launch on qemu
+# 2. Getting nginx to build and launch on qemu
 
 Now that you have the toolchain installed, lets find a Rump unikernel that fits our needs. Lucky for us, one that builds Nginx already exists! You'll want to download that project into a new directory.
 
-    git clone https://github.com/mato/rump-nginx.git
-    cd rump-nginx
+    git clone http://repo.rumpkernel.org/rumprun-packages
+    cd nginx
 
-If you look inside your app-tools path you will see you have various executable available to you, one will be called something like "rumprun-arch-cc" where "arch" is replaced by something meaningful about the architecture you are compiling for.
+If you look inside your app-tools path you will see you have various executable available to you, one will be called something like "arch-rumprun-netbsd-cc" where "arch" is replaced by something meaningful about the architecture you are compiling for.
 
 You will need to install a program called `genisoimage` onto your system to build an ISO file which can be used to load the image onto bare metal. If you're having a hard time finding the package: `genisoimage` is included in a package called `cdrkit` on many systems.
 
@@ -130,9 +130,9 @@ If everything works, you should be able to visit the IP address you provided to 
 
 Feel free to kill your QEMU when you're done.
 
-# 4. Putting our static site into rump-nginx.
+# 4. Putting our static site into the nginx guest.
 
-The files used in rump-nginx for the static site are in `./images/data/www` (and the config files for nginx are in `./images/data/conf`). Simply replace www's files with what you would like. If you're looking for a static site generator many great options exist such as [Sculpin](https://sculpin.io/) or [Jekyll](http://jekyllrb.com/).
+The files used in nginx for the static site are in `./images/data/www` (and the config files for nginx are in `./images/data/conf`). Simply replace www's files with what you would like. If you're looking for a static site generator many great options exist such as [Sculpin](https://sculpin.io/) or [Jekyll](http://jekyllrb.com/).
 
 Now all you need to do is run the make, rumpbake, and rumprun commands from step 2 to rebuild your unikernel with the updated content.
 
