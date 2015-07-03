@@ -122,7 +122,7 @@ For example, to compile a program consisting of a single C module
 for x86_64, use:
 
 ```
-x86_64-rumprun-netbsd-cc -o test test.c
+x86_64-rumprun-netbsd-gcc -o test test.c
 ```
 
 Assuming you have a more complex project and a cross-compile respecting

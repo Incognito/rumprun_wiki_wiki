@@ -48,7 +48,7 @@ Now that you have the toolchain installed, lets find a Rump unikernel that fits 
     git clone http://repo.rumpkernel.org/rumprun-packages
     cd nginx
 
-If you look inside your app-tools path you will see you have various executable available to you, one will be called something like "arch-rumprun-netbsd-cc" where "arch" is replaced by something meaningful about the architecture you are compiling for.
+If you look inside your app-tools path you will see you have various executable available to you, one will be called something like "arch-rumprun-netbsd-gcc" where "arch" is replaced by something meaningful about the architecture you are compiling for.
 
 You will need to install a program called `genisoimage` onto your system to build an ISO file which can be used to load the image onto bare metal. If you're having a hard time finding the package: `genisoimage` is included in a package called `cdrkit` on many systems.
 
@@ -56,7 +56,7 @@ So all we need to do right now is run make, and point the C compiler to
 the version we just made with the toolchain.  We assume you'll be compiling
 for 64bit x86:
 
-    RUMPRUN_CC=x86_64-rumprun-netbsd-cc make
+    make CC=x86_64-rumprun-netbsd-gcc
 
 And that's created the Nginx part of the unikernel into `./bin/nginx`. We're almost ready, all that's left is to "bake" the image. Lets see what platforms you can bake for by using the command:
 
