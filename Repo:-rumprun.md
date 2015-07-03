@@ -134,9 +134,6 @@ x86_64-rumprun-netbsd-make
 
 Simple, eh?
 
-nb. as of writing this (5/2015), it is likely that the names of the
-toolchain wrappers will change in the future so that they will for example
-allow the machine architecture to be specified in the wrapper names.
 
 Baking
 ------
