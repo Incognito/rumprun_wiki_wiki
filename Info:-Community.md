@@ -5,6 +5,8 @@ rumpkernel-users@freelists.org.  You can [subscribe here](https://www.freelists.
 
 __IRC__: `#rumpkernel` on irc.freenode.net.
 
+If new to IRC and unsure how to join the conversation, please visit https://webchat.freenode.net/ for a browser-based IRC client. Please ask your questions directly and let us know what you are trying to do, no need to ask for permission to ask a question here!
+
 __Twitter__: [@rumpkernel](https://twitter.com/rumpkernel)
 
 Information for contributors:
