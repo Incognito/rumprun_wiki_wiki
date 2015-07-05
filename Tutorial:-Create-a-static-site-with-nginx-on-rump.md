@@ -1,10 +1,10 @@
 You will learn how to use the rumprun toolchain to build a unikernel which hosts your very own static site served by Nginx.
 
-This page is focused on giving application and web developers the steps and knowledge to get running with a basic Rump Unikernel. This assumes you are are on a GNU/Linux or BSD system and familiar with command line basics.
+This page is focused on giving application and web developers the steps and knowledge to get running with a basic Rump Kernel based unikernel. This tutorial assumes you are are on a GNU/Linux or BSD system and familiar with command line basics.
 
 # What is a Rump Kernel?
 
-A Rump Kernel lets you pick and choose drivers from the anykernel that you would find on operating system, but lets you run them without an operating system. Your application (perhaps a PHP application or Nginx server) is connected to the rumpkernel's drivers and results in a Unikernel. This lets you boot the unikernel on a cloud hypervisor or directly on real hardware, which means your unmodified application could start in a fraction of the time and removes a large set of security concerns unrelated to your application.
+A Rump Kernel lets you pick and choose drivers from the anykernel that you find on operating system, but lets you run them without an operating system. Your application (perhaps a PHP application or Nginx server) is connected to the Rump Kernel's drivers and results in a unikernel. You can boot the unikernel on a cloud hypervisor or directly on real hardware, which means your unmodified application runs in isolation, uses a fraction of the resources and bootstrap time of a full operating system, and removes a large set of security concerns unrelated to your application.
 
 # What we will be doing
 
@@ -13,11 +13,11 @@ A Rump Kernel lets you pick and choose drivers from the anykernel that you would
 3. Connecting to QEMU
 4. Putting our static site into the nginx guest.
 
-Note: This is all experimental and you may need to tweak some scripts. There will be an explanation of the tools in enough detail that you will have a better chance at figuring out how to fix things if something goes wrong. If you're really stuck please join the #rumpkernel discussion at http://webchat.freenode.net/ .
+Note: This is all experimental and you may need to tweak some scripts. There will be an explanation of the tools in enough detail that you will have a better chance at figuring out how to fix things if something goes wrong. If you're really stuck please contact [[the community|Info:-Community]] for assistance.
 
 # 1. Getting "Rumprun"
 
-This repo is responsible for providing all the tools someone who develops with rump would need. There are debugging scripts for the kernels, and compiler tools to help build kernels. It also includes NetBSD drivers as a dependency. We only need to worry about building this and using the tools it provides.
+The rumprun repo provides the tools someone who develops unikernels based on rump kernel would need. There are debugging scripts for the kernels, and compiler tools to help build kernels. The repo also includes NetBSD drivers as a dependency. We only need to worry about building the repo and using the tools it provides.
 
 First we'll need to download the repository and its dependencies:
 
@@ -25,7 +25,7 @@ First we'll need to download the repository and its dependencies:
     cd rumprun
     git submodule update --init
 
-Now that all the source code is checked out you will need to compile it. Depending on your distro you will need to ensure you have GCC (A C compiler) installed. Rumprun does not yet support Clang (a different compiler) and you may find issues if you try to use it.
+Now that all the source code is checked out you will need to compile it. Depending on your distro you will need to ensure you have GCC (A C compiler) installed. Rumprun does not yet support Clang (a different compiler).
 
 There are two options we can pick to build the toolchain for, either "hw" (hardware) or "xen" (a specific open source hyperviser). For us, we'll pick "hw" as this is the easiest tool to get started with (unless you already have a Xen Dom0 host you have access to). Even though we're building for hardware, remember, we can use a virtual machine for running this, so there's no need to dust off a second machine somewhere to try it on (although, it would work just fine).
 
@@ -50,7 +50,7 @@ Now that you have the toolchain installed, lets find a Rump unikernel that fits 
     git clone http://repo.rumpkernel.org/rumprun-packages
     cd nginx
 
-If you look inside your app-tools path you will see you have various executable available to you, one will be called something like "arch-rumprun-netbsd-gcc" where "arch" is replaced by something meaningful about the architecture you are compiling for.
+If you look inside your app-tools path you will see you have various executable available to you, one will be called something like "arch-rumprun-netbsd-gcc" where "arch" is replaced by something meaningful about the architecture you are compiling for, e.g `x86_64-rumprun-netbsd-gcc`.
 
 You will need to install a program called `genisoimage` onto your system to build an ISO file which can be used to load the image onto bare metal. If you're having a hard time finding the package: `genisoimage` is included in a package called `cdrkit` on many systems.
 
@@ -64,7 +64,7 @@ And that's created the Nginx part of the unikernel into `./bin/nginx`. We're alm
 
     rumpbake list 
 
-You will probably see `hw_virtio` which is a suitable option for our purposes. Now we bake the unikernel into a bootable unikernel called "nginx.bin" (you can pick any name really):
+You will probably see `hw_virtio` which is the correct configuration to use when you are building for cloud deployment. Now we bake the unikernel into a bootable unikernel called "nginx.bin" (you can pick any name really):
 
     rumpbake hw_virtio ./nginx.bin bin/nginx
 
@@ -72,7 +72,6 @@ Lastly, we will boot the image and provide the config files by using QEMU (make 
 
 ```
     rumprun qemu -M 128 -i \
-        -n inet,static,10.10.10.10/24 \
         -b images/stubetc.iso,/etc \
         -b images/data.iso,/data \
         -- nginx.bin -c /data/conf/nginx.conf
@@ -110,7 +109,7 @@ The following command will do these things in this order:
 2. (-i) Attach the guest console on startup
 3. (-M) Set the memory limit to 128 megabytes
 4. (-I) Create the guest network interface and attach an "iftag" to it.
-5. (-W) Configure the network interface for the VM's address (pick an IP on your TUN network with a different address than you used for the Tap0 interface)
+5. (-W) Configure the network interface for the VM's address (pick an IP on your TAP network with a different address than you used for the Tap0 interface)
 6. (-b) mount data.iso as a block device on /data of the unikernel
 7. (-b) mount subetc.iso as a block device on /etc of the unikernel
 8. (--) start nginx and tell it where the config file lives.
@@ -136,7 +135,7 @@ Feel free to kill your QEMU when you're done.
 
 The files used in nginx for the static site are in `./images/data/www` (and the config files for nginx are in `./images/data/conf`). Simply replace www's files with what you would like. If you're looking for a static site generator many great options exist such as [Sculpin](https://sculpin.io/) or [Jekyll](http://jekyllrb.com/).
 
-Now all you need to do is run the make, rumpbake, and rumprun commands from step 2 to rebuild your unikernel with the updated content.
+Now all you need to do to see new content is to re-launch the service using `rumprun`.  NOTE: you should not modify the file system image while the guest is running, so pick a different image name if building a new one.
 
 If you have issues reconnecting, double check that you haven't lost your tap0 device when you killed your emulator. It may have lost its IP address or gone into a "down" state.
 
