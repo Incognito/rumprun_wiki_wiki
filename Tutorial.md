@@ -2,6 +2,6 @@
 
 Detailed tutorials aimed at starting from zero and working towards mastering a subject:
 
-- [[Tutorial: Serve a static site as a Unikernel|Tutorial:-Serve-a-static-site-as-a-Unikernel]]
+- [[Tutorial: Serve a static site as a Unikernel|Tutorial:-Serve-a-static-website-as-a-Unikernel]]
 - [[Getting Started|Tutorial:-Getting-Started]]
 - [[Kernel development|Tutorial:-Kernel-development]]
