@@ -79,7 +79,7 @@ Lastly, we will boot the image and provide the config files by using QEMU (make 
 
 You should see QEMU launch, some debugging text scroll by, and finally end without any messages about "panic". If you see "panic" it means something is broken. You should expect to see something like "rumprun: call to sigaction ignored" which is fine. Rump Kernel has a different understanding of signals than you would expect on an operating system.
 
-![QEMU if everything built correctly.](http://imgur.com/czS3ei1l.png)
+![QEMU if everything built correctly.](https://raw.githubusercontent.com/rumpkernel/wiki/master/img/tutorial/nginx_success.jpeg)
 
 You can kill the window if everything looks good, and we'll go on to set up your networking correctly.
 
