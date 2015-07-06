@@ -127,7 +127,7 @@ The following command will do these things in this order:
 
 If everything works, you should be able to visit the IP address you provided to rumprun and see it working:
 
-![Running nginx on your tun network](http://imgur.com/eJS2Uqkl.png)
+![Running nginx on your tun network](https://raw.githubusercontent.com/rumpkernel/wiki/master/img/tutorial/nginx_browser.jpeg)
 
 Feel free to kill your QEMU when you're done.
 
